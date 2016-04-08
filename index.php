@@ -20,7 +20,7 @@ include "top.php";
     otvet = save_show_max('c');
   }
   function c() {
-     save_show_max('o');
+     show_cashbox('o');
 
   }
 </script>
