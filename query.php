@@ -34,7 +34,7 @@ if ( $taskk == "show_cashbox" ) {
                 $dbh=DB_connect();
                 $SQL = "select  cashbox.id, magazine.name, card_serial.name, cashbox.count_left, card_serial.name, cashbox.count_add,cashbox.serial_add  from  cashbox,card_serial,magazine where cashbox.magazine= magazine .magazine_id and card_serial.card_id = cashbox.serial_left  ";
                 print mysql_error();
-                $out .= $SQL;
+                $out .= "<table border=1>";
                 $res=mysql_query($SQL,$dbh);
                 print mysql_error();
                 while ($pl=mysql_fetch_array($res)){
@@ -46,9 +46,11 @@ if ( $taskk == "show_cashbox" ) {
                   else   { $type = "добавил карточек"; }
                   $out .= "<td>".$pl[serial_add]."</td><Td>".$p[count_left]."</td><td>".$pl[serial_left]."</td><td>".$pl[count_add]."</td><td>".$type."</td></tr>";
                 }
-                $out="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
+                $out.="</table>";
+                $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
 
                 $_RESULT['text'] = $out;
+                $_RESULT['sql'] = $SQL;
                 $_RESULT['err'] = 'no';
         }
         else

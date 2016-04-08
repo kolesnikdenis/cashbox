@@ -4,7 +4,7 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
-if ($db=="income") { $show ="Р¤РёРЅР°РЅСЃРѕРІС‹Р№ РљР°СЃСЃР° \ РџРѕРґРєР»СЋС‡РµРЅРёСЏ";}
+if ($db=="income") { $show ="Финансовый Касса \ Подключения";}
 session_start();
 include "top.php";
 ?>
@@ -42,23 +42,23 @@ return false;
 </script>
 
 <META http-equiv=Content-Type content="text/html; charset=windows-1251">
-<script language=JavaScript src=/JsHttpRequest/JsHttpRequest.js></script>
+<script language=JavaScript src=../JsHttpRequest/JsHttpRequest.js></script>
 <script language=JavaScript src=init.js></script>
 
 <?
 $year=date('Y');
 $day=date('d');
 $month=date('m');
-include $_SERVER["DOCUMENT_ROOT"]."/mysql/traff_view.php3";
+include  "../mysql/traff_view.php3";
 $dbh=DB_connect();
 ?>
 
 <table><tr>
-<td>СЃСѓРјРјР°:</td><td>РљРѕРјРјРµРЅС‚Р°СЂРёР№</td></tr>
-<tr><td><input type="hidden" id=db value="maxim"><input type=text value="" id=sum_i></td><td><input type=text  size=100 value="" id=commentaries_i> <input type=submit  id='seatchuser'   onclick="save_show_max('c'); return false;" value="РїРѕРґРєР»СЋС‡РµРёРµ"> <input type=submit  id='seatchuser'   onclick="save_show_max('k'); return false;" value="РљР°СЃСЃР°"></td></tr>
+<td>сумма:</td><td>Комментарий</td></tr>
+<tr><td><input type="hidden" id=db value="maxim"><input type=text value="" id=sum_i></td><td><input type=text  size=100 value="" id=commentaries_i> <input type=submit  id='seatchuser'   onclick="save_show_max('c'); return false;" value="подключеие"> <input type=submit  id='seatchuser'   onclick="save_show_max('k'); return false;" value="Касса"></td></tr>
 </table>
 <div id=showtable>
-<table width=100% ><Tr><td width=100>РґР°С‚Р°</td><td width=100>Р°РІС‚РѕСЂ</td><td width=100>СЃСѓРјРјР°</td><td>РїСЂРёРјРµС‡Р°РЅРёРµ</td></Tr>
+<table width=100% ><Tr><td width=100>дата</td><td width=100>автор</td><td width=100>сумма</td><td>примечание</td></Tr>
 
 <?
 $sql="select....";
