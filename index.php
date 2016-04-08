@@ -17,7 +17,7 @@ include "top.php";
 }
 
   function b() {
-    otvet = save_show_max('c');
+    otvet = show_cashbox('c');
   }
   function c() {
      show_cashbox('o');
@@ -41,7 +41,6 @@ return false;
 }
 </script>
 
-<link href="css_admin.css" type="text/css" rel="stylesheet">
 <META http-equiv=Content-Type content="text/html; charset=windows-1251">
 <script language=JavaScript src=/JsHttpRequest/JsHttpRequest.js></script>
 <script language=JavaScript src=init.js></script>

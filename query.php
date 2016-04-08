@@ -49,7 +49,7 @@ if ( $taskk == "add_to_cashbox" ) {
         {
                 //vidod oshibok
                 $_RESULT['err'] = 'yes';
-                $log="<center><font color=#cc0000>Р±Р»СЏ СЃСѓРєР° ) </font></center>".$log;
+                $log="<center><font color=#cc0000>бля сука ) </font></center>".$log;
                 $_RESULT['log'] = $log;
         }
 
@@ -70,9 +70,9 @@ if ( $taskk == "show_cashbox" ) {
                   $out.="<tr><td>".$pl[count_add]."</td><td>".$pl[date_time]."</td>";
                   $count_left=$pl[count_left];
                   $count_add=$pl[count_add];
-                  if ( ($count_left ) > 1 && ( $count_add > 1 ) ) { $type = "РїРѕРґСЃС‡РµС‚ РѕСЃС‚Р°С‚РєР° Рё РґР°Р» РєР°СЂС‚РѕС‡РµРє " ;}
-                  elseif ( ( $count_left > 1 ) && ( $count_add < 1 )) { $type= "РїРѕРґСЃС‡РµС‚ РѕСЃС‚Р°С‚РєР°"; }
-                  else   { $type = "РґРѕР±Р°РІРёР» РєР°СЂС‚РѕС‡РµРє"; }
+                  elseif ( ( $count_left > 1 ) && ( $count_add < 1 )) { $type= "подсчет остатка"; }
+                  if ( ($count_left  > ) 1 && ( $count_add > 1 ) ) { $type = "подсчет остатка и дал карточек " ;}
+                  else   { $type = "добавил карточек"; }
                   $out. = "<td>".$pl[serial_add]."</td><Td>".$p[count_left]."</td><td>".$pl[serial_left]."</td><td>".$pl[count_add]."</td><td>".$type."</td></tr>";
                 }
                 $out="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
@@ -84,7 +84,7 @@ if ( $taskk == "show_cashbox" ) {
         {
                 //vidod oshibok
                 $_RESULT['err'] = 'yes';
-                $log="<center><font color=#cc0000>Р±Р»СЏ СЃСѓРєР° ) </font></center>".$log;
+                $log="<center><font color=#cc0000>бля сука ) </font></center>".$log;
                 $_RESULT['log'] = $log;
         }
 
