@@ -65,11 +65,8 @@ $sql="select....";
 ?>
 </table>
 </div>
+<table border="1"> <tr><td bgcolor=red><div id=show_sql_query></div></td></tr></table>
 
-
-<div id=showsqury_o>
-
-</div>
 
 <?
 include "down.php"

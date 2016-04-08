@@ -41,8 +41,8 @@ if ( $taskk == "show_cashbox" ) {
                   $out.="<tr><td>".$pl[count_add]."</td><td>".$pl[date_time]."</td>";
                   $count_left=$pl[count_left];
                   $count_add=$pl[count_add];
+                  if ( ($count_left  > 1 )  && ( $count_add > 1 ) ) { $type = "подсчет остатка и дал карточек " ;}
                   elseif ( ( $count_left > 1 ) && ( $count_add < 1 )) { $type= "подсчет остатка"; }
-                  if ( ($count_left  > ) 1 && ( $count_add > 1 ) ) { $type = "подсчет остатка и дал карточек " ;}
                   else   { $type = "добавил карточек"; }
                   $out .= "<td>".$pl[serial_add]."</td><Td>".$p[count_left]."</td><td>".$pl[serial_left]."</td><td>".$pl[count_add]."</td><td>".$type."</td></tr>";
                 }

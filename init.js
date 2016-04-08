@@ -29,8 +29,10 @@ function show_cashbox(idstring,name){
                           erdiv=document.getElementById("showtable");
                           erdiv.innerHTML="error \""+errors+"\"";
                           if (result) {
-                                erdiv=document.getElementById(finddiv);
+                                erdiv=document.getElementById("showtable");
+                                erdiv1=document.getElementById("show_sql_query");
                                 erdiv.innerHTML=result["text"];
+                                erdiv1.innerHTML=result["sql"];
                           }
 
                 }
