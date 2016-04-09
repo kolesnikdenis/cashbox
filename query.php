@@ -34,7 +34,18 @@ if ( $taskk == "show_cashbox" ) {
                 $dbh=DB_connect();
                 $SQL = "select  cashbox.id, cashbox.data_time, magazine.name, card_serial.name, cashbox.serial_left, cashbox.count_left, card_serial.name, cashbox.count_add,cashbox.serial_add  from  cashbox,card_serial,magazine where cashbox.magazine= magazine .magazine_id and card_serial.card_id = cashbox.serial_left  ";
                 print mysql_error();
-                $out .= "<table border=1><tr bgcolor=#86be9f><td>магазин</td>><td>номинал</td><td>дата транзакции</td><td>кол-во добавленных карт</td><td>кол-во проданных</td><td>тип операции</td><td>математика приходп</td><td>математика расхода </td></tr>";
+                $out .= "
+				<table border=1>
+					<tr bgcolor=#86be9f>
+						<td>магазин</td>
+						<td>номинал</td>
+						<td>дата транзакции</td>
+						<td>кол-во добавленных карт</td>
+						<td>кол-во проданных</td>
+						<td>тип операции</td>
+						<td>математика приходп</td>
+						<td>математика расхода </td>
+					</tr>";
                 $res=mysql_query($SQL,$dbh);
                 print mysql_error();
                 while ($pl=mysql_fetch_array($res)){
@@ -53,6 +64,83 @@ if ( $taskk == "show_cashbox" ) {
                 $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
                 $_RESULT['text'] = $out;
                 $_RESULT['sql'] = $SQL;
+
+                $_RESULT['err'] = 'no';
+        }
+        else
+        {
+                //vidod oshibok
+                $_RESULT['err'] = 'yes';
+                $log="<center><font color=#cc0000>бля сука ) </font></center>".$log;
+                $_RESULT['log'] = $log;
+        }
+
+}
+
+
+if ( $taskk == "add_intem" ) {
+        if($eierr=="no"){
+                $dbh=DB_connect();
+                $SQL = "SELECT * FROM `card_serial` ";
+				$res=mysql_query($SQL,$dbh);
+                print mysql_error()
+				$js="var card_serial=[ ";
+				$i=0;
+				while ($pl=mysql_fetch_array($res)){
+				  $i++;
+				  if ($i>1) { $js .=","; }
+                  $js.="[\""+$pl[card_id]+"\","+$pl[name]+"\","+$pl[summ]++"\"]";
+                }
+                $js=."];\n";
+ 
+                $SQL = "SELECT * FROM `magazine` ";
+				$res=mysql_query($SQL,$dbh);
+                print mysql_error()
+				$js=."var arr_shop=[ ";
+				$i=0;
+				while ($pl=mysql_fetch_array($res)){
+				  $i++;
+				  if ($i>1) { $js .=","; }
+                  $js.="[\""+$pl[magazin_id]+"\","+$pl[name]+"\","+$pl[description]++"\"]";
+                }
+                $js=."];\n";
+
+                $out .= "
+				<table border=1>
+					<tr bgcolor=#86be9f>
+					<td>Магазин:
+					<select name=\"shop\">
+          					<option selected=\"selected\">minimarket</option>
+          					<option>rodnik</option>
+          					<option>centr</option>
+          					<option>poselok</option>
+          			</select>
+							</td>
+						
+						<td>остаток:<select name=\"select2\">
+          					<option selected=\"selected\">20</option>
+          					<option>40</option>
+          					<option>75</option>
+          					<option>100</option>
+          					</select></td>
+						
+						<td><input name=counl_left value=\"0\"></td>
+						<td>приход<select name=\"add_card_serial\">
+          					<option selected=\"selected\">20</option>
+          					<option>40</option>
+          					<option>75</option>
+          					<option>100</option>
+          					</select></td>
+						<td><input name=counl_add value=\"0\"></td>
+						
+					</tr>";
+                ;
+                
+                $out.="</table>";
+                $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
+                $_RESULT['text'] = $out;
+                $_RESULT['sql'] = $SQL;
+				$_RESULT['js'] = $js;
 
                 $_RESULT['err'] = 'no';
         }
