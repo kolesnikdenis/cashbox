@@ -11,7 +11,8 @@ $i=0;
 while ($pl=mysql_fetch_array($res)){
 	$i++;
 	if ($i>1) { $js .=","; }
-	$js.="['"+$pl[card_id]+"','"+$pl[name]+"','"+$pl[summ]+"']";
+	$js.="[\"".$pl[card_id]."\",\"".$pl[name]."\",\"".$pl[summ]."\"]";
+
 }
 $js.="];\n";
 $SQL = "SELECT * FROM `magazine` ";
@@ -22,8 +23,8 @@ $i=0;
 while ($pl=mysql_fetch_array($res)){
 	$i++;
 	if ($i>1) { $js .=","; }
-	$js.="[\""+$pl[magazin_id]+"\","+$pl[name]+"\","+$pl[description]+"\"]";
+	$js.="[\"".$pl1[magazine_id]."\",\"".$pl1[name]."\",\"".$pl1[description]."\"]";
 }
 $js.="];\n";
-
+echo $js;
 ?>
