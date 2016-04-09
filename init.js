@@ -56,12 +56,12 @@ function add_intem(idstring,name){
                           erdiv=document.getElementById("showtable");
                           erdiv.innerHTML="error \""+errors+"\"";
                           if (result) {
-                                erdiv=document.getElementById("showtable");
+                                erdiv=document.getElementById("show_js");
                                 erdiv1=document.getElementById("show_sql_query");
-								erdiv_js=document.getElementById("show_js");
+								//erdiv_js=document.getElementById("show_js");
                                 erdiv.innerHTML=result["text"];
                                 erdiv1.innerHTML=result["sql"];
-								erdiv_js.innerHTML=result["js"];
+								//erdiv_js.innerHTML=result["js"];
 								console.log(result);
                           }
 
