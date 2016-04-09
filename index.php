@@ -63,9 +63,10 @@ $dbh=DB_connect();
  <tr>
  	<td bgcolor=#ffd7ba>
 	<div id=show_sql_query></div>
-	</td>
+	</td></tr><tr>
 	<td><div id=show_js>show_js</div></td>
- </tr>
+	</tr>
+ 
 </table>
 
 

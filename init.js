@@ -62,6 +62,7 @@ function add_intem(idstring,name){
                                 erdiv.innerHTML=result["text"];
                                 erdiv1.innerHTML=result["sql"];
 								erdiv_js.innerHTML=result["js"];
+								console.log(result);
                           }
 
                 }
