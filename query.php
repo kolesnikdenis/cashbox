@@ -44,8 +44,8 @@ if ( $taskk == "show_cashbox" ) {
                   if ( ($count_left  > 1 )  && ( $count_add > 1 ) ) { $type = "подсчет остатка и дал карточек " ;}
                   elseif ( ( $count_left > 1 ) && ( $count_add < 1 )) { $type= "подсчет остатка"; }
                   else   { $type = "добавил карточек"; }
-                  $add_card=$pl[count_add] . " * " . $pl[serial_add]  ." = " . ( $pl[3] * $count_add);
-                  $sale_magazin=$pl[serial_left] . " * " . $pl[count_left]  ." = " . ($pl[3] * $count_left );
+                  $add_card=$pl[3] . " * " .  $count_left   ." = " . ( $pl[3] * $count_add);
+                  $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=green>приход ".$add_card."</td><td bgcolor=green>продам магази ".$sale_magazin."</td></tr>";
 
                 }
