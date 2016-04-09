@@ -34,11 +34,11 @@ if ( $taskk == "show_cashbox" ) {
                 $dbh=DB_connect();
                 $SQL = "select  cashbox.id, cashbox.data_time, magazine.name, card_serial.name, cashbox.serial_left, cashbox.count_left, card_serial.name, cashbox.count_add,cashbox.serial_add  from  cashbox,card_serial,magazine where cashbox.magazine= magazine .magazine_id and card_serial.card_id = cashbox.serial_left  ";
                 print mysql_error();
-                $out .= "<table border=1><tr bgcolor=rgb(134, 190, 159)><td>номинал</td><td>дата транзакции</td><td>кол-во добавленных карт</td><td>кол-во проданных</td><td>тип операции</td><td>математика приходп</td><td>математика расхода </td></tr>";
+                $out .= "<table border=1><tr bgcolor=#86be9f><td>магазин</td>><td>номинал</td><td>дата транзакции</td><td>кол-во добавленных карт</td><td>кол-во проданных</td><td>тип операции</td><td>математика приходп</td><td>математика расхода </td></tr>";
                 $res=mysql_query($SQL,$dbh);
                 print mysql_error();
                 while ($pl=mysql_fetch_array($res)){
-                  $out.="<tr><td>".$pl[name]."</td><td>".$pl[data_time]."</td>";
+                  $out.="<tr><td>".$pl[name]."</td><td>".$pl[2]."</td><td>".$pl[data_time]."</td>";
                   $count_left=$pl[count_left];
                   $count_add=$pl[count_add];
                   if ( ($count_left  > 1 )  && ( $count_add > 1 ) ) { $type = "подсчет остатка и дал карточек " ;}
@@ -46,7 +46,7 @@ if ( $taskk == "show_cashbox" ) {
                   else   { $type = "добавил карточек"; }
                   $add_card=$pl[3] . " * " .  $count_left   ." = " . ( $pl[3] * $count_add);
                   $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
-                  $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=rgb(244, 195, 151)>приход ".$add_card."</td><td bgcolor=rgb(166, 227, 244)>продал магази ".$sale_magazin."</td></tr>";
+                  $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>приход ".$add_card."</td><td bgcolor=#a6e3f4>продал магази ".$sale_magazin."</td></tr>";
 
                 }
                 $out.="</table>";

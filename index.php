@@ -65,7 +65,7 @@ $sql="select....";
 ?>
 </table>
 </div>
-<table border="1"> <tr><td bgcolor=rgb(255, 215, 186)><div id=show_sql_query></div></td></tr></table>
+<table border="1"> <tr><td bgcolor=#ffd7ba><div id=show_sql_query></div></td></tr></table>
 
 
 <?
