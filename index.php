@@ -40,7 +40,7 @@ include "top.php";
 <META http-equiv=Content-Type content="text/html; charset=windows-1251">
 <script language=JavaScript src=../JsHttpRequest/JsHttpRequest.js></script>
 <script language=JavaScript src=init.js></script>
-<script language=JavaScript src=load_array.js></script>
+<script language=JavaScript src=load_array.php></script>
 <?
 $year=date('Y');
 $day=date('d');
