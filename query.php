@@ -34,7 +34,7 @@ if ( $taskk == "show_cashbox" ) {
                 $dbh=DB_connect();
                 $SQL = "select  cashbox.id, cashbox.data_time, magazine.name, card_serial.name, cashbox.serial_left, cashbox.count_left, card_serial.name, cashbox.count_add,cashbox.serial_add  from  cashbox,card_serial,magazine where cashbox.magazine= magazine .magazine_id and card_serial.card_id = cashbox.serial_left  ";
                 print mysql_error();
-                $out .= "<table border=1>";
+                $out .= "<table border=1><tr><td>номинал</td><td>дата транзакции</td><td>кол-во добавленных карт</td><td>кол-во проданных</td><td>тип операции</td><td>математика приходп</td><td>математика расхода </td></tr>";
                 $res=mysql_query($SQL,$dbh);
                 print mysql_error();
                 while ($pl=mysql_fetch_array($res)){
@@ -44,9 +44,9 @@ if ( $taskk == "show_cashbox" ) {
                   if ( ($count_left  > 1 )  && ( $count_add > 1 ) ) { $type = "подсчет остатка и дал карточек " ;}
                   elseif ( ( $count_left > 1 ) && ( $count_add < 1 )) { $type= "подсчет остатка"; }
                   else   { $type = "добавил карточек"; }
-                  $add_card=$pl[count_add] . " * " . $pl[serial_add]  ." = " . ( $pl[serial_add] * $pl[count_add]);
-                  $sale_magazin=$pl[serial_left] . " * " . $pl[count_left]  ." = " . ($pl[count_left] * $pl[serial_left]  );
-                  $out .= "<td>".$pl[serial_add]."</td><Td>".$pl[count_add]."</td><td>".$pl[serial_left]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=green>приход ".$add_card."</td><td bgcolor=green>продал ".$sale_magazin."</td></tr>";
+                  $add_card=$pl[count_add] . " * " . $pl[serial_add]  ." = " . ( $pl[3] * $count_add);
+                  $sale_magazin=$pl[serial_left] . " * " . $pl[count_left]  ." = " . ($pl[3] * $count_left );
+                  $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=green>приход ".$add_card."</td><td bgcolor=green>продам магази ".$sale_magazin."</td></tr>";
 
                 }
                 $out.="</table>";
