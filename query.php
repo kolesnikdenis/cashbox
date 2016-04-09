@@ -80,30 +80,7 @@ if ( $taskk == "show_cashbox" ) {
 
 if ( $taskk == "add_intem" ) {
         if($eierr=="no"){
-                $dbh=DB_connect();
-                $SQL = "SELECT * FROM `card_serial` ";
-				$res=mysql_query($SQL,$dbh);
-                print mysql_error();
-				$js="var card_serial=[ ";
-				$i=0;
-				while ($pl=mysql_fetch_array($res)){
-				  $i++;
-				  if ($i>1) { $js .=","; }
-                  $js.="[\""+$pl[card_id]+"\","+$pl[name]+"\","+$pl[summ]+"\"]";
-                }
-                $js.="];\n";
- 
-                $SQL = "SELECT * FROM `magazine` ";
-				$res=mysql_query($SQL,$dbh);
-                print mysql_error();
-				$js.="var arr_shop=[ ";
-				$i=0;
-				while ($pl=mysql_fetch_array($res)){
-				  $i++;
-				  if ($i>1) { $js .=","; }
-                  $js.="[\""+$pl[magazin_id]+"\","+$pl[name]+"\","+$pl[description]+"\"]";
-                }
-                $js.="];\n";
+                $dbh=DB_connect(); 
 
                 $out .= "
 				<table border=1>
