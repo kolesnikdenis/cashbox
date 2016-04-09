@@ -51,7 +51,7 @@ $dbh=DB_connect();
 
 <table border=1>
 <tr>
-	<td><a onclick="alert('pay_sale'); return false;" href=#>приход расход</a></td>
+	<td><a onclick="add_intem('pay_sale'); return false;" href=#>приход расход</a></td>
 	<td><A onclick="alert('only_money'); return false;" href=#>просто деньги без подсчетов</a></td>
 </tr>
 </table>

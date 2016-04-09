@@ -89,9 +89,9 @@ if ( $taskk == "add_intem" ) {
 				while ($pl=mysql_fetch_array($res)){
 				  $i++;
 				  if ($i>1) { $js .=","; }
-                  $js.="[\""+$pl[card_id]+"\","+$pl[name]+"\","+$pl[summ]++"\"]";
+                  $js.="[\""+$pl[card_id]+"\","+$pl[name]+"\","+$pl[summ]+"\"]";
                 }
-                $js=."];\n";
+                $js.="];\n";
  
                 $SQL = "SELECT * FROM `magazine` ";
 				$res=mysql_query($SQL,$dbh);
@@ -101,9 +101,9 @@ if ( $taskk == "add_intem" ) {
 				while ($pl=mysql_fetch_array($res)){
 				  $i++;
 				  if ($i>1) { $js .=","; }
-                  $js.="[\""+$pl[magazin_id]+"\","+$pl[name]+"\","+$pl[description]++"\"]";
+                  $js.="[\""+$pl[magazin_id]+"\","+$pl[name]+"\","+$pl[description]+"\"]";
                 }
-                $js=."];\n";
+                $js.="];\n";
 
                 $out .= "
 				<table border=1>
