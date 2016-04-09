@@ -38,19 +38,22 @@ if ( $taskk == "show_cashbox" ) {
                 $res=mysql_query($SQL,$dbh);
                 print mysql_error();
                 while ($pl=mysql_fetch_array($res)){
-                  $out.="<tr><td>".$pl[count_add]."</td><td>".$pl[date_time]."</td>";
+                  $out.="<tr><td>".$pl[name]."</td><td>".$pl[data_time]."</td>";
                   $count_left=$pl[count_left];
                   $count_add=$pl[count_add];
                   if ( ($count_left  > 1 )  && ( $count_add > 1 ) ) { $type = "подсчет остатка и дал карточек " ;}
                   elseif ( ( $count_left > 1 ) && ( $count_add < 1 )) { $type= "подсчет остатка"; }
                   else   { $type = "добавил карточек"; }
-                  $out .= "<td>".$pl[serial_add]."</td><Td>".$p[count_left]."</td><td>".$pl[serial_left]."</td><td>".$pl[count_add]."</td><td>".$type."</td></tr>";
+                  $add_card=$pl[count_add] . " * " . $pl[serial_add] . ( $pl[serial_add] * $pl[count_add]);
+
+                  $out .= "<td>".$pl[serial_add]."</td><Td>".$pl[count_add]."</td><td>".$pl[serial_left]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=green>".$add_card."</td></tr>";
+
                 }
                 $out.="</table>";
                 $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
-
                 $_RESULT['text'] = $out;
                 $_RESULT['sql'] = $SQL;
+
                 $_RESULT['err'] = 'no';
         }
         else
