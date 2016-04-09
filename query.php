@@ -83,7 +83,7 @@ if ( $taskk == "add_intem" ) {
                 $dbh=DB_connect();
                 $SQL = "SELECT * FROM `card_serial` ";
 				$res=mysql_query($SQL,$dbh);
-                print mysql_error()
+                print mysql_error();
 				$js="var card_serial=[ ";
 				$i=0;
 				while ($pl=mysql_fetch_array($res)){
@@ -95,7 +95,7 @@ if ( $taskk == "add_intem" ) {
  
                 $SQL = "SELECT * FROM `magazine` ";
 				$res=mysql_query($SQL,$dbh);
-                print mysql_error()
+                print mysql_error();
 				$js=."var arr_shop=[ ";
 				$i=0;
 				while ($pl=mysql_fetch_array($res)){
