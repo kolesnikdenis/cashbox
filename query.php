@@ -101,7 +101,8 @@ if ( $taskk == "add_intem" ) {
                 $_RESULT['sql'] = $SQL;
 				$js="document.getElementById(\"select_card_add\").appendChild(cas);
 document.getElementById(\"select_card_left\").appendChild(cls);
-document.getElementById(\"select_magazin\").appendChild(maga);";
+document.getElementById(\"select_magazin\").appendChild(maga);
+<script language=JavaScript src=load_array.php></script>";
 				$_RESULT['js'] = $js;
 
                 $_RESULT['err'] = 'no';
