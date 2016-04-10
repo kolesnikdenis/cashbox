@@ -23,7 +23,7 @@ $i=0;
 while ($pl=mysql_fetch_array($res)){
 	$i++;
 	if ($i>1) { $js .=","; }
-	$js.="[\"".$pl1[magazine_id]."\",\"".$pl1[name]."\",\"".$pl1[description]."\"]";
+	$js.="[\"".$pl[magazine_id]."\",\"".$pl[name]."\",\"".$pl[description]."\"]";
 }
 $js.="];\n";
 echo $js;
