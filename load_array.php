@@ -157,8 +157,3 @@ function add_select(magazin_id,nominal_card){
   document.getElementById("cas_"+nominal_card).appendChild(cas);
   document.getElementById("cls_"+nominal_card).appendChild(cls);
 }
-
-add_select(1,20);
-add_select(1,40);
-add_select(1,75);
-add_select(1,100);

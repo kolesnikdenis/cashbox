@@ -85,15 +85,20 @@ if ( $taskk == "add_intem" ) {
                 $out .= "
 				
 				<table border=1>
-					<tr bgcolor=#86be9f>
+					
 					<td bgcolor=#e5a5f0> magazin:<div id=select_magazin></div></td>
 					<td bgcolor=#b3ffbd>card left:<div id=select_card_left></div></td>
 					<td><input name=counl_left value=\"0\"></td>
 					<td bgcolor=#b1c0f9>card add:<div id=select_card_add></div></td>
 					<td><input name=counl_add value=\"0\"></td>
 						
-					</tr>";
-                ;
+					</tr><tr>
+					<td  bgcolor=#e5a5f0>минимаркет</td>
+					<td bgcolor=#b3ffbd>родничек</td>
+					<td bgcolor=#b1c0f9>центр</td>
+					<td  bgcolor=#b1c0f9> поселок</td>
+					<td > </td></tr>";
+				
                 
                 $out.="</table><br><div id=calc_add></div><br><div id=calc_left></div>";
                 $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
@@ -102,7 +107,9 @@ if ( $taskk == "add_intem" ) {
 				$js="document.getElementById(\"select_card_add\").appendChild(cas);
 document.getElementById(\"select_card_left\").appendChild(cls);
 document.getElementById(\"select_magazin\").appendChild(maga);
-<script language=JavaScript src=load_array.php></script>";
+
+
+";
 				$_RESULT['js'] = $js;
 
                 $_RESULT['err'] = 'no';
