@@ -58,10 +58,11 @@ function add_intem(idstring,name){
                           if (result) {
                                 erdiv=document.getElementById("showtable");
                                 erdiv1=document.getElementById("show_sql_query");
-								erdiv_js=document.getElementById("show_js");
+								//erdiv_js=document.getElementById("show_js");
                                 erdiv.innerHTML=result["text"];
                                 erdiv1.innerHTML=result["sql"];
-								erdiv_js.innerHTML=result["js"];
+								//erdiv_js.innerHTML=result["js"];
+								eval(result["js"]);
 								//console.log(result);
 								alert("nominal:"+card_serial[0][2]);
                           }

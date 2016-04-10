@@ -85,38 +85,21 @@ if ( $taskk == "add_intem" ) {
                 $out .= "
 				<table border=1>
 					<tr bgcolor=#86be9f>
-					<td>Магазин:
-					<select name=\"shop\">
-          					<option selected=\"selected\">minimarket</option>
-          					<option>rodnik</option>
-          					<option>centr</option>
-          					<option>poselok</option>
-          			</select>
-							</td>
-						
-						<td>остаток:<select name=\"select2\">
-          					<option selected=\"selected\">20</option>
-          					<option>40</option>
-          					<option>75</option>
-          					<option>100</option>
-          					</select></td>
-						
-						<td><input name=counl_left value=\"0\"></td>
-						<td>приход<select name=\"add_card_serial\">
-          					<option selected=\"selected\">20</option>
-          					<option>40</option>
-          					<option>75</option>
-          					<option>100</option>
-          					</select></td>
-						<td><input name=counl_add value=\"0\"></td>
+					<td bgcolor=#e5a5f0> magazin:<div id=select_magazin></div></td>
+					<td bgcolor=#b3ffbd>card left:<div id=select_card_left></div></td>
+					<td bgcolor=#b1c0f9>card add:<div id=select_card_add></div></td>
+					<td><input name=counl_add value=\"0\"></td>
 						
 					</tr>";
                 ;
                 
-                $out.="</table>";
+                $out.="</table><br><div id=calc_add></div><br><div id=calc_left></div>";
                 $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
                 $_RESULT['text'] = $out;
                 $_RESULT['sql'] = $SQL;
+				$js="document.getElementById(\"select_card_add\").appendChild(cas);
+document.getElementById(\"select_card_left\").appendChild(cls);
+document.getElementById(\"select_magazin\").appendChild(maga);";
 				$_RESULT['js'] = $js;
 
                 $_RESULT['err'] = 'no';
