@@ -83,7 +83,7 @@ if ( $taskk == "add_intem" ) {
                 $dbh=DB_connect(); 
 
                 $out .= "
-				<div id=addtable>11</div><br>
+				
 				<table border=1>
 					<tr bgcolor=#86be9f>
 					<td bgcolor=#e5a5f0> magazin:<div id=select_magazin></div></td>

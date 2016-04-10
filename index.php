@@ -8,6 +8,7 @@ if ($db=="income") { $show ="";}
 session_start();
 include "top.php";
 ?>
+<div id=addtable>11</div><br>
 <script type="text/javascript">
   function a() {
     c();

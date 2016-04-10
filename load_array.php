@@ -6,7 +6,7 @@ $dbh=DB_connect();
 $SQL = "SELECT * FROM `card_serial` ";
 $res=mysql_query($SQL,$dbh);
 print mysql_error();
-$js="var card_serial=[ ";
+$js="var arr_card_serial=[ ";
 $i=0;
 while ($pl=mysql_fetch_array($res)){
 	$i++;
@@ -139,36 +139,6 @@ function create_select(name_select,id_select,onchange_select,array,selected){
 }
 
 
-var maga = document.createElement('select');
-maga.name = 'magazin';
-maga.id = 'magazin_sel';
-maga.onchange = function(){Add();};
-var options_str = "";
-arr_shop.forEach( function(arr_i,i,arr) {
-	  options_str += '<option value="' + arr_i[0] + '">' + arr_i[1] + '</option>';
-});
-maga.innerHTML = options_str;
-
-var cas = document.createElement('select');
-cas.name = 'card_add_sel';
-cas.id = 'card_add_sel_id';
-cas.onchange = function(){Add();};
-var options_str = "";
-card_serial.forEach( function(arr_i,i,arr) {
-	  options_str += '<option value="' + arr_i[0] + '">' + arr_i[1] + '</option>';
-});
-cas.innerHTML = options_str;
-
-
-var cls = document.createElement('select');
-cls.name = 'card_left_sel';
-cls.id = 'card_left_sel_id';
-cls.onchange = function(){Add();};
-var options_str = "";
-card_serial.forEach( function(arr_i,i,arr) {
-	  options_str += '<option value="' + arr_i[0] + '">' + arr_i[1] + '</option>';
-});
-cls.innerHTML = options_str;
 
 
 var table=init();
@@ -181,7 +151,7 @@ function add_select(magazin_id,nominal_card){
   if (nominal_card==40) { id_card = 1 };
   if (nominal_card==20) { id_card = 4 };
   var magazin_sel = create_select("magazin_"+nominal_card,"magazin_"+nominal_card+"_id","Add("+nominal_card+");",arr_shop,magazin_id);
-  var cas = create_select("cas_"+nominal_card,"cas_"+nominal_card+"_id","Add(nominal_card);",arr_card_serial,id_card);
+  var cas = create_select("cas_"+nominal_card,"cas_"+nominal_card+"_id","Add("+nominal_card+");",arr_card_serial,id_card);
   var cls = create_select("cls_"+nominal_card,"cls_"+nominal_card+"_id","Add("+nominal_card+");",arr_card_serial,id_card);
   document.getElementById("magazin_"+nominal_card).appendChild(magazin_sel);
   document.getElementById("cas_"+nominal_card).appendChild(cas);

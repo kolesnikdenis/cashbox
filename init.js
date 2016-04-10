@@ -64,7 +64,7 @@ function add_intem(idstring,name){
 								//erdiv_js.innerHTML=result["js"];
 								eval(result["js"]);
 								//console.log(result);
-								alert("nominal:"+card_serial[0][2]);
+								alert("nominal:"+arr_card_serial[0][2]);
                           }
 
                 }
