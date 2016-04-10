@@ -16,10 +16,10 @@ include "top.php";
 }
 
   function b() {
-    otvet = show_cashbox('c');
+    //otvet = show_cashbox('c');
   }
   function c() {
-     show_cashbox('o');
+     //show_cashbox('o');
 
   }
 </script>
