@@ -83,10 +83,12 @@ if ( $taskk == "add_intem" ) {
                 $dbh=DB_connect(); 
 
                 $out .= "
+				<div id=addtable>11</div><br>
 				<table border=1>
 					<tr bgcolor=#86be9f>
 					<td bgcolor=#e5a5f0> magazin:<div id=select_magazin></div></td>
 					<td bgcolor=#b3ffbd>card left:<div id=select_card_left></div></td>
+					<td><input name=counl_left value=\"0\"></td>
 					<td bgcolor=#b1c0f9>card add:<div id=select_card_add></div></td>
 					<td><input name=counl_add value=\"0\"></td>
 						

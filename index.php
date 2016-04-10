@@ -22,7 +22,7 @@ include "top.php";
 
   }
 </script>
-
+<div id=calc_summ>calc_form</div><br>
 <body onload="a()">
 </body>
 <h1><center><?php echo $show;?></center></h1>
