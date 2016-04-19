@@ -20,6 +20,8 @@ include "top.php";
   }
   function c() {
      show_cashbox('o');
+     //add_select(id_magazin,20);
+     alert(id_magazin);
 
   }
 </script>
@@ -52,8 +54,8 @@ $dbh=DB_connect();
 
 <table border=1>
 <tr>
-	<td><a onclick="add_intem('add_intem'); return false;" href=#>приход расход</a></td>
-	<td><A onclick="alert('only_money'); return false;" href=#>просто деньги без подсчетов</a></td>
+	<td><a onclick="add_intem('add_intem'); return false;" href=#>пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</a></td>
+	<td><A onclick="alert('only_money'); return false;" href=#>пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</a></td>
 </tr>
 </table>
 
