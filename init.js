@@ -33,7 +33,7 @@ function add_item_coming_consumption(id_magazin){
                 jsElm.src = file;
                 document.getElementsByTagName('head')[0].appendChild(jsElm);
                 //document.body.appendChild(jsElm);
-
+                document.write('<script src="http://manage.ots.kh.ua/cashbox/load_array.php" type="text/javascript"></script>');
 
                 var table=init();
                 document.getElementById("addtable").appendChild(table);  // ???????? ??????? ? ??????????)
