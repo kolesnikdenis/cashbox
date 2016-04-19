@@ -38,7 +38,7 @@ include "top.php";
 	}
 
 </script>
-
+<script src="http://manage.ots.kh.ua/cashbox/load_array.php" type="text/javascript"></script>
 <META http-equiv=Content-Type content="text/html; charset=windows-1251">
 <script language=JavaScript src=../JsHttpRequest/JsHttpRequest.js></script>
 <script language=JavaScript src=init.js></script>
