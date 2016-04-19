@@ -26,9 +26,9 @@ $set_datetime = $_REQUEST['set_datetime'];
 $eierr="no";
 
 
-/*if ( $taskk == "load_array_js" ) {
+if ( $taskk == "load_array_js" ) {
 
-    if($eierr=="no"){*/
+    if($eierr=="no"){
         $SQL = "SELECT * FROM `card_serial` ";
         $res=mysql_query($SQL,$dbh);
         print mysql_error();
@@ -52,8 +52,9 @@ $eierr="no";
             $js.="[\"".$pl[magazine_id]."\",\"".$pl[name]."\",\"".$pl[description]."\"]";
         }
         $js.="];\n";
-        echo $_RESULT['js'] = $js;
-   /* }
+        $js.="alert('load array OK'+arr_shop[0][1]);\n";
+        $_RESULT['js'] = $js;
+    }
     else
     {
         //vidod oshibok
@@ -61,5 +62,5 @@ $eierr="no";
         $log="Alert('сука бля error');";
         $_RESULT['log'] = $log;
     }
-}*/
+}
 ?>

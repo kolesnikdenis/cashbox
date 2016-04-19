@@ -12,9 +12,8 @@ function _getElementById(id){
   return item;
 }
 
-
 function add_item_coming_consumption(id_magazin){
-    /*JsHttpRequest.query(
+    JsHttpRequest.query(
         "add_item_coming_consumption.php",
         {
             "db": name, "id_magazin": id_magazin, "tas": 'load_array_js'
@@ -26,19 +25,35 @@ function add_item_coming_consumption(id_magazin){
             erdiv.innerHTML="error \""+errors+"\"";
             if (result) {
 
-                //eval(result["js"]);
-*/
+                eval(result["js"]);
+
                 var jsElm = document.createElement("script");
                 jsElm.type = "application/javascript";
                 var file="http://manage.ots.kh.ua/cashbox/load_array.php";
                 jsElm.src = file;
                 document.getElementsByTagName('head')[0].appendChild(jsElm);
                 //document.body.appendChild(jsElm);
-                
+
 
                 var table=init();
                 document.getElementById("addtable").appendChild(table);  // ???????? ??????? ? ??????????)
 
+                /* magazin name, nominal */
+                function add_select(magazin_id,nominal_card){
+                    var id_card="";
+                    console.log("func add_select start");
+                    if (nominal_card==100) { id_card = 2 };
+                    if (nominal_card==75) { id_card = 3 };
+                    if (nominal_card==40) { id_card = 1 };
+                    if (nominal_card==20) { id_card = 4 };
+                    var magazin_sel = create_select("magazin_"+nominal_card,"magazin_"+nominal_card+"_id","Add("+nominal_card+");",arr_shop,magazin_id);
+                    var cas = create_select("cas_"+nominal_card,"cas_"+nominal_card+"_id","Add("+nominal_card+");",arr_card_serial,id_card);
+                    var cls = create_select("cls_"+nominal_card,"cls_"+nominal_card+"_id","Add("+nominal_card+");",arr_card_serial,id_card);
+                    console.log(cls);
+                    document.getElementById("magazin_"+nominal_card).appendChild(magazin_sel);
+                    document.getElementById("cas_"+nominal_card).appendChild(cas);
+                    document.getElementById("cls_"+nominal_card).appendChild(cls);
+                }
 
                 erdiv=document.getElementById("showtable");
                 erdiv1=document.getElementById("show_sql_query");
@@ -62,13 +77,13 @@ function add_item_coming_consumption(id_magazin){
                 var file1="http://manage.ots.kh.ua/cashbox/test_add.js";
                 jsElm1.src = file1;
                 document.getElementsByTagName('head')[0].appendChild(jsElm1);
-/*
+
 
             }
 
 
         }
-    );*/
+    );
 }
 
 function show_cashbox(idstring,name){

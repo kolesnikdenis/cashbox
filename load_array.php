@@ -1,15 +1,4 @@
 alert("load array php :D ");
-
-var jsElm1 = document.createElement("script");
-jsElm1.type = "application/javascript";
-var file1="http://manage.ots.kh.ua/cashbox/add_item_coming_consumption.php";
-jsElm1.src = file1;
-document.getElementsByTagName('head')[0].appendChild(jsElm1);
-
-
-alert(arr_shop[0][1]);
-
-
 function init() {
      var table = document.createElement('table');
      table.setAttribute("border", "2");
@@ -118,20 +107,3 @@ function create_select(name_select,id_select,onchange_select,array,selected){
   return sel;
 }
 
-/* magazin name, nominal */
-function add_select(magazin_id,nominal_card){
-  var id_card="";
-  console.log("func add_select start");
-  if (nominal_card==100) { id_card = 2 };
-  if (nominal_card==75) { id_card = 3 };
-  if (nominal_card==40) { id_card = 1 };
-  if (nominal_card==20) { id_card = 4 };
-  var magazin_sel = create_select("magazin_"+nominal_card,"magazin_"+nominal_card+"_id","Add("+nominal_card+");",arr_shop,magazin_id);
-  var cas = create_select("cas_"+nominal_card,"cas_"+nominal_card+"_id","Add("+nominal_card+");",arr_card_serial,id_card);
-  var cls = create_select("cls_"+nominal_card,"cls_"+nominal_card+"_id","Add("+nominal_card+");",arr_card_serial,id_card);
-  console.log(cls);
-  document.getElementById("magazin_"+nominal_card).appendChild(magazin_sel);
-  document.getElementById("cas_"+nominal_card).appendChild(cas);
-  document.getElementById("cls_"+nominal_card).appendChild(cls);
-}
-console.log(document);
