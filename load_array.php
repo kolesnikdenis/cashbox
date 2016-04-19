@@ -1,4 +1,3 @@
-alert("load array");
 
 function init() {
      var table = document.createElement('table');

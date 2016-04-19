@@ -38,7 +38,7 @@ function add_item_coming_consumption(id_magazin){
                 //load js
                 var jsElm = document.createElement("script");
                 jsElm.type = "application/javascript";
-                var file="load_array.php";
+                var file="/cashbox/load_array.php";
                 jsElm.src = file;
                 document.body.appendChild(jsElm);
             }
