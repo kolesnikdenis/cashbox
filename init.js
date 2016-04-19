@@ -43,7 +43,7 @@ function add_item_coming_consumption(id_magazin){
                 /* magazin name, nominal */
                 
 
-                erdiv=document.getElementById("showtable").innerHTML("");
+                erdiv=document.getElementById("showtable").innerHTML="";
                 erdiv1=document.getElementById("show_sql_query");
                 //erdiv.innerHTML=result["text"];
 
@@ -106,7 +106,7 @@ function add_intem(idstring,name){
     document.body.appendChild(jsElm);
 
     document.getElementById("addtable").innerHTML="";
-    
+
     alert("zagruzil)");
         JsHttpRequest.query(
                 "query.php",
