@@ -40,7 +40,6 @@ include "top.php";
 </script>
 <META http-equiv=Content-Type content="text/html; charset=windows-1251">
 <script language=JavaScript src=../JsHttpRequest/JsHttpRequest.js></script>
-
 <script language=JavaScript src=init.js></script>
 
 
