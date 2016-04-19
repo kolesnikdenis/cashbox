@@ -55,10 +55,10 @@ function add_item_coming_consumption(id_magazin){
                 <div id=showtable>show table</div>-->";
 
                 //load js
+                add_select(id_magazin,20,arr_shop,arr_card_serial);
+                add_select(id_magazin,40,arr_shop,arr_card_serial);
+                add_select(id_magazin,75,arr_shop,arr_card_serial);
                 add_select(id_magazin,100,arr_shop,arr_card_serial);
-                add_select(id_magazin,75);
-                add_select(id_magazin,40);
-                add_select(id_magazin,100);
 
             }
 
