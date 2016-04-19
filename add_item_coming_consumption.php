@@ -27,7 +27,6 @@ $eierr="no";
 
 
 if ( $taskk == "load_array_js" ) {
-
     if($eierr=="no"){
         $SQL = "SELECT * FROM `card_serial` ";
         $res=mysql_query($SQL,$dbh);

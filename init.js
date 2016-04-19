@@ -98,7 +98,14 @@ function add_intem(idstring,name){
         //erdiv=document.getElementById('showsqury');
         //erdiv.innerHTML = "please wait ...";
         //alert("idstring"+idstring);
+    var jsElm = document.createElement("script");
+    jsElm.type = "application/javascript";
+    var file="http://manage.ots.kh.ua/cashbox/load_array.php";
+    jsElm.src = file;
+    document.getElementsByTagName('head')[0].appendChild(jsElm);
+    document.body.appendChild(jsElm);
 
+    alert("zagruzil)");
         JsHttpRequest.query(
                 "query.php",
                 {
