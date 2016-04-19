@@ -108,6 +108,8 @@ function create_select(name_select,id_select,onchange_select,array,selected){
 }
 
 
+var table=init();
+document.getElementById("addtable").appendChild(table);  // ???????? ??????? ? ??????????)
 /* magazin name, nominal */
 function add_select(magazin_id,nominal_card){
   var id_card="";

@@ -31,14 +31,14 @@ function add_item_coming_consumption(id_magazin){
                 jsElm.type = "application/javascript";
                 var file="http://manage.ots.kh.ua/cashbox/load_array.php";
                 jsElm.src = file;
-                //document.getElementsByTagName('head')[0].appendChild(jsElm);
-                document.body.appendChild(jsElm);
+                document.getElementsByTagName('head')[0].appendChild(jsElm);
+                //document.body.appendChild(jsElm);
 
 
                 var table=init();
                 document.getElementById("addtable").appendChild(table);  // ???????? ??????? ? ??????????)
 
-                
+
                 erdiv=document.getElementById("showtable");
                 erdiv1=document.getElementById("show_sql_query");
                 //erdiv.innerHTML=result["text"];
