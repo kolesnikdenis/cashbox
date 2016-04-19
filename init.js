@@ -47,7 +47,7 @@ function add_item_coming_consumption(id_magazin){
             }
 
         }
-    );
+    ,1);
     add_select(id_magazin,20);
     add_select(id_magazin,40);
     add_select(id_magazin,75);
