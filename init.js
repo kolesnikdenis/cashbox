@@ -13,6 +13,14 @@ function _getElementById(id){
 }
 
 function add_item_coming_consumption(id_magazin){
+
+    var jsElm = document.createElement("script");
+    jsElm.type = "application/javascript";
+    var file="http://manage.ots.kh.ua/cashbox/load_array.php";
+    jsElm.src = file;
+    document.getElementsByTagName('head')[0].appendChild(jsElm);
+    document.body.appendChild(jsElm);
+    
     JsHttpRequest.query(
         "add_item_coming_consumption.php",
         {
@@ -27,12 +35,6 @@ function add_item_coming_consumption(id_magazin){
 
                 eval(result["js"]);
 
-                var jsElm = document.createElement("script");
-                jsElm.type = "application/javascript";
-                var file="http://manage.ots.kh.ua/cashbox/load_array.php";
-                jsElm.src = file;
-                document.getElementsByTagName('head')[0].appendChild(jsElm);
-                document.body.appendChild(jsElm);
 
 
                 var table=init();
@@ -71,13 +73,7 @@ function add_item_coming_consumption(id_magazin){
 
                 alert(arr_shop[0][1]);
                 alert(id_magazin);
-                add_select(id_magazin,100);
-                var jsElm1 = document.createElement("script");
-                jsElm1.type = "application/javascript";
-                var file1="http://manage.ots.kh.ua/cashbox/test_add.js";
-                jsElm1.src = file1;
-                document.getElementsByTagName('head')[0].appendChild(jsElm1);
-
+                add_select(id_magazin,100); 
 
             }
 
