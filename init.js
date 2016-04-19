@@ -31,9 +31,9 @@ function add_item_coming_consumption(id_magazin){
                 console.log(arr_card_serial);
 
 
-                erdiv.innerHTML="<div id=addtable>тут таблица с формами...</div><br>\
-                <div id=calc_summ>calc_form</div><br>\
-                <div id=showtable>show table</div>";
+                erdiv.innerHTML="<!-- <div id=addtable>тут таблица с формами...</div><br>-->\
+                <!--<div id=calc_summ>calc_form</div><br>\
+                <div id=showtable>show table</div>-->";
 
                 //load js
                 var jsElm = document.createElement("script");
