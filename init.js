@@ -26,7 +26,7 @@ function add_item_coming_consumption(id_magazin){
             if (result) {*/
                 erdiv=document.getElementById("showtable");
                 erdiv1=document.getElementById("show_sql_query");
-                erdiv.innerHTML=result["text"];
+                //erdiv.innerHTML=result["text"];
 
 
 
@@ -109,7 +109,7 @@ function add_intem(idstring,name){
 								//erdiv_js.innerHTML=result["js"];
 								//eval(result["js"]);
 								//console.log(result);
-								alert("nominal:"+arr_card_serial[0][2]);
+								//alert("nominal:"+arr_card_serial[0][2]);
                           }
 
                 }
