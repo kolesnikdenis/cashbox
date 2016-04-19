@@ -105,6 +105,8 @@ function add_intem(idstring,name){
     document.getElementsByTagName('head')[0].appendChild(jsElm);
     document.body.appendChild(jsElm);
 
+    document.getElementById("addtable").innerHTML="";
+    
     alert("zagruzil)");
         JsHttpRequest.query(
                 "query.php",
