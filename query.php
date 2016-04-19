@@ -88,7 +88,7 @@ if ( $taskk == "add_intem" ) {
 				$res=mysql_query($SQL,$dbh);
                 print mysql_error();
                 while ($pl=mysql_fetch_array($res)){
-                    echo "<tr><td><a href=\"add_item_coming_consumption(".$pl[magazine_id).")\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
+                    $out .=  "<tr><td><a href=\"add_item_coming_consumption(".$pl[magazine_id).")\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
                 }
 
 
@@ -104,7 +104,7 @@ document.getElementById(\"select_magazin\").appendChild(maga);
 
 ";
 				$_RESULT['js'] = $js;
-
+                $_RESULT['text'] = $out.
                 $_RESULT['err'] = 'no';
         }
         else
