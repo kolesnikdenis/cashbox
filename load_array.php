@@ -43,49 +43,48 @@ return table;
 
 
 function calc(){
+    var summ_cas20 =document.getElementById("count_cas_id_20").value * 20;
+    var summ_cls20 =document.getElementById("count_cls_id_20").value * 20;
+    var summ_cas40 =document.getElementById("count_cas_id_40").value  * 40;
+    var summ_cls40 =document.getElementById("count_cls_id_40").value  * 40;
+    var summ_cas75 =document.getElementById("count_cas_id_75").value  * 75;
+    var summ_cls75 =document.getElementById("count_cls_id_75").value  * 75;
+    var summ_cas100 =document.getElementById("count_cas_id_100").value  * 100;
+    var summ_cls100 =document.getElementById("count_cls_id_100").value  * 100;
 
-var summ_cas20 =document.getElementById("count_cas_id_20").value * 20;
-var summ_cls20 =document.getElementById("count_cls_id_20").value * 20;
-var summ_cas40 =document.getElementById("count_cas_id_40").value  * 40;
-var summ_cls40 =document.getElementById("count_cls_id_40").value  * 40;
-var summ_cas75 =document.getElementById("count_cas_id_75").value  * 75;
-var summ_cls75 =document.getElementById("count_cls_id_75").value  * 75;
-var summ_cas100 =document.getElementById("count_cas_id_100").value  * 100;
-var summ_cls100 =document.getElementById("count_cls_id_100").value  * 100;
-
-var summ_cas=summ_cas20+summ_cas40+summ_cas75+summ_cas100;
-var summ_cls=summ_cls20+summ_cls40+summ_cls75+summ_cls100;
+    var summ_cas=summ_cas20+summ_cas40+summ_cas75+summ_cas100;
+    var summ_cls=summ_cls20+summ_cls40+summ_cls75+summ_cls100;
 
 
-var out = "<table><tr><td>остаток:</td><td>приход:</td></tr><tr><td>";
-    out += document.getElementById("count_cas_id_20").value+" * 20 = " + summ_cas20 +"<br>";
-    out += document.getElementById("count_cas_id_40").value+" * 40 = " + summ_cas40 +"<br>";
-    out += document.getElementById("count_cas_id_75").value+" * 75 = " + summ_cas75 +"<br>";
-    out += document.getElementById("count_cas_id_100").value+" * 100 = " + summ_cas100 +"<br>";
-    out += "<b>?????:";
-    out += summ_cas+"</b>";
-    out += "</td><td>";
-    out += document.getElementById("count_cls_id_20").value+" * 20 = " + summ_cls20 +"<br>";
-    out += document.getElementById("count_cls_id_40").value+" * 40 = " + summ_cls40 +"<br>";
-    out += document.getElementById("count_cls_id_75").value+" * 75 = " + summ_cls75 +"<br>";
-    out += document.getElementById("count_cls_id_100").value+" * 100 = " + summ_cls100 +"<br>";
-    out += "<b>?????:";
-    out += summ_cls+"</b>";
-    out += "</td></tr></table>";
-    var ostatok="4000";
-    out += "??????: "+summ_cls20 + " + " +summ_cls40  + " + " + summ_cls75 + " + " + summ_cls100+" = " + summ_cls + "<br>";
-    out += "???????: "+summ_cas20 + " + " +summ_cas40  + " + " + summ_cas75 + " + " + summ_cas100+" = " + summ_cas + "<br>";
+    var out = "<table><tr><td>остаток:</td><td>приход:</td></tr><tr><td>";
+        out += document.getElementById("count_cas_id_20").value+" * 20 = " + summ_cas20 +"<br>";
+        out += document.getElementById("count_cas_id_40").value+" * 40 = " + summ_cas40 +"<br>";
+        out += document.getElementById("count_cas_id_75").value+" * 75 = " + summ_cas75 +"<br>";
+        out += document.getElementById("count_cas_id_100").value+" * 100 = " + summ_cas100 +"<br>";
+        out += "<b>?????:";
+        out += summ_cas+"</b>";
+        out += "</td><td>";
+        out += document.getElementById("count_cls_id_20").value+" * 20 = " + summ_cls20 +"<br>";
+        out += document.getElementById("count_cls_id_40").value+" * 40 = " + summ_cls40 +"<br>";
+        out += document.getElementById("count_cls_id_75").value+" * 75 = " + summ_cls75 +"<br>";
+        out += document.getElementById("count_cls_id_100").value+" * 100 = " + summ_cls100 +"<br>";
+        out += "<b>?????:";
+        out += summ_cls+"</b>";
+        out += "</td></tr></table>";
+        var ostatok="4000";
+        out += "??????: "+summ_cls20 + " + " +summ_cls40  + " + " + summ_cls75 + " + " + summ_cls100+" = " + summ_cls + "<br>";
+        out += "???????: "+summ_cas20 + " + " +summ_cas40  + " + " + summ_cas75 + " + " + summ_cas100+" = " + summ_cas + "<br>";
 
-    var sold_shop = ostatok - summ_cas;
-    var profit_shop = sold_shop*0.05;
-    var profit_company_ots = sold_shop-profit_shop;
-    out += "????????? ????????: "+ ostatok + " - " + summ_cas + " = " + sold_shop +  " * 5% = " + profit_shop + "<br>";
-    out += "?????? ??? ???????: "+ ostatok + " - " + summ_cas + " = " +  sold_shop +  " - 5%(" + profit_shop + ") = " + profit_company_ots +"<br>";
-    out += "<hr>";
-    out += "??????? ? ????????: ";
-    summ_global=summ_cas+summ_cls;
-    out += summ_cas   +  " + " + summ_cls + " ="+ summ_global;
-    document.getElementById("calc_summ").innerHTML = out;
+        var sold_shop = ostatok - summ_cas;
+        var profit_shop = sold_shop*0.05;
+        var profit_company_ots = sold_shop-profit_shop;
+        out += "????????? ????????: "+ ostatok + " - " + summ_cas + " = " + sold_shop +  " * 5% = " + profit_shop + "<br>";
+        out += "?????? ??? ???????: "+ ostatok + " - " + summ_cas + " = " +  sold_shop +  " - 5%(" + profit_shop + ") = " + profit_company_ots +"<br>";
+        out += "<hr>";
+        out += "??????? ? ????????: ";
+        summ_global=summ_cas+summ_cls;
+        out += summ_cas   +  " + " + summ_cls + " ="+ summ_global;
+        document.getElementById("calc_summ").innerHTML = out;
 }
 
 
