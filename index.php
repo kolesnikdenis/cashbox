@@ -17,7 +17,7 @@ include "top.php";
 
   function b() {
     alert("b");
-    otvet = show_cashbox('c');
+    //otvet = show_cashbox('c');
   }
   function c() {
      show_cashbox('o');
