@@ -41,9 +41,9 @@ function add_item_coming_consumption(id_magazin){
 
                 var file="http://manage.ots.kh.ua/cashbox/load_array.php";
                 jsElm.src = file;
-                eval(jsElm);
-                document.body.appendChild(jsElm);
-                Include('http://manage.ots.kh.ua/cashbox/load_array.php');
+
+                //document.body.appendChild(jsElm);
+                document.getElementsByTagName('head')[0].appendChild(jsElm);
             }
 
         }
