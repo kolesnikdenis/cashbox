@@ -13,7 +13,49 @@ function _getElementById(id){
 }
 
 function add_item_coming_consumption(id_magazin){
-    alert(id_magazin);
+    JsHttpRequest.query(
+        "add_item_coming_consumption.php",
+        {
+            "db": name, "id_magazin": id_magazin, "tas": 'show_cashbox'
+        },
+        function (result, errors) {
+
+            //finddiv=name+"-"+idstring;
+            erdiv=document.getElementById("showtable");
+            erdiv.innerHTML="error \""+errors+"\"";
+            if (result) {
+                erdiv=document.getElementById("showtable");
+                erdiv1=document.getElementById("show_sql_query");
+                erdiv.innerHTML=result["text"];
+
+
+
+                erdiv.innerHTML="<div id=addtable>тут таблица с формами...</div><br>\
+                <div id=calc_summ>calc_form</div><br>\
+                    <script language=JavaScript src=load_array.php></script>\
+                <div id=showtable></div>";
+
+                //load js
+                var jsElm = document.createElement("script");
+                jsElm.type = "application/javascript";
+                var file="load_array.php";
+                jsElm.src = file;
+                document.body.appendChild(jsElm);
+                    
+                add_select(id_magazin,20);
+                add_select(id_magazin,40);
+                add_select(id_magazin,75);
+                add_select(id_magazin,100);
+                
+                
+                
+                
+                
+                erdiv1.innerHTML=result["sql"];
+            }
+
+        }
+    )
 }
 
 function show_cashbox(idstring,name){
