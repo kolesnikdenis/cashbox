@@ -13,7 +13,7 @@ function _getElementById(id){
 }
 
 function add_item_coming_consumption(id_magazin){
-    JsHttpRequest.query(
+    /*JsHttpRequest.query(
         "add_item_coming_consumption.php",
         {
             "db": name, "id_magazin": id_magazin, "tas": 'show_cashbox'
@@ -23,7 +23,7 @@ function add_item_coming_consumption(id_magazin){
             //finddiv=name+"-"+idstring;
             erdiv=document.getElementById("showtable");
             erdiv.innerHTML="error \""+errors+"\"";
-            if (result) {
+            if (result) {*/
                 erdiv=document.getElementById("showtable");
                 erdiv1=document.getElementById("show_sql_query");
                 erdiv.innerHTML=result["text"];
@@ -52,10 +52,10 @@ function add_item_coming_consumption(id_magazin){
                 
                 
                 erdiv1.innerHTML=result["sql"];
-            }
+       /*     }
 
         }
-    )
+    )*/
 }
 
 function show_cashbox(idstring,name){
