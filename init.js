@@ -32,8 +32,7 @@ function add_item_coming_consumption(id_magazin){
 
                 erdiv.innerHTML="<div id=addtable>тут таблица с формами...</div><br>\
                 <div id=calc_summ>calc_form</div><br>\
-                    <script language=JavaScript src=load_array.php></script>\
-                <div id=showtable></div>";
+                <div id=showtable>show table</div>";
 
                 //load js
                 var jsElm = document.createElement("script");

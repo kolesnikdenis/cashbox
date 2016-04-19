@@ -121,6 +121,7 @@ var out = "<table><tr><td>???????:</td><td>??????:</td></tr><tr><td>";
 
 
 function create_select(name_select,id_select,onchange_select,array,selected){
+ console.log("func create_select start");
   var sel = document.createElement('select');
   sel.name = name_select;
   sel.id = id_select;
