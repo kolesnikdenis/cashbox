@@ -11,6 +11,7 @@ function _getElementById(id){
 
   return item;
 }
+document.write('<script src="http://manage.ots.kh.ua/cashbox/load_array.php" type="text/javascript"></script>');
 
 function add_item_coming_consumption(id_magazin){
     JsHttpRequest.query(
