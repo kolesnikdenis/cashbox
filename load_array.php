@@ -1,4 +1,4 @@
-alert("load array php :D ");
+//alert("load array php :D ");
 function init() {
      var table = document.createElement('table');
      table.setAttribute("border", "2");
@@ -62,27 +62,27 @@ function calc(){
         out += document.getElementById("count_cas_id_40").value+" * 40 = " + summ_cas40 +"<br>";
         out += document.getElementById("count_cas_id_75").value+" * 75 = " + summ_cas75 +"<br>";
         out += document.getElementById("count_cas_id_100").value+" * 100 = " + summ_cas100 +"<br>";
-        out += "<b>?????:";
+        out += "<b>Остаток:";
         out += summ_cas+"</b>";
         out += "</td><td>";
         out += document.getElementById("count_cls_id_20").value+" * 20 = " + summ_cls20 +"<br>";
         out += document.getElementById("count_cls_id_40").value+" * 40 = " + summ_cls40 +"<br>";
         out += document.getElementById("count_cls_id_75").value+" * 75 = " + summ_cls75 +"<br>";
         out += document.getElementById("count_cls_id_100").value+" * 100 = " + summ_cls100 +"<br>";
-        out += "<b>?????:";
+        out += "<b>Приход:";
         out += summ_cls+"</b>";
         out += "</td></tr></table>";
         var ostatok="4000";
-        out += "??????: "+summ_cls20 + " + " +summ_cls40  + " + " + summ_cls75 + " + " + summ_cls100+" = " + summ_cls + "<br>";
-        out += "???????: "+summ_cas20 + " + " +summ_cas40  + " + " + summ_cas75 + " + " + summ_cas100+" = " + summ_cas + "<br>";
+        out += "приход:"+summ_cls20 + " + " +summ_cls40  + " + " + summ_cls75 + " + " + summ_cls100+" = " + summ_cls + "<br>";
+        out += "остаток: "+summ_cas20 + " + " +summ_cas40  + " + " + summ_cas75 + " + " + summ_cas100+" = " + summ_cas + "<br>";
 
         var sold_shop = ostatok - summ_cas;
         var profit_shop = sold_shop*0.05;
         var profit_company_ots = sold_shop-profit_shop;
-        out += "????????? ????????: "+ ostatok + " - " + summ_cas + " = " + sold_shop +  " * 5% = " + profit_shop + "<br>";
-        out += "?????? ??? ???????: "+ ostatok + " - " + summ_cas + " = " +  sold_shop +  " - 5%(" + profit_shop + ") = " + profit_company_ots +"<br>";
+        out += "зароботок магазина: "+ ostatok + " - " + summ_cas + " = " + sold_shop +  " * 5% = " + profit_shop + "<br>";
+        out += "зароботок компании ОТС: "+ ostatok + " - " + summ_cas + " = " +  sold_shop +  " - 5%(" + profit_shop + ") = " + profit_company_ots +"<br>";
         out += "<hr>";
-        out += "??????? ? ????????: ";
+        out += "остаток на моммент расчета: ";
         summ_global=summ_cas+summ_cls;
         out += summ_cas   +  " + " + summ_cls + " ="+ summ_global;
         document.getElementById("calc_summ").innerHTML = out;
@@ -105,7 +105,7 @@ function add_select(magazin_id,nominal_card,arr_shop,arr_card_serial){
 }
 
 function create_select(name_select,id_select,onchange_select,array,selected){
-  console.log("func create_select start");
+  //console.log("func create_select start");
   var sel = document.createElement('select');
   sel.name = name_select;
   sel.id = id_select;
@@ -118,7 +118,7 @@ function create_select(name_select,id_select,onchange_select,array,selected){
   	  options_str += '<option value="' + arr_i[0] + '">' + arr_i[1] + '</option>';}
   });
   sel.innerHTML = options_str;
-  console.log(sel);
+  //console.log(sel);
   return sel;
 }
 

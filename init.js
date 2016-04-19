@@ -36,14 +36,14 @@ function add_item_coming_consumption(id_magazin){
                 eval(result["js"]);
 
 
-
+                document.getElementById("addtable").innerHTML="";
                 var table=init();
                 document.getElementById("addtable").appendChild(table);  // ???????? ??????? ? ??????????)
 
                 /* magazin name, nominal */
                 
 
-                erdiv=document.getElementById("showtable");
+                erdiv=document.getElementById("showtable").innerHTML("");
                 erdiv1=document.getElementById("show_sql_query");
                 //erdiv.innerHTML=result["text"];
 
