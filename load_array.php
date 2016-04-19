@@ -85,6 +85,16 @@ function calc(){
         out += "остаток на моммент расчета: ";
         summ_global=summ_cas+summ_cls;
         out += summ_cas   +  " + " + summ_cls + " ="+ summ_global;
+
+
+
+        out += "<br><br>";
+        out += "id_magazin:" +document.getElementById("magazin_20_id").value+
+                "id_serial_left: " +document.getElementById("cls_nominal_card_20").value+
+                 "count_left: " + document.getElementById("count_cls_id_20").value+
+                 "serial_add: " + document.getElementById("cas_nominal_card_20").value+
+                 " count_add: "  + document.getElementById("count_cas_id_20").value+
+                 "data_time:" + "NOW():";
         document.getElementById("calc_summ").innerHTML = out;
 }
 
