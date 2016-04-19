@@ -16,12 +16,13 @@ include "top.php";
 }
 
   function b() {
+    alert("b");
     otvet = show_cashbox('c');
   }
   function c() {
      show_cashbox('o');
      //add_select(id_magazin,20);
-     alert(id_magazin);
+     alert("c");
 
   }
 </script>
