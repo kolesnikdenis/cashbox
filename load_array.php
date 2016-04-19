@@ -1,4 +1,4 @@
-alert("test");
+alert("test"+id_magazin);
 function init() {
      var table = document.createElement('table');
      table.setAttribute("border", "2");
