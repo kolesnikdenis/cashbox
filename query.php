@@ -72,7 +72,7 @@ if ( $taskk == "show_cashbox" ) {
                 }
                 $out.="</table>";
                 $out.="родничек продал на сумму: ".$global_summ_rodnik . "<br>"."ћинимаркет на сумму: ". $global_summ_minik."<br>";
-                $out.="всего прибыль за выбраный период".( $global_summ_rodnik+  $global_summ_minik)."<br>";
+                $out.="всего прибыль за выбраный период".( $global_summ_rodnik+  $global_summ_minik)."<br><hr>";
 
                 $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
                 $_RESULT['text'] = $out;
