@@ -25,19 +25,25 @@ function add_item_coming_consumption(id_magazin){
             erdiv.innerHTML="error \""+errors+"\"";
             if (result) {
 
+                eval(result["js"]);
+
                 var jsElm = document.createElement("script");
                 jsElm.type = "application/javascript";
                 var file="http://manage.ots.kh.ua/cashbox/load_array.php";
                 jsElm.src = file;
-                document.getElementsByTagName('head')[0].appendChild(jsElm);
+                //document.getElementsByTagName('head')[0].appendChild(jsElm);
+                document.body.appendChild(jsElm);
 
 
+                var table=init();
+                document.getElementById("addtable").appendChild(table);  // ???????? ??????? ? ??????????)
 
+                
                 erdiv=document.getElementById("showtable");
                 erdiv1=document.getElementById("show_sql_query");
                 //erdiv.innerHTML=result["text"];
-                eval(result["js"]);
-                console.log(arr_card_serial);
+
+
 
 
                 erdiv.innerHTML="<!-- <div id=addtable>тут таблица с формами...</div><br>-->\
