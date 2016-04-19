@@ -146,6 +146,7 @@ document.getElementById("addtable").appendChild(table);  // ???????? ??????? ? ?
 /* magazin name, nominal */
 function add_select(magazin_id,nominal_card){
   var id_card="";
+  console.log("func add_select start");
   if (nominal_card==100) { id_card = 2 };
   if (nominal_card==75) { id_card = 3 };
   if (nominal_card==40) { id_card = 1 };
