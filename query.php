@@ -30,6 +30,13 @@ $set_datetime = $_REQUEST['set_datetime'];
 $eierr="no";
 
 if ( $taskk == "show_cashbox" ) {
+
+        var global_summ_minik=0;//minik1
+        var global_summ_rodnik=0; //rodnik2
+        var global_summ_centr=0;//3
+        var global_summ_poselok=0;//4
+
+
         if($eierr=="no"){
                 $dbh=DB_connect();
                 $SQL = "select  cashbox.id, cashbox.data_time, magazine.name, card_serial.name, cashbox.serial_left, cashbox.count_left, card_serial.name, cashbox.count_add,cashbox.serial_add  from  cashbox,card_serial,magazine where cashbox.magazine= magazine .magazine_id and card_serial.card_id = cashbox.serial_left  ORDER BY `cashbox`.`data_time` DESC ";
@@ -57,10 +64,16 @@ if ( $taskk == "show_cashbox" ) {
                   else   { $type = "добавил карточек"; }
                   $add_card=$pl[3] . " * " .  $count_add   ." = " . ( $pl[3] * $count_add);
                   $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
-                  $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>приход ".$add_card."</td><td bgcolor=#a6e3f4>продал магази ".$sale_magazin."</td></tr>";
-
+                  $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
+                  if ( $pl[name] == "rodnichek") {  $global_summ_rodnik=$global_summ_rodnik-( $pl[3] * $count_add)+$add_card; }
+                  if ( $pl[name] == "minimarcet") {  $global_summ_minik=$global_summ_minik-( $pl[3] * $count_add)+$add_card; }
+                  if ( $pl[name] == "centr") {  $global_summ_rodnik=$sale_magazin+$add_card; }
+                  if ( $pl[name] == "poselok") {  $global_summ_rodnik=$sale_magazin+$add_card; }
                 }
                 $out.="</table>";
+                $out.="родничек продал на сумму: ".$global_summ_rodnik . "<br>"."ћинимаркет на сумму: ". $global_summ_minik."<br>";
+                $out.="всего прибыль за выбраный период".( $global_summ_rodnik+  $global_summ_minik)."<br>";
+
                 $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
                 $_RESULT['text'] = $out;
                 $_RESULT['sql'] = $SQL;
