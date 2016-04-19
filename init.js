@@ -44,14 +44,15 @@ function add_item_coming_consumption(id_magazin){
 
                 //document.body.appendChild(jsElm);
                 document.getElementsByTagName('head')[0].appendChild(jsElm);
+
+                add_select(id_magazin,20);
+                add_select(id_magazin,40);
+                add_select(id_magazin,75);
+                add_select(id_magazin,100);
             }
 
         }
     ,0);
-    add_select(id_magazin,20);
-    add_select(id_magazin,40);
-    add_select(id_magazin,75);
-    add_select(id_magazin,100);
 }
 
 function show_cashbox(idstring,name){
