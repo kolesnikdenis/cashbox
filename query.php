@@ -78,27 +78,20 @@ if ( $taskk == "show_cashbox" ) {
 }
 
 
+
 if ( $taskk == "add_intem" ) {
         if($eierr=="no"){
                 $dbh=DB_connect(); 
+				$out.="<table border=1><tr><td>название магазина</td><td>ќписание ћагазина</td></tr>";
 
-                $out .= "
-				
-				<table border=1>
-					
-					<td bgcolor=#e5a5f0> magazin:<div id=select_magazin></div></td>
-					<td bgcolor=#b3ffbd>card left:<div id=select_card_left></div></td>
-					<td><input name=counl_left value=\"0\"></td>
-					<td bgcolor=#b1c0f9>card add:<div id=select_card_add></div></td>
-					<td><input name=counl_add value=\"0\"></td>
-						
-					</tr><tr>
-					<td  bgcolor=#e5a5f0>минимаркет</td>
-					<td bgcolor=#b3ffbd>родничек</td>
-					<td bgcolor=#b1c0f9>центр</td>
-					<td  bgcolor=#b1c0f9> поселок</td>
-					<td > </td></tr>";
-				
+				$SQL = "select  magazine_id,name,description  from  magazine ";
+				$res=mysql_query($SQL,$dbh);
+                print mysql_error();
+                while ($pl=mysql_fetch_array($res)){
+                    echo "<tr><td><a href="add_item_coming_consumption($pl[magazine_id).")\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
+                }
+
+
                 
                 $out.="</table><br><div id=calc_add></div><br><div id=calc_left></div>";
                 $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";

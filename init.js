@@ -12,6 +12,9 @@ function _getElementById(id){
   return item;
 }
 
+function add_item_coming_consumption(id_magazin){
+    alert(id_magazin);
+}
 
 function show_cashbox(idstring,name){
         //erdiv=document.getElementById('showsqury');
@@ -44,7 +47,7 @@ function add_intem(idstring,name){
         //erdiv=document.getElementById('showsqury');
         //erdiv.innerHTML = "please wait ...";
         //alert("idstring"+idstring);
-        alert("add_intem") ;
+        
         JsHttpRequest.query(
                 "query.php",
                 {
