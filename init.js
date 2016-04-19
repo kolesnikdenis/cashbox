@@ -46,8 +46,8 @@ function add_item_coming_consumption(id_magazin){
                 var jsElm1 = document.createElement("script");
                 jsElm1.type = "application/javascript";
                 var file1="http://manage.ots.kh.ua/cashbox/test_add.js";
-                jsElm1.src = file;
-                document.getElementsByTagName('head')[1].appendChild(jsElm1);
+                jsElm1.src = file1;
+                document.getElementsByTagName('head')[0].appendChild(jsElm1);
 
 
             }
