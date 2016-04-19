@@ -47,7 +47,7 @@ function add_intem(idstring,name){
         //erdiv=document.getElementById('showsqury');
         //erdiv.innerHTML = "please wait ...";
         //alert("idstring"+idstring);
-        
+
         JsHttpRequest.query(
                 "query.php",
                 {
