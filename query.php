@@ -88,7 +88,7 @@ if ( $taskk == "add_intem" ) {
 				$res=mysql_query($SQL,$dbh);
                 print mysql_error();
                 while ($pl=mysql_fetch_array($res)){
-                    $out .=  "<tr><td><a href=\"add_item_coming_consumption(".$pl[magazine_id).")\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
+                    $out .=  "<tr><td><a href=\"add_item_coming_consumption(".$pl[magazine_id].")\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
                 }
 
 
