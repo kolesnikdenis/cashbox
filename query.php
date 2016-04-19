@@ -28,15 +28,12 @@ $idstring = $_REQUEST['idstring'];
 $id_user = $_SESSION['login_id'];
 $set_datetime = $_REQUEST['set_datetime'];
 $eierr="no";
-$global_summ_minik=0;//minik1
+if ( $taskk == "show_cashbox" ) {
+
+        $global_summ_minik=0;//minik1
         $global_summ_rodnik=0; //rodnik2
         $global_summ_centr=0;//3
         $global_summ_poselok=0;//4
-
-if ( $taskk == "show_cashbox" ) {
-
-
-
 
         if($eierr=="no"){
                 $dbh=DB_connect();
@@ -65,10 +62,10 @@ if ( $taskk == "show_cashbox" ) {
                   else   { $type = "добавил карточек"; }
                   $add_card=$pl[3] . " * " .  $count_add   ." = " . ( $pl[3] * $count_add);
                   $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
-                  if ( strcmp ( $pl[name], "rodnichek" ) !== 0 ) {  global $global_summ_rodnik=$global_summ_rodnik-$sale_magazin+$add_card; }
-                  if ( $pl[name] == "minimarcet") {  $global_summ_minik=$global_summ_minik-$sale_magazin+$add_card; }
-                  if ( $pl[name] == "centr") {  $global_summ_rodnik=$sale_magazin+$add_card; }
-                  if ( $pl[name] == "poselok") {  $global_summ_rodnik=$sale_magazin+$add_card; }
+                  if ( strCaseCmp($pl[2], "rodnichek" ) !==0 )  { $global_summ_rodnik=$global_summ_rodnik-($pl[3] * $count_left )+( $pl[3] * $count_add); }
+                  if ( strCaseCmp($pl[2], "minimarcet" ) !==0 )  {  $global_summ_minik=$global_summ_minik-($pl[3] * $count_left )+( $pl[3] * $count_add); }
+                  if ( strCaseCmp($pl[2], "centr" ) !==0 )  {  $global_summ_rodnik=$global_summ_rodnik- ($pl[3] * $count_left )+( $pl[3] * $count_add); }
+                  if ( strCaseCmp($pl[2], "poselok" ) !==0 )  {   $global_summ_rodnik=$global_summ_rodnik- ($pl[3] * $count_left )+( $pl[3] * $count_add); }
 
 
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
