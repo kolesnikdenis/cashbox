@@ -43,11 +43,11 @@ function add_item_coming_consumption(id_magazin){
                 document.getElementsByTagName('head')[0].appendChild(jsElm);
 
 
-                var jsElm = document.createElement("script");
-                jsElm.type = "application/javascript";
-                var file="http://manage.ots.kh.ua/cashbox/test_add.js";
-                jsElm.src = file;
-                document.getElementsByTagName('head')[0].appendChild(jsElm);
+                var jsElm1 = document.createElement("script");
+                jsElm1.type = "application/javascript";
+                var file1="http://manage.ots.kh.ua/cashbox/test_add.js";
+                jsElm1.src = file;
+                document.getElementsByTagName('head')[1].appendChild(jsElm1);
 
 
             }

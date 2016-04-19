@@ -52,7 +52,6 @@ if ( $taskk == "load_array_js" ) {
             $js.="[\"".$pl[magazine_id]."\",\"".$pl[name]."\",\"".$pl[description]."\"]";
         }
         $js.="];\n";
-        $js.="alert('load array OK'+arr_shop[0][1]);\n";
         $_RESULT['js'] = $js;
     }
     else
