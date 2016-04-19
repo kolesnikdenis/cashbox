@@ -28,31 +28,38 @@ $eierr="no";
 
 if ( $taskk == "load_array_js" ) {
 
+    if($eierr=="no"){
+        $SQL = "SELECT * FROM `card_serial` ";
+        $res=mysql_query($SQL,$dbh);
+        print mysql_error();
+        $js="var arr_card_serial=[ ";
+        $i=0;
+        while ($pl=mysql_fetch_array($res)){
+            $i++;
+            if ($i>1) { $js .=","; }
+            $js.="[\"".$pl[card_id]."\",\"".$pl[name]."\",\"".$pl[summ]."\"]";
 
-    $SQL = "SELECT * FROM `card_serial` ";
-    $res=mysql_query($SQL,$dbh);
-    print mysql_error();
-    $js="var arr_card_serial=[ ";
-    $i=0;
-    while ($pl=mysql_fetch_array($res)){
-        $i++;
-        if ($i>1) { $js .=","; }
-        $js.="[\"".$pl[card_id]."\",\"".$pl[name]."\",\"".$pl[summ]."\"]";
-
+        }
+        $js.="];\n";
+        $SQL = "SELECT * FROM `magazine` ";
+        $res=mysql_query($SQL,$dbh);
+        print mysql_error();
+        $js.="var arr_shop=[ ";
+        $i=0;
+        while ($pl=mysql_fetch_array($res)){
+            $i++;
+            if ($i>1) { $js .=","; }
+            $js.="[\"".$pl[magazine_id]."\",\"".$pl[name]."\",\"".$pl[description]."\"]";
+        }
+        $js.="];\n";
+        $_RESULT['js'] = $js;
     }
-    $js.="];\n";
-    $SQL = "SELECT * FROM `magazine` ";
-    $res=mysql_query($SQL,$dbh);
-    print mysql_error();
-    $js.="var arr_shop=[ ";
-    $i=0;
-    while ($pl=mysql_fetch_array($res)){
-        $i++;
-        if ($i>1) { $js .=","; }
-        $js.="[\"".$pl[magazine_id]."\",\"".$pl[name]."\",\"".$pl[description]."\"]";
+    else
+    {
+        //vidod oshibok
+        $_RESULT['err'] = 'yes';
+        $log="<center><font color=#cc0000>бля сука ) </font></center>".$log;
+        $_RESULT['log'] = $log;
     }
-    $js.="];\n";
-    echo $js;
-
 }
 ?>
