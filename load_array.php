@@ -1,33 +1,4 @@
-<?
-
-include "../mysql/traff_view.php3";
-
-$dbh=DB_connect();
-$SQL = "SELECT * FROM `card_serial` ";
-$res=mysql_query($SQL,$dbh);
-print mysql_error();
-$js="var arr_card_serial=[ ";
-$i=0;
-while ($pl=mysql_fetch_array($res)){
-	$i++;
-	if ($i>1) { $js .=","; }
-	$js.="[\"".$pl[card_id]."\",\"".$pl[name]."\",\"".$pl[summ]."\"]";
-
-}
-$js.="];\n";
-$SQL = "SELECT * FROM `magazine` ";
-$res=mysql_query($SQL,$dbh);
-print mysql_error();
-$js.="var arr_shop=[ ";
-$i=0;
-while ($pl=mysql_fetch_array($res)){
-	$i++;
-	if ($i>1) { $js .=","; }
-	$js.="[\"".$pl[magazine_id]."\",\"".$pl[name]."\",\"".$pl[description]."\"]";
-}
-$js.="];\n";
-echo $js;
-?>
+alert("load array");
 
 function init() {
      var table = document.createElement('table');
@@ -88,7 +59,7 @@ var summ_cas=summ_cas20+summ_cas40+summ_cas75+summ_cas100;
 var summ_cls=summ_cls20+summ_cls40+summ_cls75+summ_cls100;
 
 
-var out = "<table><tr><td>???????:</td><td>??????:</td></tr><tr><td>";
+var out = "<table><tr><td>остаток:</td><td>приход:</td></tr><tr><td>";
     out += document.getElementById("count_cas_id_20").value+" * 20 = " + summ_cas20 +"<br>";
     out += document.getElementById("count_cas_id_40").value+" * 40 = " + summ_cas40 +"<br>";
     out += document.getElementById("count_cas_id_75").value+" * 75 = " + summ_cas75 +"<br>";
