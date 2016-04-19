@@ -52,13 +52,14 @@ if ( $taskk == "load_array_js" ) {
             $js.="[\"".$pl[magazine_id]."\",\"".$pl[name]."\",\"".$pl[description]."\"]";
         }
         $js.="];\n";
+        $js.="alert('load array OK');\n";
         $_RESULT['js'] = $js;
     }
     else
     {
         //vidod oshibok
         $_RESULT['err'] = 'yes';
-        $log="<center><font color=#cc0000>бля сука ) </font></center>".$log;
+        $log="Alert('сука бля error');";
         $_RESULT['log'] = $log;
     }
 }

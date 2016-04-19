@@ -16,14 +16,11 @@ include "top.php";
 }
 
   function b() {
-    alert("b");
     //otvet = show_cashbox('c');
   }
   function c() {
      show_cashbox('o');
      //add_select(id_magazin,20);
-     alert("c");
-
   }
 </script>
 <div id=calc_summ>calc_form</div><br>

@@ -89,7 +89,7 @@ function calc(){
 
 
 function create_select(name_select,id_select,onchange_select,array,selected){
- console.log("func create_select start");
+  console.log("func create_select start");
   var sel = document.createElement('select');
   sel.name = name_select;
   sel.id = id_select;
@@ -104,7 +104,6 @@ function create_select(name_select,id_select,onchange_select,array,selected){
   sel.innerHTML = options_str;
   console.log(sel);
   return sel;
-
 }
 
 
@@ -113,7 +112,7 @@ document.getElementById("addtable").appendChild(table);  // ???????? ??????? ? ?
 /* magazin name, nominal */
 function add_select(magazin_id,nominal_card){
   var id_card="";
-  console.log("func add_select start");
+  //console.log("func add_select start");
   if (nominal_card==100) { id_card = 2 };
   if (nominal_card==75) { id_card = 3 };
   if (nominal_card==40) { id_card = 1 };
