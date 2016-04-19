@@ -43,8 +43,8 @@ if ( $taskk == "show_cashbox" ) {
 						<td>кол-во добавленных карт</td>
 						<td>кол-во проданных</td>
 						<td>тип операции</td>
-						<td>математика приходп</td>
-						<td>математика расхода </td>
+						<td>приход</td>
+						<td>остаток в магазине </td>
 					</tr>";
                 $res=mysql_query($SQL,$dbh);
                 print mysql_error();
@@ -55,7 +55,7 @@ if ( $taskk == "show_cashbox" ) {
                   if ( ($count_left  > 1 )  && ( $count_add > 1 ) ) { $type = "подсчет остатка и дал карточек " ;}
                   elseif ( ( $count_left > 1 ) && ( $count_add < 1 )) { $type= "подсчет остатка"; }
                   else   { $type = "добавил карточек"; }
-                  $add_card=$pl[3] . " * " .  $count_left   ." = " . ( $pl[3] * $count_add);
+                  $add_card=$pl[3] . " * " .  $count_add   ." = " . ( $pl[3] * $count_add);
                   $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>приход ".$add_card."</td><td bgcolor=#a6e3f4>продал магази ".$sale_magazin."</td></tr>";
 

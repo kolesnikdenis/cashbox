@@ -117,7 +117,7 @@ function calc(){
                 "'"+document.getElementById("count_cas_id_100").value+"', "+
                 "'"+document.getElementById("cls_100_id").value+"', "+
                 "'"+document.getElementById("count_cls_id_100").value+"', "+
-                "NOW()), <br><br><br>"+
+                "NOW()); <br><br><br>"+
                 "id_magazin:" +document.getElementById("magazin_20_id").value+
                 "id_serial_left: " +document.getElementById("cas_20_id").value+
                  "count_left: " + document.getElementById("count_cas_id_20").value+
