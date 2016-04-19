@@ -52,8 +52,8 @@ $dbh=DB_connect();
 
 <table border=1>
 <tr>
-	<td><a onclick="add_intem('add_intem'); return false;" href=#>пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</a></td>
-	<td><A onclick="alert('only_money'); return false;" href=#>пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</a></td>
+	<td><a onclick="add_intem('add_intem'); return false;" href=#>добавить карточек</a></td>
+	<td><A onclick="alert('only_money'); return false;" href=#>только деньги</a></td>
 </tr>
 </table>
 
