@@ -49,7 +49,7 @@ function add_item_coming_consumption(id_magazin){
 
                 alert(arr_shop[0][1]);
                 alert(id_magazin);
-
+                add_select(id_magazin,100);
                 var jsElm1 = document.createElement("script");
                 jsElm1.type = "application/javascript";
                 var file1="http://manage.ots.kh.ua/cashbox/test_add.js";
