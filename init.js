@@ -26,13 +26,13 @@ function add_item_coming_consumption(id_magazin){
             erdiv.innerHTML="error \""+errors+"\"";
             if (result) {
 
-                eval(result["js"]);
+                //eval(result["js"]);
 
-                //var jsElm = document.createElement("script");
-                //jsElm.type = "application/javascript";
-                //var file="http://manage.ots.kh.ua/cashbox/load_array.php";
-                //jsElm.src = file;
-                //document.getElementsByTagName('head')[0].appendChild(jsElm);
+                var jsElm = document.createElement("script");
+                jsElm.type = "application/javascript";
+                var file="http://manage.ots.kh.ua/cashbox/load_array.php";
+                jsElm.src = file;
+                document.getElementsByTagName('head')[0].appendChild(jsElm);
                 //document.body.appendChild(jsElm);
                 
 

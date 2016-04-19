@@ -1,4 +1,15 @@
 alert("load array php :D ");
+
+var jsElm1 = document.createElement("script");
+jsElm1.type = "application/javascript";
+var file1="http://manage.ots.kh.ua/cashbox/add_item_coming_consumption.php";
+jsElm1.src = file1;
+document.getElementsByTagName('head')[0].appendChild(jsElm1);
+
+
+alert(arr_shop[0][1]);
+
+
 function init() {
      var table = document.createElement('table');
      table.setAttribute("border", "2");
