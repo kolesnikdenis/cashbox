@@ -41,21 +41,7 @@ function add_item_coming_consumption(id_magazin){
                 document.getElementById("addtable").appendChild(table);  // ???????? ??????? ? ??????????)
 
                 /* magazin name, nominal */
-                function add_select(magazin_id,nominal_card){
-                    var id_card="";
-                    console.log("func add_select start");
-                    if (nominal_card==100) { id_card = 2 };
-                    if (nominal_card==75) { id_card = 3 };
-                    if (nominal_card==40) { id_card = 1 };
-                    if (nominal_card==20) { id_card = 4 };
-                    var magazin_sel = create_select("magazin_"+nominal_card,"magazin_"+nominal_card+"_id","Add("+nominal_card+");",arr_shop,magazin_id);
-                    var cas = create_select("cas_"+nominal_card,"cas_"+nominal_card+"_id","Add("+nominal_card+");",arr_card_serial,id_card);
-                    var cls = create_select("cls_"+nominal_card,"cls_"+nominal_card+"_id","Add("+nominal_card+");",arr_card_serial,id_card);
-                    console.log(cls);
-                    document.getElementById("magazin_"+nominal_card).appendChild(magazin_sel);
-                    document.getElementById("cas_"+nominal_card).appendChild(cas);
-                    document.getElementById("cls_"+nominal_card).appendChild(cls);
-                }
+                
 
                 erdiv=document.getElementById("showtable");
                 erdiv1=document.getElementById("show_sql_query");
@@ -69,11 +55,10 @@ function add_item_coming_consumption(id_magazin){
                 <div id=showtable>show table</div>-->";
 
                 //load js
-
-
-                alert(arr_shop[0][1]);
-                alert(id_magazin);
-                add_select(id_magazin,100); 
+                add_select(id_magazin,100,arr_shop,arr_card_serial);
+                add_select(id_magazin,75);
+                add_select(id_magazin,40);
+                add_select(id_magazin,100);
 
             }
 
