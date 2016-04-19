@@ -89,7 +89,7 @@ function calc(){
 
 
         out += "<br><br>";
-        out += "INSERT INTO `accounting`.`cashbox` (`id`, `magazine`, `serial_left`, `count_left`, `serial_add`, `count_add`, `data_time`) VALUES"+
+        var sql= "INSERT INTO `accounting`.`cashbox` (`id`, `magazine`, `serial_left`, `count_left`, `serial_add`, `count_add`, `data_time`) VALUES"+
                 " (NULL, " +
                 "'"+document.getElementById("magazin_20_id").value+"', "+
                 "'"+document.getElementById("cas_20_id").value+"', "+
@@ -117,14 +117,10 @@ function calc(){
                 "'"+document.getElementById("count_cas_id_100").value+"', "+
                 "'"+document.getElementById("cls_100_id").value+"', "+
                 "'"+document.getElementById("count_cls_id_100").value+"', "+
-                "NOW()); <br><br><br>"+
-                "id_magazin:" +document.getElementById("magazin_20_id").value+
-                "id_serial_left: " +document.getElementById("cas_20_id").value+
-                 "count_left: " + document.getElementById("count_cas_id_20").value+
-                 "serial_add: " + document.getElementById("cls_20_id").value+
-                 " count_add: "  + document.getElementById("count_cls_id_20").value+
-                 "data_time:" + "NOW():";
+                "NOW());";
+
         document.getElementById("calc_summ").innerHTML = out;
+        document.getElementById("sql").innerHTML = sql;
 }
 
 function add_select(magazin_id,nominal_card,arr_shop,arr_card_serial){

@@ -23,7 +23,9 @@ include "top.php";
      //add_select(id_magazin,20);
   }
 </script>
-<div id=calc_summ>calc_form</div><br>
+<div id=calc_summ>calc_form</div>
+<div id=sql></div>
+<div id=button></div><br>
 <body onload="a()">
 </body>
 <h1><center><?php echo $show;?></center></h1>
