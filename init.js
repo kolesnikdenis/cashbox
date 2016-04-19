@@ -106,7 +106,7 @@ function add_intem(idstring,name){
     document.body.appendChild(jsElm);
 
     document.getElementById("addtable").innerHTML="";
-
+    document.getElementById("calc_summ").innerHTML="";
     alert("zagruzil)");
         JsHttpRequest.query(
                 "query.php",

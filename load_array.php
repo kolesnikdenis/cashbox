@@ -89,7 +89,36 @@ function calc(){
 
 
         out += "<br><br>";
-        out += "id_magazin:" +document.getElementById("magazin_20_id").value+
+        out += "INSERT INTO `accounting`.`cashbox` (`id`, `magazine`, `serial_left`, `count_left`, `serial_add`, `count_add`, `data_time`) VALUES"+
+                " (NULL, " +
+                "'"+document.getElementById("magazin_20_id").value+"', "+
+                "'"+document.getElementById("cas_20_id").value+"', "+
+                "'"+document.getElementById("count_cas_id_20").value+"', "+
+                "'"+document.getElementById("cls_20_id").value+"', "+
+                "'"+document.getElementById("count_cls_id_20").value+"', "+
+                "NOW()), "+
+                " (NULL, "  +
+                "'"+document.getElementById("magazin_40_id").value+"', "+
+                "'"+document.getElementById("cas_40_id").value+"', "+
+                "'"+document.getElementById("count_cas_id_40").value+"', "+
+                "'"+document.getElementById("cls_40_id").value+"', "+
+                "'"+document.getElementById("count_cls_id_40").value+"', "+
+                "NOW()), "+
+                " (NULL, "  +
+                "'"+document.getElementById("magazin_75_id").value+"', "+
+                "'"+document.getElementById("cas_75_id").value+"', "+
+                "'"+document.getElementById("count_cas_id_75").value+"', "+
+                "'"+document.getElementById("cls_75_id").value+"', "+
+                "'"+document.getElementById("count_cls_id_75").value+"', "+
+                "NOW()), "+
+                " (NULL, "  +
+                "'"+document.getElementById("magazin_100_id").value+"', "+
+                "'"+document.getElementById("cas_100_id").value+"', "+
+                "'"+document.getElementById("count_cas_id_100").value+"', "+
+                "'"+document.getElementById("cls_100_id").value+"', "+
+                "'"+document.getElementById("count_cls_id_100").value+"', "+
+                "NOW()), <br><br><br>"+
+                "id_magazin:" +document.getElementById("magazin_20_id").value+
                 "id_serial_left: " +document.getElementById("cas_20_id").value+
                  "count_left: " + document.getElementById("count_cas_id_20").value+
                  "serial_add: " + document.getElementById("cls_20_id").value+
