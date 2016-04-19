@@ -91,9 +91,9 @@ function calc(){
         out += "<br><br>";
         out += "id_magazin:" +document.getElementById("magazin_20_id").value+
                 "id_serial_left: " +document.getElementById("cas_20_id").value+
-                 "count_left: " + document.getElementById("count_cas_20").value+
+                 "count_left: " + document.getElementById("count_cas_id_20").value+
                  "serial_add: " + document.getElementById("cls_20_id").value+
-                 " count_add: "  + document.getElementById("count_cls_20").value+
+                 " count_add: "  + document.getElementById("count_cls_id_20").value+
                  "data_time:" + "NOW():";
         document.getElementById("calc_summ").innerHTML = out;
 }
