@@ -40,19 +40,23 @@ $array_pay=array();
 $global_summ_minik=4490;
 function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
     global $array_pay,$global_summ_minik,$date;
-    if ($date != $date_in){
-        #echo "\$date: ".$date. " \$date_in: ".$date_in."\n";
-        $ost = $array_pay[$shop_name][$date][ost];
-        $add = $array_pay[$shop_name][$date][add];
-        #echo "prodal: ". $global_summ_minik ." - ". $ost. "\n";
-        $array_pay[$shop_name][$date][prodal] = $global_summ_minik-$array_pay[$shop_name][$date][ost];
+    if ( ($date != $date_in ) && ($left_card !=99 )  ){
+        $ost = $array_pay[$shop_name][$date]['ost'];
+        $add = $array_pay[$shop_name][$date]['add'];
+        $array_pay[$shop_name][$date]['prodal'] = $global_summ_minik-$array_pay[$shop_name][$date]['ost'];
         $global_summ_minik = $ost + $add;
-        #echo "global_summ_minik = ost + add ". $global_summ_minik. " = ". $ost . " + ". $add ."\n";
+        echo "global_summ_minik = ost + add ". $global_summ_minik. " = ". $ost . " + ". $add ."\n";
         $date=$date_in;
-        }
-    $array_pay[$shop_name][$date_in][ost]+=$left_card;
-    $array_pay[$shop_name][$date_in][add]+=$add_card;
+    }
+    else {
+        $array_pay[$shop_name][$date]['prodal'] = $global_summ_minik-$array_pay[$shop_name][$date]['ost'];
+    }
+    if ($left_card !=99 ){
+        $array_pay[$shop_name][$date_in]['ost']+=$left_card;
+        $array_pay[$shop_name][$date_in]['add']+=$add_card;
+    }
 }
+
 
 
 
@@ -92,9 +96,14 @@ if ( $taskk == "show_cashbox" ) {
                   if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) { calc_ost(global_summ_centr,($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[2], $pl[data_time]); }
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
                 }
-
-
                 $out.="</table>";
+
+                foreach ($array_pay["minimarcet"] as $key => &$value) {
+                        $out. "= ost =" . $value['ost']."<br>";
+                        $out. "= add =" . $value['add']."<br>";
+                        $out. "= pro =<b>" . $value['prodal']."</b><br>";
+                }
+
                 $out.="родничек продал на сумму: ".$global_summ_rodnik ."<br>".
                 "Минимаркет на сумму: ". $global_summ_minik_prodal. "сейчас остаток в минимаркете:".$global_summ_minik."<br>".
                 "Центр на сумму: ". $global_summ_centr."<br>".
