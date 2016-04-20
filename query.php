@@ -40,6 +40,7 @@ $array_pay=array();
 
 function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
     global $array_pay,$global_summ_minik,$date;
+    if ( $date == "231" ) { $date = $date_in; }
     if ( ($date != $date_in ) && ($left_card !=99 )  ){
         $ost = $array_pay[$shop_name][$date]['ost'];
         $add = $array_pay[$shop_name][$date]['add'];
