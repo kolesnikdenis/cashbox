@@ -97,7 +97,10 @@ if ( $taskk == "sql_save" ) {
     $_RESULT['js'] = "";
     $_RESULT['text'] = "данные сохраненны<br><a href=\"#\" onclick=\"show_cashbox('o');\">переход центральную страницу</a>";
     $_RESULT['err'] = 'no';
+    $_RESULT['sql'] = $savesql;
 }
+
+
 if ( $taskk == "add_intem" ) {
         if($eierr=="no"){
                 $dbh=DB_connect(); 

@@ -96,7 +96,7 @@ function show_cashbox(idstring,name){
 function save_to_sql(){
     sql_query=document.getElementById('sql');
     console.log(sql_query);
-    alert(sql_query.innerHTML);
+    //alert(sql_query.innerHTML);
     //erdiv.innerHTML = "please wait ...";
     //alert("idstring"+idstring);
     //alert("name "+ name) ;
@@ -104,7 +104,7 @@ function save_to_sql(){
     JsHttpRequest.query(
         "query.php",
         {
-            "savesql": sql_query, "tas": 'sql_save'
+            "savesql": sql_query.innerHTML, "tas": 'sql_save'
         },
         function (result, errors) {
 
