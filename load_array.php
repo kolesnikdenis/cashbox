@@ -40,7 +40,7 @@ function init() {
                               cellText.onchange =  function(){ calc(); return; }; }
                 if ( j == 5 ) { cellText = document.createElement("input");
                               cellText.type = "text";
-                              cellText.size = "4";
+                              cellText.size = "10";
                               cellText.value=curr_year + "-" + curr_month + "-" + curr_date;
                               cellText.name="date_"+id;
                               cellText.id  = "datepicker";

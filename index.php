@@ -48,12 +48,6 @@ include "top.php";
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css" />
-  <script>
-  $(function() {
-    $( "#datepicker1" ).datepicker({ dateFormat: 'yy-mm-dd' });
-    $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
-  });
-  </script>
 
 <table border=1>
 <tr>

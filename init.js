@@ -20,6 +20,13 @@ function add_item_coming_consumption(id_magazin){
     jsElm.src = file;
     document.getElementsByTagName('head')[0].appendChild(jsElm);
     document.body.appendChild(jsElm);*/
+
+
+
+    $(function() {
+        $( "#datepicker1" ).datepicker({ dateFormat: 'yy-mm-dd' });
+        $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    });
     
     JsHttpRequest.query(
         "add_item_coming_consumption.php",
@@ -123,13 +130,20 @@ function save_to_sql(){
 }
 
 
-function add_intem(idstring,name){ 
+function add_intem(idstring,name){
     var jsElm = document.createElement("script");
     jsElm.type = "application/javascript";
     var file="http://manage.ots.kh.ua/cashbox/load_array.php";
     jsElm.src = file;
     document.getElementsByTagName('head')[0].appendChild(jsElm);
     document.body.appendChild(jsElm);
+
+
+    $(function() {
+        $( "#datepicker1" ).datepicker({ dateFormat: 'yy-mm-dd' });
+        $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    });
+
 
     document.getElementById("addtable").innerHTML="";
     document.getElementById("calc_summ").innerHTML="";
