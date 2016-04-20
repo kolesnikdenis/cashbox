@@ -58,8 +58,6 @@ function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
 }
 
 
-
-
 if ( $taskk == "show_cashbox" ) {
         if($eierr=="no"){
                 $dbh=DB_connect();
