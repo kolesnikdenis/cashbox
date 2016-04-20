@@ -87,6 +87,7 @@ function show_cashbox(idstring,name){
                                 erdiv1=document.getElementById("show_sql_query");
                                 erdiv.innerHTML=result["text"];
                                 erdiv1.innerHTML=result["sql"];
+
                           }
 
                 }
@@ -95,12 +96,9 @@ function show_cashbox(idstring,name){
 
 function save_to_sql(){
     sql_query=document.getElementById('sql').innerHTML;
-    console.log(sql_query);
-    //alert(sql_query.innerHTML);
-    //erdiv.innerHTML = "please wait ...";
-    //alert("idstring"+idstring);
-    //alert("name "+ name) ;
-    
+    document.getElementById("calc_summ").innerHTML="";;
+    document.getElementById("addtable").innerHTML="";;
+   
     JsHttpRequest.query(
         "query.php",
         {
@@ -116,6 +114,8 @@ function save_to_sql(){
                 erdiv1=document.getElementById("show_sql_query");
                 erdiv.innerHTML=result["text"];
                 erdiv1.innerHTML=result["sql"];
+                
+
             }
 
         }
