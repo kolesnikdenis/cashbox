@@ -10,7 +10,7 @@ function init() {
       for (var i = 0; i < 4; i++) {
      var tr = document.createElement('tr');
 
-     for (var j = 0; j < 5; j++) {
+     for (var j = 0; j < 6; j++) {
                 var td = document.createElement('td');
                 td.bgcolor = "#ADDDE6";
                 if ( i ==0 ){ var id="20";  }
