@@ -93,6 +93,34 @@ function show_cashbox(idstring,name){
         )
 }
 
+function save_to_sql(){
+    sql_query=document.getElementById('show_sql_query').innerHTML;
+    alert(erdiv);
+    //erdiv.innerHTML = "please wait ...";
+    //alert("idstring"+idstring);
+    //alert("name "+ name) ;
+    /*
+    JsHttpRequest.query(
+        "query.php",
+        {
+            "savesql": sql_query, "tas": 'sql_save'
+        },
+        function (result, errors) {
+
+            //finddiv=name+"-"+idstring;
+            erdiv=document.getElementById("showtable");
+            erdiv.innerHTML="error \""+errors+"\"";
+            if (result) {
+                erdiv=document.getElementById("showtable");
+                erdiv1=document.getElementById("show_sql_query");
+                erdiv.innerHTML=result["text"];
+                erdiv1.innerHTML=result["sql"];
+            }
+
+        }
+    )*/
+}
+
 
 function add_intem(idstring,name){
         //erdiv=document.getElementById('showsqury');
