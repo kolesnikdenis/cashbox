@@ -140,8 +140,8 @@ function add_intem(idstring,name){
 
 
     $(function() {
-        $( "#datepicker1" ).datepicker({ dateFormat: 'yy-mm-dd' });
         $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+        alert("blin2");
     });
 
 
