@@ -55,7 +55,7 @@ function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
         $array_pay[$shop_name][$date_in]['ost']+=$left_card;
         $array_pay[$shop_name][$date_in]['add']+=$add_card;
     }
-    return $date;
+    return $global_summ_minik." - " . $add_Card."<br>";
 }
 
 
