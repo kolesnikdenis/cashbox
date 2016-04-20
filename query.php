@@ -78,10 +78,13 @@ if ( $taskk == "show_cashbox" ) {
 
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
                 }
-                $global_summ_minik=$global_summ_minik-$ost_minik+$add_minik;
+                $global_summ_minik_prodal=$global_summ_minik-$ost_minik;
+                $global_summ_minik = $global_summ_minik- $global_summ_minik_prodal+ $add_minik;
+
+
                 $out.="</table>";
                 $out.="родничек продал на сумму: ".$global_summ_rodnik ."<br>".
-                "Минимаркет на сумму: ". $global_summ_minik."<br>".
+                "Минимаркет на сумму: ". $global_summ_minik_prodal. "сейчас остаток в минимаркете:".$global_summ_minik."<br>".
                 "Центр на сумму: ". $global_summ_centr."<br>".
                 "Поселок на сумму: ". $global_summ_poselok."<br>";
                 $out.="всего прибыль за выбраный период".( $global_summ_rodnik +  $global_summ_minik + $global_summ_centr + $global_summ_poselok)."<br><hr>";
