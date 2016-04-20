@@ -98,10 +98,12 @@ if ( $taskk == "show_cashbox" ) {
                 }
                 $out.="</table>";
 
+
                 foreach ($array_pay["minimarcet"] as $key => &$value) {
                         $out. "= ost =" . $value['ost']."<br>";
                         $out. "= add =" . $value['add']."<br>";
                         $out. "= pro =<b>" . $value['prodal']."</b><br>";
+                        $global_summ_minik_prodal +=$value['prodal'];
                 }
 
                 $out.="родничек продал на сумму: ".$global_summ_rodnik ."<br>".
