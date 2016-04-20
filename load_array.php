@@ -1,7 +1,9 @@
 
 function init() {
-     var now = new Date();
-     var formated_date = now.format("yyyy-mm-dd");
+    var d = new Date();
+    var curr_date = d.getDate();
+    var curr_month = d.getMonth() + 1;
+    var curr_year = d.getFullYear();
 
      var table = document.createElement('table');
      table.setAttribute("border", "2");
@@ -39,7 +41,7 @@ function init() {
                 if ( j == 5 ) { cellText = document.createElement("input");
                               cellText.type = "text";
                               cellText.size = "4";
-                              cellText.value=formated_date;
+                              cellText.value=curr_year + "-" + curr_month + "-" + curr_date;
                               cellText.name="date_"+id;
                               cellText.id  = "datepicker";
                               cellText.onchange =  function(){ calc(); return; }; }
