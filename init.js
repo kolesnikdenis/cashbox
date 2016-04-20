@@ -23,10 +23,6 @@ function add_item_coming_consumption(id_magazin){
 
 
 
-    $(function() {
-        $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
-        alert("blin....");
-    });
     
     JsHttpRequest.query(
         "add_item_coming_consumption.php",
@@ -48,7 +44,11 @@ function add_item_coming_consumption(id_magazin){
                 document.getElementById("addtable").appendChild(table);  // ???????? ??????? ? ??????????)
 
                 /* magazin name, nominal */
-                
+
+                $(function() {
+                    $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+                    alert("blin2");
+                });
 
                 erdiv=document.getElementById("showtable").innerHTML="";
                 erdiv1=document.getElementById("show_sql_query");
@@ -139,10 +139,6 @@ function add_intem(idstring,name){
     document.body.appendChild(jsElm);
 
 
-    $(function() {
-        $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
-        alert("blin2");
-    });
 
 
     document.getElementById("addtable").innerHTML="";
