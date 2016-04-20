@@ -108,28 +108,28 @@ function calc(){
                 "'"+document.getElementById("count_cas_id_20").value+"', "+
                 "'"+document.getElementById("cls_20_id").value+"', "+
                 "'"+document.getElementById("count_cls_id_20").value+"', "+
-                "'"+document.getElementById("datepicker").value+"'), "+
+                "'"+document.getElementById("datepicker").value+" 14:00:00.000000'), "+
                 " (NULL, "  +
                 "'"+document.getElementById("magazin_40_id").value+"', "+
                 "'"+document.getElementById("cas_40_id").value+"', "+
                 "'"+document.getElementById("count_cas_id_40").value+"', "+
                 "'"+document.getElementById("cls_40_id").value+"', "+
                 "'"+document.getElementById("count_cls_id_40").value+"', "+
-                "'"+document.getElementById("datepicker").value+"'), "+
+                "'"+document.getElementById("datepicker").value+" 14:00:00.000000'), "+
                 " (NULL, "  +
                 "'"+document.getElementById("magazin_75_id").value+"', "+
                 "'"+document.getElementById("cas_75_id").value+"', "+
                 "'"+document.getElementById("count_cas_id_75").value+"', "+
                 "'"+document.getElementById("cls_75_id").value+"', "+
                 "'"+document.getElementById("count_cls_id_75").value+"', "+
-                "'"+document.getElementById("datepicker").value+"'), "+
+                "'"+document.getElementById("datepicker").value+" 14:00:00.000000'), "+
                 " (NULL, "  +
                 "'"+document.getElementById("magazin_100_id").value+"', "+
                 "'"+document.getElementById("cas_100_id").value+"', "+
                 "'"+document.getElementById("count_cas_id_100").value+"', "+
                 "'"+document.getElementById("cls_100_id").value+"', "+
                 "'"+document.getElementById("count_cls_id_100").value+"', "+
-                "'"+document.getElementById("datepicker").value+"'); ";
+                "'"+document.getElementById("datepicker").value+" 14:00:00.000000'); ";
 
         document.getElementById("calc_summ").innerHTML = out;
         document.getElementById("sql").innerHTML = sql;
