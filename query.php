@@ -39,7 +39,7 @@ $array_pay=array();
 
 
 function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
-    global $array_pay,$global_summ_minik,$date;
+    //global $array_pay,$global_summ_minik,$date;
     if ( ($date != $date_in ) && ($left_card !=99 )  ){
         $ost = $array_pay[$shop_name][$date]['ost'];
         $add = $array_pay[$shop_name][$date]['add'];
@@ -107,7 +107,7 @@ if ( $taskk == "show_cashbox" ) {
                 "Минимаркет на сумму: ". $global_summ_minik_prodal. "сейчас остаток в минимаркете:".$global_summ_minik."<br>".
                 "Центр на сумму: ". $global_summ_centr."<br>".
                 "Поселок на сумму: ". $global_summ_poselok."<br>";
-                $out.="всего прибыль за выбраный период".( $global_summ_rodnik +  $global_summ_minik + $global_summ_centr + $global_summ_poselok)."<br><hr>";
+                //$out.="всего прибыль за выбраный период".( $global_summ_rodnik +  $global_summ_minik + $global_summ_centr + $global_summ_poselok)."<br><hr>";
 
                 $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
                 $_RESULT['text'] = $out;
