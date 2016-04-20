@@ -35,11 +35,14 @@ $global_summ_centr=4520;//3
 $global_summ_poselok=4700;//4
 
 
+$global_summ_minik=4490;
 function calc_ost($ost_old,$left_card,$add_card) {
-    $prodal_magazin= $ost_old-($left_card);
-    $new_ost = $ost_old-$prodal_magazin+$add_card;
+    $new_ost= $ost_old-$left_card;
+    $prodal_magazin=$ost_old-$new_ost;
+    $new_ost = $new_ost+$add_card;
     return $new_ost;
 }
+
 if ( $taskk == "show_cashbox" ) {
 
 
