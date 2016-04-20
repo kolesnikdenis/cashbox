@@ -84,13 +84,12 @@ if ( $taskk == "show_cashbox" ) {
                   $out.="<tr><td>".$pl[2]."</td><td>".$pl[name]."</td><td>".$pl[data_time]."</td>";
                   $count_left=$pl[count_left];
                   $count_add=$pl[count_add];
-
                   if ( ($count_left  > 1 )  && ( $count_add > 1 ) ) { $type = "подсчет остатка и дал карточек " ;}
                   elseif ( ( $count_left > 1 ) && ( $count_add < 1 )) { $type= "подсчет остатка"; }
                   else   { $type = "добавил карточек"; }
+                  $add_card=$pl[3] . " * " .  $count_add   ." = " . ( $pl[3] * $count_add);
+                  $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
                   if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) { calc_ost(global_summ_centr,($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[2], $pl[data_time]); }
-
-
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
                 }
 
@@ -106,7 +105,6 @@ if ( $taskk == "show_cashbox" ) {
                 $_RESULT['text'] = $out;
                 $_RESULT['sql'] = $SQL;
                 $_RESULT['err'] = 'no';
-                var_dump($array_pay);
         }
         else
         {
