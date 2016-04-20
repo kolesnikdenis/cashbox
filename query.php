@@ -55,7 +55,7 @@ function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
         $array_pay[$shop_name][$date_in]['ost']+=$left_card;
         $array_pay[$shop_name][$date_in]['add']+=$add_card;
     }
-    return $global_summ_minik." - " . $add_card."<br>";
+    return $ost_old ." - " . $add_card."<br>";
 }
 
 
@@ -90,7 +90,7 @@ if ( $taskk == "show_cashbox" ) {
                   else   { $type = "добавил карточек"; }
                   $add_card=$pl[3] . " * " .  $count_add   ." = " . ( $pl[3] * $count_add);
                   $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
-                  if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) { $out.=calc_ost(global_summ_centr,($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]); }
+                  if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) { $out.=calc_ost($global_summ_minik,($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]); }
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
                 }
                 $out.="</table>";
