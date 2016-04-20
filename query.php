@@ -39,7 +39,7 @@ $array_pay=array();
 
 
 function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
-    //global $array_pay,$global_summ_minik,$date;
+    global $array_pay,$global_summ_minik,$date;
     if ( ($date != $date_in ) && ($left_card !=99 )  ){
         $ost = $array_pay[$shop_name][$date]['ost'];
         $add = $array_pay[$shop_name][$date]['add'];
@@ -100,7 +100,7 @@ if ( $taskk == "show_cashbox" ) {
                 $out.="</table>";
                 calc_ost($global_summ_minik,(99 * 1), ( 99 * 1), "333", minimarcet);
 
-                global $array_pay;
+                //global $array_pay;
                 foreach ($array_pay["minimarcet"] as $key => &$value) {
                         $out. "= ost =" . $value['ost']."<br>";
                         $out. "= add =" . $value['add']."<br>";
