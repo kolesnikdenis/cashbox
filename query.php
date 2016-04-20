@@ -37,7 +37,7 @@ $date="231";
 $array_pay=array();
 
 
-$global_summ_minik=4490;
+
 function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
     global $array_pay,$global_summ_minik,$date;
     if ( ($date != $date_in ) && ($left_card !=99 )  ){
@@ -45,7 +45,7 @@ function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
         $add = $array_pay[$shop_name][$date]['add'];
         $array_pay[$shop_name][$date]['prodal'] = $global_summ_minik-$array_pay[$shop_name][$date]['ost'];
         $global_summ_minik = $ost + $add;
-        echo "global_summ_minik = ost + add ". $global_summ_minik. " = ". $ost . " + ". $add ."\n";
+        #echo "global_summ_minik = ost + add ". $global_summ_minik. " = ". $ost . " + ". $add ."\n";
         $date=$date_in;
     }
     else {
@@ -55,6 +55,7 @@ function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
         $array_pay[$shop_name][$date_in]['ost']+=$left_card;
         $array_pay[$shop_name][$date_in]['add']+=$add_card;
     }
+    return $global_summ_minik;
 }
 
 
@@ -89,7 +90,7 @@ if ( $taskk == "show_cashbox" ) {
                   else   { $type = "добавил карточек"; }
                   $add_card=$pl[3] . " * " .  $count_add   ." = " . ( $pl[3] * $count_add);
                   $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
-                  if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) { $out.="datetime:". $pl[data_time] . " magaz:".$pl[2]."<br>"; calc_ost(global_summ_centr,($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[2], $pl[data_time]); }
+                  if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) { $out.=calc_ost(global_summ_centr,($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[2], $pl[data_time]); }
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
                 }
                 $out.="</table>";
