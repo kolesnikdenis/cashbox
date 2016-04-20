@@ -47,7 +47,6 @@ function add_item_coming_consumption(id_magazin){
 
                 $(function() {
                     $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
-                    alert("blin2");
                 });
 
                 erdiv=document.getElementById("showtable").innerHTML="";
