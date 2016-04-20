@@ -96,7 +96,7 @@ function show_cashbox(idstring,name){
 function save_to_sql(){
     sql_query=document.getElementById('show_sql_query');
     console.log(sql_query);
-    alert(sql_query);
+    alert(sql_query.innerHTML);
     //erdiv.innerHTML = "please wait ...";
     //alert("idstring"+idstring);
     //alert("name "+ name) ;
@@ -136,6 +136,7 @@ function add_intem(idstring,name){
 
     document.getElementById("addtable").innerHTML="";
     document.getElementById("calc_summ").innerHTML="";
+    document.getElementById("show_sql_query").innerHTML="";
     alert("zagruzil)");
         JsHttpRequest.query(
                 "query.php",
