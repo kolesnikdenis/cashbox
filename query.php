@@ -46,13 +46,16 @@ if ( $taskk == "show_cashbox" ) {
 						<td>номинал</td>
 						<td>дата транзакции</td>
 						<td>кол-во добавленных карт</td>
-						<td>кол-во проданных</td>
+						<td>кол-во остатка</td>
 						<td>тип операции</td>
 						<td>приход</td>
 						<td>остаток в магазине </td>
 					</tr>";
                 $res=mysql_query($SQL,$dbh);
                 print mysql_error();
+                $ost_minik=0;
+
+
                 while ($pl=mysql_fetch_array($res)){
                   $out.="<tr><td>".$pl[name]."</td><td>".$pl[2]."</td><td>".$pl[data_time]."</td>";
                   $count_left=$pl[count_left];
@@ -63,13 +66,14 @@ if ( $taskk == "show_cashbox" ) {
                   $add_card=$pl[3] . " * " .  $count_add   ." = " . ( $pl[3] * $count_add);
                   $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
                   if ( strCaseCmp($pl[2], "rodnichek" ) !==0 )  { $global_summ_rodnik=$global_summ_rodnik-($pl[3] * $count_left )+( $pl[3] * $count_add); }
-                  if ( strCaseCmp($pl[2], "minimarcet" ) !==0 )  {  $global_summ_minik=$global_summ_minik-($pl[3] * $count_left )+( $pl[3] * $count_add); }
+                  if ( strCaseCmp($pl[2], "minimarcet" ) !==0 )  {  $ots_minic+=($pl[3] * $count_left ); $add_minic += ( $pl[3] * $count_add);}
                   if ( strCaseCmp($pl[2], "centr" ) !==0 )  {  $global_summ_centr=$global_summ_centr- ($pl[3] * $count_left )+( $pl[3] * $count_add); }
                   if ( strCaseCmp($pl[2], "poselok" ) !==0 )  {   $global_summ_poselok=$global_summ_poselok- ($pl[3] * $count_left )+( $pl[3] * $count_add); }
 
 
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
                 }
+                $global_summ_minik=$global_summ_minik-$ots_minik+$add_minik;
                 $out.="</table>";
                 $out.="родничек продал на сумму: ".$global_summ_rodnik ."<br>".
                 "Минимаркет на сумму: ". $global_summ_minik."<br>".
