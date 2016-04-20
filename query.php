@@ -32,14 +32,14 @@ $eierr="no";
 $global_summ_rodnik=3650; //rodnik2
 $global_summ_centr=4520;//3
 $global_summ_poselok=4700;//4
-$global_summ_minik=4490;
+global  $global_summ_minik=4490;
 $date="231";
 $array_pay=array();
 
 
 
 function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
-    //global $array_pay,$global_summ_minik,$date;
+    $array_pay,$global_summ_minik,$date;
     if ( ($date != $date_in ) && ($left_card !=99 )  ){
         $ost = $array_pay[$shop_name][$date]['ost'];
         $add = $array_pay[$shop_name][$date]['add'];
