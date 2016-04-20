@@ -94,7 +94,7 @@ function show_cashbox(idstring,name){
 }
 
 function save_to_sql(){
-    sql_query=document.getElementById('show_sql_query');
+    sql_query=document.getElementById('sql');
     console.log(sql_query);
     alert(sql_query.innerHTML);
     //erdiv.innerHTML = "please wait ...";
