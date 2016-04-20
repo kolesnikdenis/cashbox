@@ -44,7 +44,9 @@ function init() {
                               if (i > 0 ) { cellText.setAttribute("readOnly","true"); );
                               cellText.value=curr_year + "-" + curr_month + "-" + curr_date;
                               cellText.name="date_"+id;
-                              cellText.id  = "datepicker";
+                              if (i > 0 ) {  cellText.id  = "datepicker_"+i; };else {
+                                cellText.id  = "datepicker";
+                              }
                               cellText.onchange =  function(){ calc(); return; }; }
                 td.appendChild(cellText);
                 tr.appendChild(td);
