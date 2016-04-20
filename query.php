@@ -45,7 +45,7 @@ function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
         $add = $array_pay[$shop_name][$date]['add'];
         $array_pay[$shop_name][$date]['prodal'] = $ost_old-$array_pay[$shop_name][$date]['ost'];
         $ost_old = $ost + $add;
-        #echo "global_summ_minik = ost + add ". $ost_old. " = ". $ost . " + ". $add ."\n";
+        $add="global_summ_minik = ost + add ". $ost_old. " = ". $ost . " + ". $add ."\n";
         $date=$date_in;
     }
     else {
@@ -55,7 +55,7 @@ function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
         $array_pay[$shop_name][$date_in]['ost']+=$left_card;
         $array_pay[$shop_name][$date_in]['add']+=$add_card;
     }
-    return $ost_old;
+    return $ost_old.$add;
 }
 
 
