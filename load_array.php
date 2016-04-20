@@ -1,9 +1,13 @@
 
 function init() {
+     var now = new Date();
+     var formated_date = now.format("yyyy-mm-dd");
+
      var table = document.createElement('table');
      table.setAttribute("border", "2");
       for (var i = 0; i < 4; i++) {
      var tr = document.createElement('tr');
+
      for (var j = 0; j < 5; j++) {
                 var td = document.createElement('td');
                 td.bgcolor = "#ADDDE6";
@@ -32,7 +36,13 @@ function init() {
                               cellText.name="count_cls_"+id;
                               cellText.id  = "count_cls_id_"+id;
                               cellText.onchange =  function(){ calc(); return; }; }
-
+                if ( j == 5 ) { cellText = document.createElement("input");
+                              cellText.type = "text";
+                              cellText.size = "4";
+                              cellText.value=formated_date;
+                              cellText.name="date_"+id;
+                              cellText.id  = "datepicker";
+                              cellText.onchange =  function(){ calc(); return; }; }
                 td.appendChild(cellText);
                 tr.appendChild(td);
 
