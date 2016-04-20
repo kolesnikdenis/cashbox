@@ -100,7 +100,7 @@ function save_to_sql(){
     //erdiv.innerHTML = "please wait ...";
     //alert("idstring"+idstring);
     //alert("name "+ name) ;
-    /*
+    
     JsHttpRequest.query(
         "query.php",
         {
@@ -119,7 +119,7 @@ function save_to_sql(){
             }
 
         }
-    )*/
+    )
 }
 
 

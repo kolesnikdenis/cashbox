@@ -89,8 +89,15 @@ if ( $taskk == "show_cashbox" ) {
 
 }
 
-
-
+if ( $taskk == "sql_save" ) {
+    $dbh=DB_connect();
+    $SQL = $savesql;
+    $res=mysql_query($SQL,$dbh);
+    print mysql_error();
+    $_RESULT['js'] = "";
+    $_RESULT['text'] = "данные сохраненны<br><a href=\"#\" onclick=\"show_cashbox('o');\">переход центральную страницу</a>";
+    $_RESULT['err'] = 'no';
+}
 if ( $taskk == "add_intem" ) {
         if($eierr=="no"){
                 $dbh=DB_connect(); 
