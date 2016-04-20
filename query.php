@@ -39,7 +39,7 @@ $array_pay=array();
 
 
 function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
-    global $array_pay,$global_summ_minik,$date;
+    //global $array_pay,$global_summ_minik,$date;
     if ( ($date != $date_in ) && ($left_card !=99 )  ){
         $ost = $array_pay[$shop_name][$date]['ost'];
         $add = $array_pay[$shop_name][$date]['add'];
@@ -93,7 +93,7 @@ if ( $taskk == "show_cashbox" ) {
                   if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) {
                     global $global_summ_minik;
                     $global_summ_minik=calc_ost($global_summ_minik,($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
-                    $oun .= $global_summ_minik."<br>";
+                    $oun .= $global_summ_minik."out<br>";
                   }
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
                 }
