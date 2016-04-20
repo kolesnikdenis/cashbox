@@ -68,7 +68,7 @@ function add_item_coming_consumption(id_magazin){
 }
 
 function show_cashbox(idstring,name){
-        //erdiv=document.getElementById('showsqury');
+        erdiv=document.getElementById('sql').innerHTML="";
         //erdiv.innerHTML = "please wait ...";
         //alert("idstring"+idstring);
         //alert("name "+ name) ;
