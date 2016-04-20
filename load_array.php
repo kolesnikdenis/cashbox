@@ -41,6 +41,7 @@ function init() {
                 if ( j == 5 ) { cellText = document.createElement("input");
                               cellText.type = "text";
                               cellText.size = "10";
+                              if (i > 0 ) { cellText.setAttribute("readOnly","true"); );
                               cellText.value=curr_year + "-" + curr_month + "-" + curr_date;
                               cellText.name="date_"+id;
                               cellText.id  = "datepicker";
