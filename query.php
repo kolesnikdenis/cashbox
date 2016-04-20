@@ -98,7 +98,7 @@ if ( $taskk == "show_cashbox" ) {
                 }
                 $out.="</table>";
 
-
+                global $array_pay;
                 foreach ($array_pay["minimarcet"] as $key => &$value) {
                         $out. "= ost =" . $value['ost']."<br>";
                         $out. "= add =" . $value['add']."<br>";
