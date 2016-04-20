@@ -123,10 +123,7 @@ function save_to_sql(){
 }
 
 
-function add_intem(idstring,name){
-        //erdiv=document.getElementById('showsqury');
-        //erdiv.innerHTML = "please wait ...";
-        //alert("idstring"+idstring);
+function add_intem(idstring,name){ 
     var jsElm = document.createElement("script");
     jsElm.type = "application/javascript";
     var file="http://manage.ots.kh.ua/cashbox/load_array.php";
@@ -137,7 +134,7 @@ function add_intem(idstring,name){
     document.getElementById("addtable").innerHTML="";
     document.getElementById("calc_summ").innerHTML="";
     document.getElementById("show_sql_query").innerHTML="";
-    alert("zagruzil)");
+
         JsHttpRequest.query(
                 "query.php",
                 {
