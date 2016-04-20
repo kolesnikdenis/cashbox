@@ -30,7 +30,7 @@ $set_datetime = $_REQUEST['set_datetime'];
 $eierr="no";
 if ( $taskk == "show_cashbox" ) {
 
-        $global_summ_minik=449;//minik1
+        $global_summ_minik=4490;//minik1
         $global_summ_rodnik=3650; //rodnik2
         $global_summ_centr=4520;//3
         $global_summ_poselok=4700;//4
