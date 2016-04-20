@@ -93,7 +93,7 @@ if ( $taskk == "show_cashbox" ) {
                   if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) {
                     global $global_summ_minik;
                     $global_summ_minik=calc_ost($global_summ_minik,($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
-                    $oun .= $global_summ_minik."out<br>";
+                    $out .= $global_summ_minik."out<br>";
                   }
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
                 }
