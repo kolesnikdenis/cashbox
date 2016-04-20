@@ -24,8 +24,8 @@ function add_item_coming_consumption(id_magazin){
 
 
     $(function() {
-        $( "#datepicker1" ).datepicker({ dateFormat: 'yy-mm-dd' });
         $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+        alert("blin....");
     });
     
     JsHttpRequest.query(
