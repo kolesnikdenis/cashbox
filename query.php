@@ -61,8 +61,6 @@ function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
 
 
 if ( $taskk == "show_cashbox" ) {
-
-
         if($eierr=="no"){
                 $dbh=DB_connect();
                 $SQL = "select  cashbox.id, cashbox.data_time, magazine.name, card_serial.name, cashbox.serial_left, cashbox.count_left, card_serial.name, cashbox.count_add,cashbox.serial_add  from  cashbox,card_serial,magazine where cashbox.magazine= magazine .magazine_id and card_serial.card_id = cashbox.serial_left  ORDER BY `cashbox`.`data_time` DESC ";
