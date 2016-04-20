@@ -88,7 +88,7 @@ function calc(){
 
 
 
-        out += "<br><br>";
+        out += "<br><br><button name=save_sql value='сохранить данные' onchange=\"alert('save');\">save</button>";
         var sql= "INSERT INTO `accounting`.`cashbox` (`id`, `magazine`, `serial_left`, `count_left`, `serial_add`, `count_add`, `data_time`) VALUES"+
                 " (NULL, " +
                 "'"+document.getElementById("magazin_20_id").value+"', "+
