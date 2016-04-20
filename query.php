@@ -30,10 +30,10 @@ $set_datetime = $_REQUEST['set_datetime'];
 $eierr="no";
 if ( $taskk == "show_cashbox" ) {
 
-        $global_summ_minik=0;//minik1
-        $global_summ_rodnik=0; //rodnik2
-        $global_summ_centr=0;//3
-        $global_summ_poselok=0;//4
+        $global_summ_minik=449;//minik1
+        $global_summ_rodnik=3650; //rodnik2
+        $global_summ_centr=4520;//3
+        $global_summ_poselok=4700;//4
 
         if($eierr=="no"){
                 $dbh=DB_connect();
