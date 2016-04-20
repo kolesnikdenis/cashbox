@@ -29,19 +29,32 @@ $id_user = $_SESSION['login_id'];
 $set_datetime = $_REQUEST['set_datetime'];
 $eierr="no";
 
-$global_summ_minik=4490;//minik1
 $global_summ_rodnik=3650; //rodnik2
 $global_summ_centr=4520;//3
 $global_summ_poselok=4700;//4
+$global_summ_minik=4490;
+$date="231";
+$array_pay=array();
 
 
 $global_summ_minik=4490;
-function calc_ost($ost_old,$left_card,$add_card) {
-    $new_ost= $ost_old-$left_card;
-    $prodal_magazin=$ost_old-$new_ost;
-    $new_ost = $new_ost+$add_card;
-    return $new_ost;
+function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
+    global $array_pay,$global_summ_minik,$date;
+    if ($date != $date_in){
+        #echo "\$date: ".$date. " \$date_in: ".$date_in."\n";
+        $ost = $array_pay[$shop_name][$date][ost];
+        $add = $array_pay[$shop_name][$date][add];
+        #echo "prodal: ". $global_summ_minik ." - ". $ost. "\n";
+        $array_pay[$shop_name][$date][prodal] = $global_summ_minik-$array_pay[$shop_name][$date][ost];
+        $global_summ_minik = $ost + $add;
+        #echo "global_summ_minik = ost + add ". $global_summ_minik. " = ". $ost . " + ". $add ."\n";
+        $date=$date_in;
+        }
+    $array_pay[$shop_name][$date_in][ost]+=$left_card;
+    $array_pay[$shop_name][$date_in][add]+=$add_card;
 }
+
+
 
 if ( $taskk == "show_cashbox" ) {
 
@@ -71,25 +84,15 @@ if ( $taskk == "show_cashbox" ) {
                   $out.="<tr><td>".$pl[2]."</td><td>".$pl[name]."</td><td>".$pl[data_time]."</td>";
                   $count_left=$pl[count_left];
                   $count_add=$pl[count_add];
+
                   if ( ($count_left  > 1 )  && ( $count_add > 1 ) ) { $type = "подсчет остатка и дал карточек " ;}
                   elseif ( ( $count_left > 1 ) && ( $count_add < 1 )) { $type= "подсчет остатка"; }
                   else   { $type = "добавил карточек"; }
-                  $add_card=$pl[3] . " * " .  $count_add   ." = " . ( $pl[3] * $count_add);
-                  $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
-                  if ( strCaseCmp($pl[2], "rodnichek" ) ==0 ) { $global_summ_rodnik=$global_summ_rodnik-($pl[3] * $count_left )+( $pl[3] * $count_add); }
-                  if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) {
-                    $global_summ_minik = calc_ost($global_summ_minik,($pl[3] * $count_left),($pl[3] * $count_add));
-                    $out.= "add:" .$add_minik . " = (" . $pl[3] . " *" . $count_add.")<br>";
-                    $out.= "ost:" .$ost_minik . " = (". $pl[3] . " *" . $count_left.")<br>".$pl[2]."<br>";
-                  }
-                  if ( strCaseCmp($pl[2], "centr" ) ==0 )  {  $global_summ_centr=$global_summ_centr- ($pl[3] * $count_left )+( $pl[3] * $count_add); }
-                  if ( strCaseCmp($pl[2], "poselok" ) ==0 )  {   $global_summ_poselok=$global_summ_poselok- ($pl[3] * $count_left )+( $pl[3] * $count_add); }
+                  if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) { calc_ost(global_summ_centr,($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[2], $pl[data_time]); }
 
 
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
                 }
-                //$global_summ_minik_prodal=$global_summ_minik-$ost_minik;
-                //$global_summ_minik = $global_summ_minik- $global_summ_minik_prodal+ $add_minik;
 
 
                 $out.="</table>";
@@ -103,6 +106,7 @@ if ( $taskk == "show_cashbox" ) {
                 $_RESULT['text'] = $out;
                 $_RESULT['sql'] = $SQL;
                 $_RESULT['err'] = 'no';
+                var_dump($array_pay);
         }
         else
         {
