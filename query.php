@@ -66,7 +66,12 @@ if ( $taskk == "show_cashbox" ) {
                   $add_card=$pl[3] . " * " .  $count_add   ." = " . ( $pl[3] * $count_add);
                   $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
                   if ( strCaseCmp($pl[2], "rodnichek" ) ==0 ) { $global_summ_rodnik=$global_summ_rodnik-($pl[3] * $count_left )+( $pl[3] * $count_add); }
-                  if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) { $ost_minik =$ost_minik+($pl[3] * $count_left );  $add_minik = $add_minik + ( $pl[3] * $count_add);  $out.= "add:" .$add_minik . " = (" . $pl[3] . " *" . $count_add.")<br>";   $out.= "ost:" .$ost_minik . " = (". $pl[3] . " *" . $count_left.")<br>".$pl[2]."<br>";    }
+                  if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) {
+                    $ost_minik =$ost_minik+($pl[3] * $count_left );
+                    $add_minik = $add_minik + ( $pl[3] * $count_add);
+                    $out.= "add:" .$add_minik . " = (" . $pl[3] . " *" . $count_add.")<br>";
+                    $out.= "ost:" .$ost_minik . " = (". $pl[3] . " *" . $count_left.")<br>".$pl[2]."<br>";
+                  }
                   if ( strCaseCmp($pl[2], "centr" ) ==0 )  {  $global_summ_centr=$global_summ_centr- ($pl[3] * $count_left )+( $pl[3] * $count_add); }
                   if ( strCaseCmp($pl[2], "poselok" ) ==0 )  {   $global_summ_poselok=$global_summ_poselok- ($pl[3] * $count_left )+( $pl[3] * $count_add); }
 
