@@ -94,6 +94,7 @@ if ( $taskk == "show_cashbox" ) {
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
                 }
                 $out.="</table>";
+                calc_ost($global_summ_minik,(99 * 1), ( 99 * 1), "333", minimarcet);
 
                 global $array_pay;
                 foreach ($array_pay["minimarcet"] as $key => &$value) {
