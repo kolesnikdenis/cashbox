@@ -107,7 +107,7 @@ if ( $taskk == "show_cashbox" ) {
                         $out. "= add =" . $value['add']."<br>";
                         $out. "= pro =<b>" . $value['prodal']."</b><br>";
                         $global_summ_minik_prodal +=$value['prodal'];
-                        $global_summ_minik = $value['ost'];
+                        $global_summ_minik = $value['ost']+$value['add'];
                 }
 
                 $out.="родничек продал на сумму: ".$global_summ_rodnik ."<br>".
