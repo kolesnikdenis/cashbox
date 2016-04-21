@@ -39,7 +39,7 @@ $array_pay=array();
 
 
 function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
-    global $array_pay,$global_summ_minik,$date;
+    global $array_pay,$date;
     if ( $date == "231" ) { $date = $date_in; }
     if ( ($date != $date_in ) && ($left_card !=99 )  ){
         $ost = $array_pay[$shop_name][$date]['ost'];
@@ -99,13 +99,13 @@ if ( $taskk == "show_cashbox" ) {
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
                 }
                 $out.="</table>";
-                $global_summ_minik=calc_ost($global_summ_minik,(99 * 1), ( 99 * 1), "333", minimarcet);
+                $global_summ_minik=calc_ost($global_summ_minik,(99 * 1), ( 99 * 1), "333", "minimarcet");
                 $out .= $global_summ_minik."end out<br>";
                 global $array_pay;
                 foreach ($array_pay["minimarcet"] as $key => &$value) {
-                        $out. "= ost =" . $value['ost']."<br>";
-                        $out. "= add =" . $value['add']."<br>";
-                        $out. "= pro =<b>" . $value['prodal']."</b><br>";
+                        $out.= ."= ost =" . $value['ost']."<br>";
+                        $out.= ."= add =" . $value['add']."<br>";
+                        $out.= ."= pro =<b>" . $value['prodal']."</b><br>";
                         $global_summ_minik_prodal +=$value['prodal'];
                         $global_summ_minik = $value['ost']+$value['add'];
                 }
