@@ -103,9 +103,9 @@ if ( $taskk == "show_cashbox" ) {
                 $out .= $global_summ_minik."end out<br>";
                 global $array_pay;
                 foreach ($array_pay["minimarcet"] as $key => &$value) {
-                        $out.= ."= ost =" . $value['ost']."<br>";
-                        $out.= ."= add =" . $value['add']."<br>";
-                        $out.= ."= pro =<b>" . $value['prodal']."</b><br>";
+                        $out.= $key."= ost =" . $value['ost']."<br>";
+                        $out.= $key."= add =" . $value['add']."<br>";
+                        $out.= $key."= pro =<b>" . $value['prodal']."</b><br>";
                         $global_summ_minik_prodal +=$value['prodal'];
                         $global_summ_minik = $value['ost']+$value['add'];
                 }
