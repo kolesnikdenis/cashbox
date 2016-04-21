@@ -44,13 +44,13 @@ function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
     if ( ($date != $date_in ) && ($left_card !=99 )  ){
         $ost = $array_pay[$shop_name][$date]['ost'];
         $add = $array_pay[$shop_name][$date]['add'];
-        $array_pay[$shop_name][$date]['prodal'] = "1-".$ost_old."-".$array_pay[$shop_name][$date]['ost'];
+        $array_pay[$shop_name][$date]['prodal'] = $ost_old-$array_pay[$shop_name][$date]['ost'];
         $ost_old = $ost + $add;
         //$add="global_summ_minik = ost + add ". $ost_old. " = ". $ost . " + ". $add ."\n";
         $date=$date_in;
     }
     else {
-        $array_pay[$shop_name][$date]['prodal'] = "2-".$ost_old-$array_pay[$shop_name][$date]['ost'];
+        $array_pay[$shop_name][$date]['prodal'] = $ost_old-$array_pay[$shop_name][$date]['ost'];
     }
     if ($left_card !=99 ){
         $array_pay[$shop_name][$date_in]['ost']+=$left_card;
