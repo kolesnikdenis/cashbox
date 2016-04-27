@@ -95,17 +95,9 @@ if ( $taskk == "show_cashbox" ) {
                   else   { $type = "добавил карточек"; }
                   $add_card=$pl[3] . " * " .  $count_add   ." = " . ( $pl[3] * $count_add);
                   $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
-                  /*if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) {
-                    global $global_summ_minik;
-                    $global_summ_minik=calc_ost($global_summ_minik,($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
-                  }*/
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
 
-                  // обработка масивва остатка в магазине
-                  //if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) {
-                  //foreach ($global_summ as $key1 => &$value1 ){
                     global $global_summ;
-
                     $name_magazine = $pl[2];
                     //$out.=$global_summ[$name_magazine]."<br>";
                     $global_summ[$name_magazine]=calc_ost($global_summ[$name_magazine],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
@@ -118,16 +110,16 @@ if ( $taskk == "show_cashbox" ) {
                 $out.="</table>";
 
                 //подсчет конца ... сколько магаз продал
-                /*foreach ($global_summ as $key1 => &$value1 ){
+                foreach ($global_summ as $key1 => &$value1 ){
                     global $global_summ;
                     $global_summ[$key1]=calc_ost($global_summ[$key1],(99 * 1), ( 99 * 1), "333", $key1);
                     //$out.="<br>key1: ".$key1." value1: ".$value1. " global_summ[key1]: " . $global_summ[$key1]."<br>";
-                }*/
+                }
 
-                $global_summ_minik=calc_ost($global_summ_minik,(99 * 1), ( 99 * 1), "333", "minimarcet");
-                /*foreach ($global_summ as $key1 => &$value1 ){
+                //$global_summ_minik=calc_ost($global_summ_minik,(99 * 1), ( 99 * 1), "333", "minimarcet");
+                foreach ($global_summ as $key1 => &$value1 ){
                     $out.="key1: ".$key1." value1: ".$value1. " global_summ[key1]: " . $global_summ[$key1]."<br>";
-                }*/
+                }
 
                 //$out .= $global_summ_minik."end out<br>";
                 global $array_pay;
