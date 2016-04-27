@@ -14,7 +14,6 @@ include "top.php";
     c();
     b();
 }
-
   function b() {
     //otvet = show_cashbox('c');
   }
@@ -23,13 +22,13 @@ include "top.php";
      //add_select(id_magazin,20);
   }
 </script>
+<body>
 <div id=calc_summ>calc_form</div>
 <div id=sql></div>
 <div id=button></div><br>
 <body onload="a()">
-</body>
-<h1><center><?php echo $show;?></center></h1>
 
+<h1><center><?php echo $show;?></center></h1>
 
 <script type="text/javascript">
 	function wo(url,w,h){
@@ -46,7 +45,7 @@ include "top.php";
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css" />
 
 <table border=1>
@@ -56,19 +55,18 @@ include "top.php";
 </tr>
 </table>
 
-<div id=showtable>
+<div id="showtable">
 </div>
 
 <table border="1">
  <tr>
- 	<td bgcolor=#ffd7ba>
-	<div id=show_sql_query></div>
-	</td></tr><tr>
-	<td><div id=show_js></div></td>
-	</tr>
- 
+    <td bgcolor=#ffd7ba><div id=show_sql_query></div></td>
+ </tr>
+ <tr>
+    <td><div id=show_js></div></td>
+ </tr>
 </table>
-
+</body>
 
 <?
 include "down.php"

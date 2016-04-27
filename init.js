@@ -41,7 +41,7 @@ function add_item_coming_consumption(id_magazin){
 
                 document.getElementById("addtable").innerHTML="";
                 var table=init();
-                document.getElementById("addtable").appendChild(table);  // ???????? ??????? ? ??????????)
+                document.getElementById("addtable").appendChild(table);
 
                 /* magazin name, nominal */
 
@@ -56,7 +56,7 @@ function add_item_coming_consumption(id_magazin){
 
 
 
-                erdiv.innerHTML="<!-- <div id=addtable>—Ç—É—Ç —Ç–∞–±–ª–∏—Ü–∞ —Å —Ñ–æ—Ä–º–∞–º–∏...</div><br>-->\
+                erdiv.innerHTML="<!-- <div id=addtable>ÚÛÚ ·Û‰ÂÚ Ú‡·ÎËˆ‡</div><br>-->\
                 <!--<div id=calc_summ>calc_form</div><br>\
                 <div id=showtable>show table</div>-->";
 
@@ -75,9 +75,6 @@ function add_item_coming_consumption(id_magazin){
 
 function show_cashbox(idstring,name){
         erdiv=document.getElementById('sql').innerHTML="";
-        //erdiv.innerHTML = "please wait ...";
-        //alert("idstring"+idstring);
-        //alert("name "+ name) ;
         JsHttpRequest.query(
                 "query.php",
                 {
@@ -120,8 +117,6 @@ function save_to_sql(){
                 erdiv1=document.getElementById("show_sql_query");
                 erdiv.innerHTML=result["text"];
                 erdiv1.innerHTML=result["sql"];
-                
-
             }
 
         }
@@ -137,9 +132,6 @@ function add_intem(idstring,name){
     document.getElementsByTagName('head')[0].appendChild(jsElm);
     document.body.appendChild(jsElm);
 
-
-
-
     document.getElementById("addtable").innerHTML="";
     document.getElementById("calc_summ").innerHTML="";
     document.getElementById("show_sql_query").innerHTML="";
@@ -150,20 +142,13 @@ function add_intem(idstring,name){
                         "db": name, "idstring": idstring, "tas": 'add_intem'
                 },
                 function (result, errors) {
-
-                          //finddiv=name+"-"+idstring;
                           erdiv=document.getElementById("showtable");
                           erdiv.innerHTML="error \""+errors+"\"";
                           if (result) {
                                 erdiv=document.getElementById("showtable");
                                 erdiv1=document.getElementById("show_sql_query");
-								//erdiv_js=document.getElementById("show_js");
                                 erdiv.innerHTML=result["text"];
                                 erdiv1.innerHTML=result["sql"];
-								//erdiv_js.innerHTML=result["js"];
-								//eval(result["js"]);
-								//console.log(result);
-								//alert("nominal:"+arr_card_serial[0][2]);
                           }
 
                 }
