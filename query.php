@@ -102,11 +102,13 @@ if ( $taskk == "show_cashbox" ) {
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
 
                   // обработка масивва остатка в магазине
-                  foreach ($global_summ as $key1 => &$value1 ){
+                  //if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) {
+                  //foreach ($global_summ as $key1 => &$value1 ){
                     global $global_summ;
-                    $global_summ[$key1]=calc_ost($global_summ[$key1],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
-                    $out.="<br>key1: ".$key1." value1: ".$value1. " global_summ[key1]: " . $global_summ[$key1]." - ". $pl[data_time]." \$count_add ".$count_add."\$count_left ".$count_left."<br>";
-                  }
+                    $name_magazine = $pl[2];
+                    $global_summ[$name_magazine]=calc_ost($global_summ[$name_magazine],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
+                    //$out.="<br>key1: ".$key1." value1: ".$value1. " global_summ[key1]: " . $global_summ[$key1]." - ". $pl[data_time]." \$count_add ".$count_add."\$count_left ".$count_left."<br>";
+                  //}
 
 
 
