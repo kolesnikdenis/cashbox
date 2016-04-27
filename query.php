@@ -148,8 +148,7 @@ if ( $taskk == "show_cashbox" ) {
                 $out.="родничек продал на сумму: ".$global_summ_rodnik ."<br>".
                 "Минимаркет на сумму: ". $global_summ_minik_prodal. " сейчас остаток в минимаркете:".$global_summ_minik."<br>".
                 "Родничек на сумму: ". $global_summ_rodnichek_prodal. " сейчас остаток в Родничек:".$global_summ_rodnichek."<br>".
-                "Родничек на сумму: ". $global_summ_centr_prodal. " сейчас остаток в Родничек:".$global_summ_centr."<br>".
-                "Центр на сумму: ". $global_summ_centr."<br>".
+                "Центр на сумму: ". $global_summ_centr_prodal. " сейчас остаток в Центр:".$global_summ_centr."<br>".
                 "Поселок на сумму: ". $global_summ_poselok."<br>";
                 //$out.="всего прибыль за выбраный период".( $global_summ_rodnik +  $global_summ_minik + $global_summ_centr + $global_summ_poselok)."<br><hr>";
 
