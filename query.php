@@ -105,7 +105,7 @@ if ( $taskk == "show_cashbox" ) {
                   foreach ($global_summ as $key1 => &$value1 ){
                     global $global_summ;
                     $global_summ[$key1]=calc_ost($global_summ[$key1],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
-                    //$out.="<br>key1: ".$key1." value1: ".$value1. " global_summ[key1]: " . $global_summ[$key1]."<br>";
+                    $out.="<br>key1: ".$key1." value1: ".$value1. " global_summ[key1]: " . $global_summ[$key1]." - ". $pl[data_time]." \$count_add ".$count_add."\$count_left ".$count_left."<br>";
                   }
 
 
