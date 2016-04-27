@@ -36,7 +36,7 @@ $global_summ_minik=4490;
 $date="231";
 $array_pay=array();
 
-$global_summ=[]
+$global_summ=array();
 $global_summ["rodnik"]=3650;
 $global_summ["centr"]=4520;
 $global_summ["poselok"]=4700;
