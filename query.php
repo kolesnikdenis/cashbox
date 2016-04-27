@@ -113,13 +113,12 @@ if ( $taskk == "show_cashbox" ) {
                 foreach ($global_summ as $key1 => &$value1 ){
                     global $global_summ;
                     $global_summ[$key1]=calc_ost($global_summ[$key1],(99 * 1), ( 99 * 1), "333", $key1);
-                    //$out.="<br>key1: ".$key1." value1: ".$value1. " global_summ[key1]: " . $global_summ[$key1]."<br>";
                 }
 
-                //$global_summ_minik=calc_ost($global_summ_minik,(99 * 1), ( 99 * 1), "333", "minimarcet");
-                foreach ($global_summ as $key1 => &$value1 ){
+                //вывод последнего остатка
+                /*foreach ($global_summ as $key1 => &$value1 ){
                     $out.="key1: ".$key1." value1: ".$value1. " global_summ[key1]: " . $global_summ[$key1]."<br>";
-                }
+                }*/
 
                 //$out .= $global_summ_minik."end out<br>";
                 global $array_pay;
@@ -130,11 +129,18 @@ if ( $taskk == "show_cashbox" ) {
                         $global_summ_minik_prodal +=$value['prodal'];
                         $global_summ_minik = $value['ost']+$value['add'];
                 }
-
+                foreach ($array_pay["rodnichek"] as $key => &$value) {
+                        $out.= $key."= ost =" . $value['ost']." key: " . $key ."<br>";
+                        $out.= $key."= add =" . $value['add']." key: " . $key ."<br>";
+                        $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
+                        $global_summ_rodnichek_prodal +=$value['prodal'];
+                        $global_summ_rodnichek = $value['ost']+$value['add'];
+                }
 
 
                 $out.="родничек продал на сумму: ".$global_summ_rodnik ."<br>".
                 "Минимаркет на сумму: ". $global_summ_minik_prodal. " сейчас остаток в минимаркете:".$global_summ_minik."<br>".
+                "Родничек на сумму: ". $global_summ_rodnichek_prodal. " сейчас остаток в Родничек:".$global_summ_rodnichek."<br>".
                 "Центр на сумму: ". $global_summ_centr."<br>".
                 "Поселок на сумму: ". $global_summ_poselok."<br>";
                 //$out.="всего прибыль за выбраный период".( $global_summ_rodnik +  $global_summ_minik + $global_summ_centr + $global_summ_poselok)."<br><hr>";
