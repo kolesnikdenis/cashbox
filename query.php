@@ -29,14 +29,18 @@ $id_user = $_SESSION['login_id'];
 $set_datetime = $_REQUEST['set_datetime'];
 $eierr="no";
 
-$global_summ_rodnik=3650; //rodnik2
+$global_summ_rodnik=3650; //
 $global_summ_centr=4520;//3
 $global_summ_poselok=4700;//4
 $global_summ_minik=4490;
 $date="231";
 $array_pay=array();
 
-
+$global_summ=[]
+$global_summ["rodnik"]=3650;
+$global_summ["centr"]=4520;
+$global_summ["poselok"]=4700;
+$global_summ["minik"]=4490;
 
 function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
     global $array_pay,$date;
@@ -94,13 +98,12 @@ if ( $taskk == "show_cashbox" ) {
                   if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) {
                     global $global_summ_minik;
                     $global_summ_minik=calc_ost($global_summ_minik,($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
-                    //$out .= $global_summ_minik;
                   }
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
                 }
                 $out.="</table>";
                 $global_summ_minik=calc_ost($global_summ_minik,(99 * 1), ( 99 * 1), "333", "minimarcet");
-                $out .= $global_summ_minik."end out<br>";
+                //$out .= $global_summ_minik."end out<br>";
                 global $array_pay;
                 foreach ($array_pay["minimarcet"] as $key => &$value) {
                         $out.= $key."= ost =" . $value['ost']." key: " . $key ."<br>";
@@ -108,6 +111,10 @@ if ( $taskk == "show_cashbox" ) {
                         $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
                         $global_summ_minik_prodal +=$value['prodal'];
                         $global_summ_minik = $value['ost']+$value['add'];
+                }
+
+                foreach ($global_summ as $key1 => &$value1 ){
+                    $out.="<br>key1: ".$key1." value1: ".$value1. " global_summ[key1]: " . $global_summ[$key1]."<br>";
                 }
 
                 $out.="родничек продал на сумму: ".$global_summ_rodnik ."<br>".
