@@ -114,11 +114,11 @@ if ( $taskk == "show_cashbox" ) {
                 $out.="</table>";
 
                 //подсчет конца ... сколько магаз продал
-                /*foreach ($global_summ as $key1 => &$value1 ){
+                foreach ($global_summ as $key1 => &$value1 ){
                     global $global_summ;
                     $global_summ[$key1]=calc_ost($global_summ[$key1],(99 * 1), ( 99 * 1), "333", $key1);
                     //$out.="<br>key1: ".$key1." value1: ".$value1. " global_summ[key1]: " . $global_summ[$key1]."<br>";
-                }*/
+                }
 
                 $global_summ_minik=calc_ost($global_summ_minik,(99 * 1), ( 99 * 1), "333", "minimarcet");
                 /*foreach ($global_summ as $key1 => &$value1 ){
