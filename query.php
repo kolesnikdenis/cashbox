@@ -105,9 +105,11 @@ if ( $taskk == "show_cashbox" ) {
                   //if ( strCaseCmp($pl[2], "minimarcet" ) ==0 ) {
                   //foreach ($global_summ as $key1 => &$value1 ){
                     global $global_summ;
+
                     $name_magazine = $pl[2];
+                    $out.=$global_summ[$name_magazine]."<br>";
                     $global_summ[$name_magazine]=calc_ost($global_summ[$name_magazine],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
-                    $out.="\$global_summ: ".$global_summ[$name_magazine]." value1: ".$value1. " name_magazine: ". $name_magazine. " -date_time ".$pl[data_time]." \$count_add ".$count_add."\$count_left ".$count_left."<br>";
+                    $out.="\$global_summ: ".$global_summ[$name_magazine]." name_magazine: ". $name_magazine. " -date_time ".$pl[data_time]." \$count_add ".$count_add."\$count_left ".$count_left."<br>";
                   //}
 
 
