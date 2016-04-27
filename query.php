@@ -103,6 +103,7 @@ if ( $taskk == "show_cashbox" ) {
 
                   // обработка масивва остатка в магазине
                   foreach ($global_summ as $key1 => &$value1 ){
+                    global $global_summ;
                     $global_summ[$key1]=calc_ost($global_summ[$key1],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
                     //$out.="<br>key1: ".$key1." value1: ".$value1. " global_summ[key1]: " . $global_summ[$key1]."<br>";
                   }
@@ -114,6 +115,7 @@ if ( $taskk == "show_cashbox" ) {
 
                 //подсчет конца ... сколько магаз продал
                 foreach ($global_summ as $key1 => &$value1 ){
+                    //global $global_summ;
                     $global_summ[$key1]=calc_ost($global_summ[$key1],(99 * 1), ( 99 * 1), "333", $key1);
                     //$out.="<br>key1: ".$key1." value1: ".$value1. " global_summ[key1]: " . $global_summ[$key1]."<br>";
                 }
