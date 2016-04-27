@@ -129,20 +129,20 @@ if ( $taskk == "show_cashbox" ) {
                     $global_summ_minik_prodal +=$value['prodal'];
                     $global_summ_minik = $value['ost']+$value['add'];
                 }
-                foreach ($array_pay["rodnichek"] as $key => &$value) {/*
+                /*foreach ($array_pay["rodnichek"] as $key => &$value) {/*
                     $out.= $key."= ost =" . $value['ost']." key: " . $key ."<br>";
                     $out.= $key."= add =" . $value['add']." key: " . $key ."<br>";
-                    $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";*/
+                    $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
                     $global_summ_rodnichek_prodal +=$value['prodal'];
                     $global_summ_rodnichek = $value['ost']+$value['add'];
                 }
                 foreach ($array_pay["centr"] as $key => &$value) {/*
                     $out.= $key."= ost =" . $value['ost']." key: " . $key ."<br>";
                     $out.= $key."= add =" . $value['add']." key: " . $key ."<br>";
-                    $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";*/
+                    $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
                     $global_summ_centr_prodal +=$value['prodal'];
                     $global_summ_centr = $value['ost']+$value['add'];
-                }
+                }*/
 
 
                 $out.="родничек продал на сумму: ".$global_summ_rodnik ."<br>".
