@@ -97,15 +97,12 @@ if ( $taskk == "show_cashbox" ) {
                   $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
 
-                    global $global_summ;
-                    $name_magazine = $pl[2];
-                    //$out.=$global_summ[$name_magazine]."<br>";
-                    $global_summ[$name_magazine]=calc_ost($global_summ[$name_magazine],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
-                    $out.="\$global_summ: ".$global_summ[$name_magazine]." name_magazine: ". $name_magazine. " -date_time ".$pl[data_time]." \$count_add ".$count_add."\$count_left ".$count_left."<br>";
+                  global $global_summ;
+                  $name_magazine = $pl[2];
+                  //$out.=$global_summ[$name_magazine]."<br>";
+                  $global_summ[$name_magazine]=calc_ost($global_summ[$name_magazine],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
+                  $out.="\$global_summ: ".$global_summ[$name_magazine]." name_magazine: ". $name_magazine. " -date_time ".$pl[data_time]." \$count_add ".$count_add."\$count_left ".$count_left."<br>";
                   //}
-
-
-
                 }
                 $out.="</table>";
 
@@ -122,17 +119,17 @@ if ( $taskk == "show_cashbox" ) {
 
                 //$out .= $global_summ_minik."end out<br>";
                 global $array_pay;
-                foreach ($array_pay["minimarcet"] as $key => &$value) {/*
+                foreach ($array_pay["minimarcet"] as $key => &$value) {
                     $out.= $key."= ost =" . $value['ost']." key: " . $key ."<br>";
                     $out.= $key."= add =" . $value['add']." key: " . $key ."<br>";
-                    $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";*/
+                    $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
                     $global_summ_minik_prodal +=$value['prodal'];
                     $global_summ_minik = $value['ost']+$value['add'];
                 }
-                foreach ($array_pay["rodnichek"] as $key => &$value) {/*
-                    /*$out.= $key."= ost =" . $value['ost']." key: " . $key ."<br>";
+                foreach ($array_pay["rodnichek"] as $key => &$value) {
+                    $out.= $key."= ost =" . $value['ost']." key: " . $key ."<br>";
                     $out.= $key."= add =" . $value['add']." key: " . $key ."<br>";
-                    $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";*/
+                    $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
                     $global_summ_rodnichek_prodal +=$value['prodal'];
                     $global_summ_rodnichek = $value['ost']+$value['add'];
                 }
