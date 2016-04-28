@@ -29,32 +29,37 @@ $id_user = $_SESSION['login_id'];
 $set_datetime = $_REQUEST['set_datetime'];
 $eierr="no";
 
-$global_summ_rodnik=3650; //
+/*$global_summ_rodnik=3650; //
 $global_summ_centr=4520;//3
 $global_summ_poselok=4700;//
 $global_summ_minik=4490;
-$date="231";
+*/
 $array_pay=array();
-
 $global_summ=array();
-$global_summ["rodnichek"]=3650;
-$global_summ["centr"]=4520;
-$global_summ["poselok"]=4700;
-$global_summ["minimarcet"]=4490;
+$global_summ["rodnichek"]["summ"]=3650;
+$global_summ["rodnichek"]["date"]=231;
+$global_summ["centr"]["summ"]=4520;
+$global_summ["centr"]["date"]=231;
+$global_summ["poselok"]["summ"]=4700;
+$global_summ["poselok"]["date"]=231;
+$global_summ["minimarcet"]["summ"]=4490;
+$global_summ["minimarcet"]["date"]=231;
+
 
 function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
-    global $array_pay,$date,$global_summ;
-    if ( $date == "231" ) { $date = $date_in; }
-    if ( ($date != $date_in ) && ($left_card !=99 )  ){
+    global $array_pay,$global_summ;
+    $date = $global_summ[$shop_name]["date"];
+    if ( $date  == "231" ) { $global_summ[$shop_name]["date"] = $date_in; $date = $date_in; }
+    if ( ( $date  != $date_in ) && ($left_card !=99 )  ){
         $ost = $array_pay[$shop_name][$date]['ost'];
         $add = $array_pay[$shop_name][$date]['add'];
         $array_pay[$shop_name][$date]['prodal'] = $ost_old-$array_pay[$shop_name][$date]['ost'];
         $ost_old = $ost + $add;
-        //$add="global_summ_minik = ost + add ". $ost_old. " = ". $ost . " + ". $add ."\n";
-        $date=$date_in;
-    }
-    else {
+        $global_summ[$shop_name]["date"] =$date_in;
+    }else
+    {
         $array_pay[$shop_name][$date]['prodal'] = $ost_old-$array_pay[$shop_name][$date]['ost'];
+        if ( $left_card==99 ) { $ost_old =  $array_pay[$shop_name][$date]['ost'] +  $array_pay[$shop_name][$date]['add']; }
     }
     if ($left_card !=99 ){
         $array_pay[$shop_name][$date_in]['ost']+=$left_card;
@@ -62,6 +67,7 @@ function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
     }
     return $ost_old;
 }
+
 
 
 if ( $taskk == "show_cashbox" ) {
@@ -100,7 +106,7 @@ if ( $taskk == "show_cashbox" ) {
                   //global $global_summ;
                   $name_magazine = $pl[2];
                   //$out.=$global_summ[$name_magazine]."<br>";
-                  $global_summ[$name_magazine]=calc_ost($global_summ[$name_magazine],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
+                  $global_summ[$name_magazine]["summ"]=calc_ost($global_summ[$name_magazine]["summ"],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
                   $out.="calc_ost(\$global_summ[\"".$name_magazine."\"],(".$pl[3]." * ".$count_left." ), ( ".$pl[3]." * ".$count_add."), \"".$pl[data_time]."\", \"".$pl[2]."\");<br>";
 
                   //}
@@ -110,7 +116,7 @@ if ( $taskk == "show_cashbox" ) {
                 //подсчет конца ... сколько магаз продал
                 foreach ($global_summ as $key1 => &$value1 ){
                     global $global_summ;
-                    $global_summ[$key1]=calc_ost($global_summ[$key1],(99 * 1), ( 99 * 1), "333", $key1);
+                    $global_summ[$key1]=calc_ost($global_summ[$key1],(99 * 1), ( 99 * 1), "3333", $key1);
                 }
 
                 //вывод последнего остатка
