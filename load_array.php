@@ -56,6 +56,24 @@ return table;
    }
 
 function money_calc(id_magazin){
+
+
+    var sql="INSERT INTO `accounting`.`cashbox` (`id`, `magazine`, `serial_left`, `count_left`, `serial_add`, `count_add`, `data_time`) VALUES"+
+                    " (NULL, " +
+                    "'"+id_magazin+"', "+
+                    "'0', "+
+                    "'0', "+
+                    "'99', "+
+                    "'"+document.getElementById("money_in").value+"', "+
+                    "'"+document.getElementById("datepicker").value +"14:00:00.000000','M');";
+
+    document.getElementById("calc_summ").appendChild(cellText);
+    var out="<input type=text name=money_in id=money_in value=0><br><button name=save_sql onclick=\"save_to_sql();\">save</button>";
+    document.getElementById("calc_summ").innerHTML = out;
+    document.getElementById("sql").innerHTML = sql;
+}
+
+function create_form_money_only(id_magazin){
     alert("money_calc");
     var d = new Date();
     var curr_date = d.getDate();
@@ -79,22 +97,7 @@ function money_calc(id_magazin){
     cellText.name="date";
     cellText.id  = "datepicker";
     cellText.onchange =  function(){ money_calc(); return; };
-
-    var sql="INSERT INTO `accounting`.`cashbox` (`id`, `magazine`, `serial_left`, `count_left`, `serial_add`, `count_add`, `data_time`) VALUES"+
-                    " (NULL, " +
-                    "'"+id_magazin+"', "+
-                    "'0', "+
-                    "'0', "+
-                    "'99', "+
-                    "'"+document.getElementById("money_in").value+"', "+
-                    "'"+document.getElementById("datepicker").value +"14:00:00.000000','M');";
-
-    document.getElementById("calc_summ").appendChild(cellText);
-    var out="<input type=text name=money_in id=money_in value=0><br><button name=save_sql onclick=\"save_to_sql();\">save</button>";
-    document.getElementById("calc_summ").innerHTML = out;
-    document.getElementById("sql").innerHTML = sql;
-}
-
+    }
 
 function calc(){
     var summ_cas20 =document.getElementById("count_cas_id_20").value * 20;

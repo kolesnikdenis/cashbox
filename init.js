@@ -25,10 +25,10 @@ function add_item_coming_money(id_magazin){
             if (result) {
                 eval(result["js"]);
 
-                
 
-                
-                money_calc(id_magazin);
+
+
+                create_form_money_only(id_magazin);
                 document.getElementById("sql").innerHTML = sql;
 
 
