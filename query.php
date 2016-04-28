@@ -169,18 +169,13 @@ if ( $taskk == "add_intem" ) {
                     $out .=  "<tr><td><a href=\"#\" onclick=\"add_item_coming_consumption(".$pl[magazine_id].")\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
                 }
 
-
-                
                 $out.="</table><br><div id=calc_add></div><br><div id=calc_left></div>";
                 $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
                 $_RESULT['text'] = $out;
                 $_RESULT['sql'] = $SQL;
 				$js="document.getElementById(\"select_card_add\").appendChild(cas);
 document.getElementById(\"select_card_left\").appendChild(cls);
-document.getElementById(\"select_magazin\").appendChild(maga);
-
-
-";
+document.getElementById(\"select_magazin\").appendChild(maga);";
 				$_RESULT['js'] = $js;
                 $_RESULT['text'] = $out.
                 $_RESULT['err'] = 'no';
