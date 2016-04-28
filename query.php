@@ -120,7 +120,7 @@ if ( $taskk == "show_cashbox" ) {
                 //$out .= $global_summ_minik."end out<br>";
                 global $array_pay;
 
-                foreach ($array_pay as key1 =>&$value1 ) {
+                foreach ($array_pay as $key1 =>&$value1 ) {
                     $out.= "= key1 =" . $key1 . "value1: ".$value1."<br>";
                     foreach ($array_pay[$value1] as $key => &$value) {
                         $out.= "key1: ==<b>" . $key1." key: " . $key ."<br>";
