@@ -78,26 +78,26 @@ function create_form_money_only(id_magazin){
     var curr_month = d.getMonth() + 1;
     var curr_year = d.getFullYear();
 
-    console.log(curr_date);
-    cellText1 = document.createElement("input");
-    cellText1.type = "text";
-    cellText1.size = "10";
-    //cellText1.setAttribute("readOnly","true");
-    cellText1.value=curr_year + "-" + curr_month + "-" + curr_date;
-    cellText1.name="date";
-    cellText1.id  = "datepicker";
-    cellText1.onchange =  function(){ money_calc(id_magazin); return; };
-    document.getElementById("calc_summ").appendChild(cellText1);
+    //console.log(curr_date);
+    var input = document.createElement("input");
+    input.type = "text";
+    input.size = "10";
+    //input.setAttribute("readOnly","true");
+    input.value=curr_year + "-" + curr_month + "-" + curr_date;
+    input.name="date";
+    input.id  = "datepicker";
+    input.onchange =  function(){ money_calc(id_magazin); return; };
+    document.getElementById("calc_summ").appendChild(input);
 
-    cellText = document.createElement("input");
-    cellText.type = "text";
-    cellText.size = "10";
-    //cellText.setAttribute("readOnly","true");
-    cellText.value="0";
-    cellText.name="money_in";
-    cellText.id  = "money_in";
-    cellText.onchange =  function(){ money_calc(id_magazin); return; };
-    document.getElementById("button").appendChild(cellText);
+    var input1 = document.createElement("input");
+    input1.type = "text";
+    input1.size = "10";
+    //input1.setAttribute("readOnly","true");
+    input1.value="0";
+    input1.name="money_in";
+    input1.id  = "money_in";
+    input1.onchange =  function(){ money_calc(id_magazin); return; };
+    document.getElementById("button").appendChild(input1);
 
 
 
