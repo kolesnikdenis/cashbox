@@ -40,13 +40,6 @@ function add_item_coming_money(id_magazin){
 }
 
 function add_item_coming_consumption(id_magazin){
-/*
-    var jsElm = document.createElement("script");
-    jsElm.type = "application/javascript";
-    var file="http://manage.ots.kh.ua/cashbox/load_array.php";
-    jsElm.src = file;
-    document.getElementsByTagName('head')[0].appendChild(jsElm);
-    document.body.appendChild(jsElm);*/
     JsHttpRequest.query(
         "add_item_coming_consumption.php",
         {
@@ -74,16 +67,7 @@ function add_item_coming_consumption(id_magazin){
 
                 erdiv=document.getElementById("showtable").innerHTML="";
                 erdiv1=document.getElementById("show_sql_query");
-                //erdiv.innerHTML=result["text"];
 
-
-
-
-                erdiv.innerHTML="<!-- <div id=addtable>тут будет таблица</div><br>-->\
-                <!--<div id=calc_summ>calc_form</div><br>\
-                <div id=showtable>show table</div>-->";
-
-                //load js
                 add_select(id_magazin,20,arr_shop,arr_card_serial);
                 add_select(id_magazin,40,arr_shop,arr_card_serial);
                 add_select(id_magazin,75,arr_shop,arr_card_serial);
