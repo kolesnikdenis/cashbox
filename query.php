@@ -124,10 +124,10 @@ if ( $taskk == "show_cashbox" ) {
                 foreach ($array_pay as $key1 =>&$value1 ) {
                     $out.= "key1 =" . $key1."<br>";
                     foreach ($array_pay[$key1] as $key => &$value) {
-                        $out.= "key1: ==" . $key1." key: " . $key ."<br>";
+                        /*$out.= "key1: ==" . $key1." key: " . $key ."<br>";
                         $out.= "key1: ". $key1. "= ost =" . $value['ost']." key: " . $key ."<br>";
                         $out.= "key1: ". $key1. "= add =" . $value['add']." key: " . $key ."<br>";
-                        $out.= "key1: ". $key1. "= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
+                        $out.= "key1: ". $key1. "= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";*/
                         $global_summ[$key1]["prodal"] += $value['prodal'];
                     }
                     $out .="Магазин: ".$key1." за выбранный период продал на сумму: ". $global_summ[$key1]["prodal"] . " сейчас остаток в ". $key1. ":".$global_summ[$key1]["summ"]."<br>";
