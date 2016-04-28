@@ -119,6 +119,17 @@ if ( $taskk == "show_cashbox" ) {
 
                 //$out .= $global_summ_minik."end out<br>";
                 global $array_pay;
+
+                foreach ($array_pay as key1 =>&$value1 ) {
+                    $out.= "= key1 =" . $key1 . "value1: ".$value1."<br>";
+                    foreach ($array_pay[$value1] as $key => &$value) {
+                        $out.= "key1: ==<b>" . $key1." key: " . $key ."<br>";
+                        $out.= "key1: ". $key1. "= ost =" . $value['ost']." key: " . $key ."<br>";
+                        $out.= "key1: ". $key1. "= add =" . $value['add']." key: " . $key ."<br>";
+                        $out.= "key1: ". $key1. "= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
+                    }
+                }
+                $out.="<br><Br>";
                 foreach ($array_pay["minimarcet"] as $key => &$value) {
                     $out.= $key."= ost =" . $value['ost']." key: " . $key ."<br>";
                     $out.= $key."= add =" . $value['add']." key: " . $key ."<br>";
