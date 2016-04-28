@@ -57,15 +57,15 @@ return table;
 
 function money_calc(id_magazin){
     alert("money_calc");
-    var sql="INSERT INTO `accounting`.`cashbox` (`id`, `magazine`, `serial_left`, `count_left`, `serial_add`, `count_add`, `data_time`) VALUES"+
-                    " (NULL, " +
-                    "'"+id_magazin+"', "+
-                    "'0', "+
-                    "'0', "+
-                    "'99', "+
-                    "'"+document.getElementById("money_in").value+"', "+
-                    "'"+document.getElementById("datepicker").value +"14:00:00.000000','M');";
 
+    cellText = document.createElement("input");
+    cellText.type = "text";
+    cellText.size = "10";
+    cellText.setAttribute("readOnly","true");
+    cellText.value="0";
+    cellText.name="date_"+id;
+    cellText.id  = "money_in";
+    cellText.onchange =  function(){ money_calc(); return; };
 
     cellText = document.createElement("input");
     cellText.type = "text";
@@ -74,7 +74,16 @@ function money_calc(id_magazin){
     cellText.value=curr_year + "-" + curr_month + "-" + curr_date;
     cellText.name="date_"+id;
     cellText.id  = "datepicker";
-    cellText.onchange =  function(){ calc(); return; };
+    cellText.onchange =  function(){ money_calc(); return; };
+
+    var sql="INSERT INTO `accounting`.`cashbox` (`id`, `magazine`, `serial_left`, `count_left`, `serial_add`, `count_add`, `data_time`) VALUES"+
+                    " (NULL, " +
+                    "'"+id_magazin+"', "+
+                    "'0', "+
+                    "'0', "+
+                    "'99', "+
+                    "'"+document.getElementById("money_in").value+"', "+
+                    "'"+document.getElementById("datepicker").value +"14:00:00.000000','M');";
 
     document.getElementById("calc_summ").appendChild(cellText);
     var out="<input type=text name=money_in id=money_in value=0><br><button name=save_sql onclick=\"save_to_sql();\">save</button>";
