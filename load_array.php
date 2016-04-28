@@ -70,11 +70,11 @@ function money_calc(){
     cellText = document.createElement("input");
     cellText.type = "text";
     cellText.size = "10";
-    if (i > 0 ) { cellText.setAttribute("readOnly","true"); };
+    cellText.setAttribute("readOnly","true");
     cellText.value=curr_year + "-" + curr_month + "-" + curr_date;
     cellText.name="date_"+id;
-    if (i > 0 ) {  cellText.id  = "datepicker_"+i; } else {  cellText.id  = "datepicker"; }
-    cellText.onchange =  function(){ calc(); return; }; }
+    cellText.id  = "datepicker";
+    cellText.onchange =  function(){ calc(); return; };
 
     document.getElementById("calc_summ").appendChild(cellText);
     var out="<input type=text name=money_in id=money_in value=0><br><button name=save_sql onclick=\"save_to_sql();\">save</button>";
