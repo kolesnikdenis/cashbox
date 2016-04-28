@@ -57,6 +57,29 @@ return table;
 
 function money_calc(){
     alert("money_calc");
+    var sql="INSERT INTO `accounting`.`cashbox` (`id`, `magazine`, `serial_left`, `count_left`, `serial_add`, `count_add`, `data_time`) VALUES"+
+                    " (NULL, " +
+                    "'"+id_magazin+"', "+
+                    "'0', "+
+                    "'0', "+
+                    "'99', "+
+                    "'"+document.getElementById("money_in").value+"', "+
+                    "'"+document.getElementById("datepicker").value +"14:00:00.000000','M');";
+
+
+    cellText = document.createElement("input");
+    cellText.type = "text";
+    cellText.size = "10";
+    if (i > 0 ) { cellText.setAttribute("readOnly","true"); };
+    cellText.value=curr_year + "-" + curr_month + "-" + curr_date;
+    cellText.name="date_"+id;
+    if (i > 0 ) {  cellText.id  = "datepicker_"+i; } else {  cellText.id  = "datepicker"; }
+    cellText.onchange =  function(){ calc(); return; }; }
+
+    document.getElementById("calc_summ").appendChild(cellText);
+    var out="<input type=text name=money_in id=money_in value=0><br><button name=save_sql onclick=\"save_to_sql();\">save</button>";
+    document.getElementById("calc_summ").innerHTML = out;
+    document.getElementById("sql").innerHTML = sql;
 }
 
 
