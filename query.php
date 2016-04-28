@@ -130,7 +130,7 @@ if ( $taskk == "show_cashbox" ) {
                         $out.= "key1: ". $key1. "= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
                         $global_summ[$key1]["prodal"] += $value['prodal'];
                     }
-                    $out .="Магазин: ".$key1." за выбранный период продал на сумму: ". $global_summ[$key1]["prodal"] . " сейчас остаток в ". $key1. ":".$global_summ[$key1]["summ"]."<br>".
+                    $out .="Магазин: ".$key1." за выбранный период продал на сумму: ". $global_summ[$key1]["prodal"] . " сейчас остаток в ". $key1. ":".$global_summ[$key1]["summ"]."<br>";
                 }
                 $out.="<br><Br>";
 
