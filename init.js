@@ -147,7 +147,7 @@ function save_to_sql(){
 }
 
 
-function add_item(idstring,name){
+function add_intem(idstring,name){
     var jsElm = document.createElement("script");
     jsElm.type = "application/javascript";
     var file="http://manage.ots.kh.ua/cashbox/load_array.php";
