@@ -98,13 +98,12 @@ function create_form_money_only(id_magazin){
     input1.name="money_in";
     input1.id  = "money_in";
     input1.onchange =  function(){ money_calc(id_magazin); return; };
-    document.getElementById("button").appendChild(input1);
+    document.getElementById("calc_summ").appendChild(input1);
 
 
-
+/*
     var out="<button name=save_sql onclick=\"save_to_sql();\">save</button>";
-    document.getElementById("calc_summ").innerHTML = out;
-
+    document.getElementById("calc_summ").innerHTML = out;*/
     }
 
 function calc(){
