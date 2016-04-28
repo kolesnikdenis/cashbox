@@ -71,7 +71,7 @@ function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
 if ( $taskk == "show_cashbox" ) {
         if($eierr=="no"){
                 $dbh=DB_connect();
-                $SQL = "select  cashbox.id, cashbox.data_time, magazine.name, card_serial.name, cashbox.serial_left, cashbox.count_left, card_serial.name, cashbox.count_add,cashbox.serial_add  from  cashbox,card_serial,magazine where cashbox.magazine= magazine .magazine_id and card_serial.card_id = cashbox.serial_left  ORDER BY `cashbox`.`data_time` asc ";
+                $SQL = "select  cashbox.id, cashbox.data_time, magazine.name, card_serial.name, cashbox.serial_left, cashbox.count_left, card_serial.name, cashbox.count_add,cashbox.serial_add,`cashbox`.`type_calculation` from  cashbox,card_serial,magazine where cashbox.magazine= magazine .magazine_id and card_serial.card_id = cashbox.serial_left  ORDER BY `cashbox`.`data_time` asc ";
                 print mysql_error();
                 $out .= "
 				<table border=1>
@@ -84,6 +84,7 @@ if ( $taskk == "show_cashbox" ) {
 						<td>тип операции</td>
 						<td>приход</td>
 						<td>остаток в магазине </td>
+						<td>тип финансовой операции</td>
 					</tr>";
                 $res=mysql_query($SQL,$dbh);
                 print mysql_error();
@@ -99,7 +100,7 @@ if ( $taskk == "show_cashbox" ) {
                   else   { $type = "добавил карточек"; }
                   $add_card=$pl[3] . " * " .  $count_add   ." = " . ( $pl[3] * $count_add);
                   $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
-                  $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
+                  $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td></tr>";
 
                   $name_magazine = $pl[2];
                   $global_summ[$name_magazine]["summ"]=calc_ost($global_summ[$name_magazine]["summ"],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
