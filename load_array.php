@@ -67,7 +67,7 @@ function money_calc(id_magazin){
     cellText.size = "10";
     cellText.setAttribute("readOnly","true");
     cellText.value="0";
-    cellText.name="money_in;
+    cellText.name="money_in";
     cellText.id  = "money_in";
     cellText.onchange =  function(){ money_calc(); return; };
 
