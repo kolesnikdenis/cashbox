@@ -65,7 +65,7 @@ function money_calc(id_magazin){
                     "'0', "+
                     "'99', "+
                     "'"+document.getElementById("money_in").value+"', "+
-                    "'"+document.getElementById("datepicker").value +"14:00:00.000000','M');";
+                    "'document.getElementById(\"datepicker\").value 14:00:00.000000','M');";
 
     document.getElementById("sql").innerHTML = sql;
 
