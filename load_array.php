@@ -65,20 +65,20 @@ function money_calc(id_magazin){
                     "'0', "+
                     "'99', "+
                     "'"+document.getElementById("money_in").value+"', "+
-                    "'document.getElementById(\"datepicker\").value 14:00:00.000000','M');";
-
+                    "'"+document.getElementById("datepicker").value+" 14:00:00.000000','M');";
     document.getElementById("sql").innerHTML = sql;
+
+    var out="<button name=save_sql onclick=\"save_to_sql();\">save</button>";
+    document.getElementById("calc_summ").innerHTML = out;
 
 }
 
 function create_form_money_only(id_magazin){
-    alert("money_calc");
     var d = new Date();
     var curr_date = d.getDate();
     var curr_month = d.getMonth() + 1;
     var curr_year = d.getFullYear();
 
-    //console.log(curr_date);
     var input = document.createElement("input");
     input.type = "text";
     input.size = "10";
@@ -100,10 +100,6 @@ function create_form_money_only(id_magazin){
     input1.onchange =  function(){ money_calc(id_magazin); return; };
     document.getElementById("calc_summ").appendChild(input1);
 
-
-/*
-    var out="<button name=save_sql onclick=\"save_to_sql();\">save</button>";
-    document.getElementById("calc_summ").innerHTML = out;*/
     }
 
 function calc(){
