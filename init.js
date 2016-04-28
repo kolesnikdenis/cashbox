@@ -34,7 +34,7 @@ function add_item_coming_money(id_magazin){
                 "'0', "+
                 "'0', "+
                 "'99', "+
-                "'"+document.getElementById("money_in").value+"', "+
+                "'document.getElementById(\"money_in\").value', "+
                 "'"+document.getElementById("datepicker").value+" 14:00:00.000000','M');";
                 money_calc();
                 document.getElementById("sql").innerHTML = sql;
