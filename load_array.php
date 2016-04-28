@@ -86,6 +86,7 @@ function create_form_money_only(id_magazin){
     cellText.name="money_in";
     cellText.id  = "money_in";
     cellText.onchange =  function(){ money_calc(id_magazin); return; };
+    document.getElementById("calc_summ").appendChild(cellText);
 
     cellText1 = document.createElement("input");
     cellText1.type = "text";
@@ -95,9 +96,9 @@ function create_form_money_only(id_magazin){
     cellText1.name="date";
     cellText1.id  = "datepicker";
     cellText1.onchange =  function(){ money_calc(id_magazin); return; };
-
-    //document.getElementById("calc_summ").appendChild(cellText);
     document.getElementById("calc_summ").appendChild(cellText1);
+
+
     var out="<input type=text name=money_in id=money_in value=0><br><button name=save_sql onclick=\"save_to_sql();\">save</button>";
     document.getElementById("calc_summ").innerHTML = out;
 
