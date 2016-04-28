@@ -28,7 +28,7 @@ function add_item_coming_money(id_magazin){
                 
 
                 
-                money_calc();
+                money_calc(id_magazin);
                 document.getElementById("sql").innerHTML = sql;
 
 
