@@ -56,8 +56,6 @@ return table;
    }
 
 function money_calc(id_magazin){
-
-    alert("money_calc1");
     var sql="INSERT INTO `accounting`.`cashbox` (`id`, `magazine`, `serial_left`, `count_left`, `serial_add`, `count_add`, `data_time`) VALUES"+
                     " (NULL, " +
                     "'"+id_magazin+"', "+

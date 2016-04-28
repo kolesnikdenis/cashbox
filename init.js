@@ -24,17 +24,9 @@ function add_item_coming_money(id_magazin){
             erdiv.innerHTML="error \""+errors+"\"";
             if (result) {
                 eval(result["js"]);
-
-
-
-
                 create_form_money_only(id_magazin);
                 //document.getElementById("sql").innerHTML = sql;
-
-
                 //document.getElementById("addtable").innerHTML=out;
-                
-
                 $(function() {
                     $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
                 });
@@ -155,7 +147,7 @@ function save_to_sql(){
 }
 
 
-function add_intem(idstring,name){
+function add_item(idstring,name){
     var jsElm = document.createElement("script");
     jsElm.type = "application/javascript";
     var file="http://manage.ots.kh.ua/cashbox/load_array.php";
