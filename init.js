@@ -29,12 +29,11 @@ function add_item_coming_money(id_magazin){
 
 
                 create_form_money_only(id_magazin);
-                document.getElementById("sql").innerHTML = sql;
+                //document.getElementById("sql").innerHTML = sql;
 
 
-                document.getElementById("addtable").innerHTML=out;
-                //var table=init();
-                //document.getElementById("addtable").appendChild(table);
+                //document.getElementById("addtable").innerHTML=out;
+                
 
                 $(function() {
                     $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
