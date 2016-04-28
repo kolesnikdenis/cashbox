@@ -140,6 +140,8 @@ function save_to_sql(){
                 erdiv1=document.getElementById("show_sql_query");
                 erdiv.innerHTML=result["text"];
                 erdiv1.innerHTML=result["sql"];
+                erdiv1=document.getElementById("button").innerHTML="";
+                erdiv1=document.getElementById("sql").innerHTML="";
             }
 
         }
