@@ -116,7 +116,7 @@ if ( $taskk == "show_cashbox" ) {
                 //подсчет конца ... сколько магаз продал
                 foreach ($global_summ as $key1 => &$value1 ){
                     global $global_summ;
-                    $global_summ[$key1]=calc_ost($global_summ[$key1],(99 * 1), ( 99 * 1), "3333", $key1);
+                    $global_summ[$key1]["summ"]=calc_ost($global_summ[$key1]["summ"],(99 * 1), ( 99 * 1), "3333", $key1);
                 }
 
                 //вывод последнего остатка
