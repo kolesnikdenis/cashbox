@@ -29,11 +29,6 @@ $id_user = $_SESSION['login_id'];
 $set_datetime = $_REQUEST['set_datetime'];
 $eierr="no";
 
-/*$global_summ_rodnik=3650; //
-$global_summ_centr=4520;//3
-$global_summ_poselok=4700;//
-$global_summ_minik=4490;
-*/
 $array_pay=array();
 $global_summ=array();
 $global_summ["rodnichek"]["summ"]=3650;
@@ -45,6 +40,9 @@ $global_summ["poselok"]["date"]=231;
 $global_summ["minimarcet"]["summ"]=4490;
 $global_summ["minimarcet"]["date"]=231;
 
+/* при смене даты он пересчитует остаток сколько в него попало новым остатком и если не правильно указать новый остаток будет ошибка подсчетов
+скрипт посчитает новый остаток относительно поступивших данных поэтому */
+/* 99 озночает смена даты для выведения глобального остатка на последнюю дату .. и глобальной продажи */
 
 function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
     global $array_pay,$global_summ;
@@ -103,13 +101,9 @@ if ( $taskk == "show_cashbox" ) {
                   $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
 
-                  //global $global_summ;
                   $name_magazine = $pl[2];
-                  //$out.=$global_summ[$name_magazine]."<br>";
                   $global_summ[$name_magazine]["summ"]=calc_ost($global_summ[$name_magazine]["summ"],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
                   $out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."<br>";
-
-                  //}
                 }
                 $out.="</table>";
 
@@ -134,37 +128,41 @@ if ( $taskk == "show_cashbox" ) {
                         $out.= "key1: ". $key1. "= ost =" . $value['ost']." key: " . $key ."<br>";
                         $out.= "key1: ". $key1. "= add =" . $value['add']." key: " . $key ."<br>";
                         $out.= "key1: ". $key1. "= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
+                        $global_summ[$key1]["prodal"] += $value['prodal'];
                     }
+                    $out .="Магазин: ".$key1." за выбранный период продал на сумму: ". $global_summ[$key1]["prodal"] . " сейчас остаток в ". $key1. ":".$global_summ[$key1]["summ"]."<br>".
                 }
                 $out.="<br><Br>";
+
+                /*
                 foreach ($array_pay["minimarcet"] as $key => &$value) {
-                    /*$out.= $key."= ost =" . $value['ost']." key: " . $key ."<br>";
+                    $out.= $key."= ost =" . $value['ost']." key: " . $key ."<br>";
                     $out.= $key."= add =" . $value['add']." key: " . $key ."<br>";
-                    $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";*/
+                    $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
                     $global_summ_minik_prodal +=$value['prodal'];
                     $global_summ_minik = $value['ost']+$value['add'];
                 }
                 foreach ($array_pay["rodnichek"] as $key => &$value) {
-                    /*$out.= $key."= ost =" . $value['ost']." key: " . $key ."<br>";
+                    $out.= $key."= ost =" . $value['ost']." key: " . $key ."<br>";
                     $out.= $key."= add =" . $value['add']." key: " . $key ."<br>";
-                    $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";*/
+                    $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
                     $global_summ_rodnichek_prodal +=$value['prodal'];
                     $global_summ_rodnichek = $value['ost']+$value['add'];
                 }
-                foreach ($array_pay["centr"] as $key => &$value) {/*
+                foreach ($array_pay["centr"] as $key => &$value) {
                     $out.= $key."= ost =" . $value['ost']." key: " . $key ."<br>";
                     $out.= $key."= add =" . $value['add']." key: " . $key ."<br>";
-                    $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";*/
+                    $out.= $key."= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
                     $global_summ_centr_prodal +=$value['prodal'];
                     $global_summ_centr = $value['ost']+$value['add'];
-                }
+                }*/
 
-
+/*
                 $out.="родничек продал на сумму: ".$global_summ_rodnik ."<br>".
                 "Минимаркет на сумму: ". $global_summ_minik_prodal. " сейчас остаток в минимаркете:".$global_summ_minik."<br>".
                 "Родничек на сумму: ". $global_summ_rodnichek_prodal. " сейчас остаток в Родничек:".$global_summ_rodnichek."<br>".
                 "Центр на сумму: ". $global_summ_centr_prodal. " сейчас остаток в Центр:".$global_summ_centr."<br>".
-                "Поселок на сумму: ". $global_summ_poselok."<br>";
+                "Поселок на сумму: ". $global_summ_poselok."<br>";*/
                 //$out.="всего прибыль за выбраный период".( $global_summ_rodnik +  $global_summ_minik + $global_summ_centr + $global_summ_poselok)."<br><hr>";
 
                 $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
