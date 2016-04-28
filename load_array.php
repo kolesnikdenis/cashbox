@@ -57,13 +57,17 @@ return table;
 
 function money_calc(id_magazin){
     alert("money_calc");
+    var d = new Date();
+    var curr_date = d.getDate();
+    var curr_month = d.getMonth() + 1;
+    var curr_year = d.getFullYear();
 
     cellText = document.createElement("input");
     cellText.type = "text";
     cellText.size = "10";
     cellText.setAttribute("readOnly","true");
     cellText.value="0";
-    cellText.name="date_"+id;
+    cellText.name="money_in;
     cellText.id  = "money_in";
     cellText.onchange =  function(){ money_calc(); return; };
 
@@ -72,7 +76,7 @@ function money_calc(id_magazin){
     cellText.size = "10";
     cellText.setAttribute("readOnly","true");
     cellText.value=curr_year + "-" + curr_month + "-" + curr_date;
-    cellText.name="date_"+id;
+    cellText.name="date";
     cellText.id  = "datepicker";
     cellText.onchange =  function(){ money_calc(); return; };
 
