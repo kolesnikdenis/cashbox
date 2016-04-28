@@ -122,7 +122,7 @@ if ( $taskk == "show_cashbox" ) {
 
                 foreach ($array_pay as $key1 =>&$value1 ) {
                     $out.= "key1 =" . $key1."<br>";
-                    foreach ($array_pay[$key] as $key => &$value) {
+                    foreach ($array_pay[$key1] as $key => &$value) {
                         $out.= "key1: ==" . $key1." key: " . $key ."<br>";
                         $out.= "key1: ". $key1. "= ost =" . $value['ost']." key: " . $key ."<br>";
                         $out.= "key1: ". $key1. "= add =" . $value['add']." key: " . $key ."<br>";
