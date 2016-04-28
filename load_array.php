@@ -103,8 +103,8 @@ function create_form_money_only(id_magazin){
 */
 
 
-    var out="<input type=text name=money_in id=money_in value=0><br><button name=save_sql onclick=\"save_to_sql();\">save</button>";
-    document.getElementById("calc_summ").innerHTML = out;
+    /*var out="<button name=save_sql onclick=\"save_to_sql();\">save</button>";
+    document.getElementById("calc_summ").innerHTML = out;*/
 
     }
 
