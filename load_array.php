@@ -78,10 +78,11 @@ function create_form_money_only(id_magazin){
     var curr_month = d.getMonth() + 1;
     var curr_year = d.getFullYear();
 
+    console.log(curr_date);
     cellText1 = document.createElement("input");
     cellText1.type = "text";
     cellText1.size = "10";
-    cellText1.setAttribute("readOnly","true");
+    //cellText1.setAttribute("readOnly","true");
     cellText1.value=curr_year + "-" + curr_month + "-" + curr_date;
     cellText1.name="date";
     cellText1.id  = "datepicker";
@@ -91,7 +92,7 @@ function create_form_money_only(id_magazin){
     cellText = document.createElement("input");
     cellText.type = "text";
     cellText.size = "10";
-    cellText.setAttribute("readOnly","true");
+    //cellText.setAttribute("readOnly","true");
     cellText.value="0";
     cellText.name="money_in";
     cellText.id  = "money_in";
