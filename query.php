@@ -97,7 +97,7 @@ if ( $taskk == "show_cashbox" ) {
                   $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td></tr>";
 
-                  global $global_summ;
+                  //global $global_summ;
                   $name_magazine = $pl[2];
                   //$out.=$global_summ[$name_magazine]."<br>";
                   $global_summ[$name_magazine]=calc_ost($global_summ[$name_magazine],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
