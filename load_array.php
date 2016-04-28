@@ -89,7 +89,7 @@ function create_form_money_only(id_magazin){
     input.onchange =  function(){ money_calc(id_magazin); return; };
     document.getElementById("calc_summ").appendChild(input);
 
-  /*
+
     var input1 = document.createElement("input");
     input1.type = "text";
     input1.size = "10";
@@ -100,11 +100,10 @@ function create_form_money_only(id_magazin){
     input1.onchange =  function(){ money_calc(id_magazin); return; };
     document.getElementById("button").appendChild(input1);
 
-*/
 
 
-    /*var out="<button name=save_sql onclick=\"save_to_sql();\">save</button>";
-    document.getElementById("calc_summ").innerHTML = out;*/
+    var out="<button name=save_sql onclick=\"save_to_sql();\">save</button>";
+    document.getElementById("calc_summ").innerHTML = out;
 
     }
 
