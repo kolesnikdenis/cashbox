@@ -67,10 +67,8 @@ function money_calc(id_magazin){
                     "'"+document.getElementById("money_in").value+"', "+
                     "'"+document.getElementById("datepicker").value +"14:00:00.000000','M');";
 
-    document.getElementById("calc_summ").appendChild(cellText);
-    var out="<input type=text name=money_in id=money_in value=0><br><button name=save_sql onclick=\"save_to_sql();\">save</button>";
-    document.getElementById("calc_summ").innerHTML = out;
     document.getElementById("sql").innerHTML = sql;
+
 }
 
 function create_form_money_only(id_magazin){
@@ -89,14 +87,20 @@ function create_form_money_only(id_magazin){
     cellText.id  = "money_in";
     cellText.onchange =  function(){ money_calc(); return; };
 
-    cellText = document.createElement("input");
-    cellText.type = "text";
-    cellText.size = "10";
-    cellText.setAttribute("readOnly","true");
-    cellText.value=curr_year + "-" + curr_month + "-" + curr_date;
-    cellText.name="date";
-    cellText.id  = "datepicker";
-    cellText.onchange =  function(){ money_calc(); return; };
+    cellText1 = document.createElement("input");
+    cellText1.type = "text";
+    cellText1.size = "10";
+    cellText1.setAttribute("readOnly","true");
+    cellText1.value=curr_year + "-" + curr_month + "-" + curr_date;
+    cellText1.name="date";
+    cellText1.id  = "datepicker";
+    cellText1.onchange =  function(){ money_calc(); return; };
+
+    document.getElementById("calc_summ").appendChild(cellText);
+    document.getElementById("calc_summ").appendChild(cellText1);
+    var out="<input type=text name=money_in id=money_in value=0><br><button name=save_sql onclick=\"save_to_sql();\">save</button>";
+    document.getElementById("calc_summ").innerHTML = out;
+
     }
 
 function calc(){
