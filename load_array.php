@@ -78,6 +78,16 @@ function create_form_money_only(id_magazin){
     var curr_month = d.getMonth() + 1;
     var curr_year = d.getFullYear();
 
+    cellText1 = document.createElement("input");
+    cellText1.type = "text";
+    cellText1.size = "10";
+    cellText1.setAttribute("readOnly","true");
+    cellText1.value=curr_year + "-" + curr_month + "-" + curr_date;
+    cellText1.name="date";
+    cellText1.id  = "datepicker";
+    cellText1.onchange =  function(){ money_calc(id_magazin); return; };
+    document.getElementById("calc_summ").appendChild(cellText1);
+
     cellText = document.createElement("input");
     cellText.type = "text";
     cellText.size = "10";
@@ -88,15 +98,7 @@ function create_form_money_only(id_magazin){
     cellText.onchange =  function(){ money_calc(id_magazin); return; };
     document.getElementById("calc_summ").appendChild(cellText);
 
-    cellText1 = document.createElement("input");
-    cellText1.type = "text";
-    cellText1.size = "10";
-    cellText1.setAttribute("readOnly","true");
-    cellText1.value=curr_year + "-" + curr_month + "-" + curr_date;
-    cellText1.name="date";
-    cellText1.id  = "datepicker";
-    cellText1.onchange =  function(){ money_calc(id_magazin); return; };
-    document.getElementById("calc_summ").appendChild(cellText1);
+
 
 
     var out="<input type=text name=money_in id=money_in value=0><br><button name=save_sql onclick=\"save_to_sql();\">save</button>";
