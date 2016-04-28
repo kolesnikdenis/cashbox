@@ -12,6 +12,10 @@ function _getElementById(id){
   return item;
 }
 
+function add_item_coming_money(id_magazin){
+    alert(id_magazin);
+}
+
 function add_item_coming_consumption(id_magazin){
 /*
     var jsElm = document.createElement("script");
@@ -20,10 +24,6 @@ function add_item_coming_consumption(id_magazin){
     jsElm.src = file;
     document.getElementsByTagName('head')[0].appendChild(jsElm);
     document.body.appendChild(jsElm);*/
-
-
-
-    
     JsHttpRequest.query(
         "add_item_coming_consumption.php",
         {

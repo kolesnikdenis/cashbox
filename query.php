@@ -67,6 +67,25 @@ function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
 }
 
 
+function calc_money($ost_old,$prodal_magaz,$date_in,$shop_name){
+    global $array_pay,$global_summ;
+    $old_data=$global_summ[$shop_name]["date"];
+    #echo "old_data ".$old_data ." date_in ".$date_in."\r\n";
+    if ($old_data != $date_in){
+        #print "date ".$old_data." shop_name ". $shop_name."  ost_old ".$ost_old." \$array_pay[\$shop_name][\$date][ost]".$array_pay[$shop_name][$old_data]['ost']."\r\n";
+        #print $array_pay[$shop_name][$old_data]['ost'] . " + ".$array_pay[$shop_name][$old_data]['add']. " - " . $ost_old."\r\n";
+        $array_pay[$shop_name][$old_data]['prodal'] = $array_pay[$shop_name][$old_data]['ost']+$array_pay[$shop_name][$old_data]['add']-$ost_old;
+        $ost_old=$array_pay[$shop_name][$old_data]['ost']+$array_pay[$shop_name][$old_data]['add'];
+    }
+    $ost_old=$ost_old-$prodal_magaz;
+    $array_pay[$shop_name][$date_in]['ost'] = $ost_old;
+    $array_pay[$shop_name][$date_in]['add'] = 0;
+    $array_pay[$shop_name][$date_in]['prodal'] = $prodal_magaz;
+    #$global_summ[$shop_name]["date"]=$date_in;
+    return $ost_old;
+}
+
+
 
 if ( $taskk == "show_cashbox" ) {
         if($eierr=="no"){
@@ -84,7 +103,7 @@ if ( $taskk == "show_cashbox" ) {
 						<td>тип операции</td>
 						<td>приход</td>
 						<td>остаток в магазине </td>
-						<td>тип финансовой операции</td>
+						<td>type</td>
 					</tr>";
                 $res=mysql_query($SQL,$dbh);
                 print mysql_error();
@@ -103,8 +122,16 @@ if ( $taskk == "show_cashbox" ) {
                   $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td></tr>";
 
                   $name_magazine = $pl[2];
-                  $global_summ[$name_magazine]["summ"]=calc_ost($global_summ[$name_magazine]["summ"],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
-                  $out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."<br>";
+                  if ($pl[type_calculation] == "C" ){
+                    $global_summ[$name_magazine]["summ"]=calc_ost($global_summ[$name_magazine]["summ"],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
+                    $out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."\"C\"<br>";
+                  }
+                  else {
+                    $global_summ[$name_magazine]["summ"]=calc_money($global_summ[$name_magazine]["summ"],$money_calculation,$pl[data_time], $pl[2]);
+                    $out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."\"M\"<br>";
+                  }
+
+
                 }
                 $out.="</table>";
 
@@ -167,7 +194,12 @@ if ( $taskk == "add_intem" ) {
 				$res=mysql_query($SQL,$dbh);
                 print mysql_error();
                 while ($pl=mysql_fetch_array($res)){
-                    $out .=  "<tr><td><a href=\"#\" onclick=\"add_item_coming_consumption(".$pl[magazine_id].")\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
+                    if ($idstring == "only_money" ) {
+                        $out .=  "<tr><td><a href=\"#\" onclick=\"add_item_coming_money(".$pl[magazine_id].")\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
+                    }
+                    else {
+                        $out .=  "<tr><td><a href=\"#\" onclick=\"add_item_coming_consumption(".$pl[magazine_id].")\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
+                    }
                 }
 
                 $out.="</table><br><div id=calc_add></div><br><div id=calc_left></div>";

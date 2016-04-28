@@ -51,7 +51,7 @@ include "top.php";
 <table border=1>
 <tr>
 	<td><a onclick="add_intem('add_intem'); return false;" href=#>добавить карточек</a></td>
-	<td><A onclick="alert('only_money'); return false;" href=#>только деньги</a></td>
+	<td><A onclick="add_intem('only_money'); return false;" href=#>только деньги</a></td>
 </tr>
 </table>
 
