@@ -69,7 +69,7 @@ function money_calc(id_magazin){
     document.getElementById("sql").innerHTML = sql;
 
     var out="<button name=save_sql onclick=\"save_to_sql();\">save</button>";
-    document.getElementById("calc_summ").innerHTML = out;
+    document.getElementById("button").innerHTML = out;
 
 }
 
