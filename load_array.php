@@ -55,6 +55,10 @@ function init() {
 return table;
    }
 
+function money_calc(){
+    alert("money_calc");
+}
+
 
 function calc(){
     var summ_cas20 =document.getElementById("count_cas_id_20").value * 20;

@@ -13,7 +13,47 @@ function _getElementById(id){
 }
 
 function add_item_coming_money(id_magazin){
-    alert(id_magazin);
+    //alert(id_magazin);
+    JsHttpRequest.query(
+        "add_item_coming_consumption.php",
+        {
+            "db": name, "id_magazin": id_magazin, "tas": 'load_array_js'
+        },
+        function (result, errors) {
+            erdiv=document.getElementById("showtable");
+            erdiv.innerHTML="error \""+errors+"\"";
+            if (result) {
+                eval(result["js"]);
+
+                var out="<input type=text name=money_in id=money_in value=0><br>\
+                <button name=save_sql onclick=\"save_to_sql();\">save</button>";
+
+                var sql="INSERT INTO `accounting`.`cashbox` (`id`, `magazine`, `serial_left`, `count_left`, `serial_add`, `count_add`, `data_time`) VALUES"+
+                " (NULL, " +
+                "'"+id_magazin+"', "+
+                "'0', "+
+                "'0', "+
+                "'99', "+
+                "'"+document.getElementById("money_in").value+"', "+
+                "'"+document.getElementById("datepicker").value+" 14:00:00.000000','M');";
+                money_calc();
+                document.getElementById("sql").innerHTML = sql;
+
+
+                document.getElementById("addtable").innerHTML=out;
+                //var table=init();
+                //document.getElementById("addtable").appendChild(table);
+
+                $(function() {
+                    $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+                });
+
+
+            }
+
+
+        }
+    );
 }
 
 function add_item_coming_consumption(id_magazin){
