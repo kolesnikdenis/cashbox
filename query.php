@@ -119,14 +119,15 @@ if ( $taskk == "show_cashbox" ) {
                   else   { $type = "добавил карточек"; }
                   $add_card=$pl[3] . " * " .  $count_add   ." = " . ( $pl[3] * $count_add);
                   $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
-                  $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td></tr>";
 
                   $name_magazine = $pl[2];
                   if ($pl[type_calculation] == "C" ){
+                    $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td></tr>";
                     $global_summ[$name_magazine]["summ"]=calc_ost($global_summ[$name_magazine]["summ"],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
                     $out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."\"C\"<br>";
                   }
                   else {
+                    $out .= "<td>---</td><td>-----</td><td>-----</td><td bgcolor=#f4c397>----</td><td bgcolor=#a6e3f4>-------</td><td>".$pl[type_calculation]."</td></tr>";
                     $global_summ[$name_magazine]["summ"]=calc_money($global_summ[$name_magazine]["summ"],$money_calculation,$pl[data_time], $pl[2]);
                     $out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."\"M\"<br>";
                   }
