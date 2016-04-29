@@ -127,7 +127,7 @@ if ( $taskk == "show_cashbox" ) {
                     $out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."\"C\"<br>";
                   }
                   else {
-                    $out .= "<td>---</td><td>-----</td><td>-----</td><td bgcolor=#f4c397>----</td><td bgcolor=#a6e3f4>-------</td><td>".$pl[type_calculation]."</td></tr>";
+                    $out .= "<td>---</td><td>-----</td><td>-----</td><td bgcolor=#f4c397>".$pl[count_add]."</td><td bgcolor=#a6e3f4>-------</td><td>".$pl[type_calculation]."</td></tr>";
                     $global_summ[$name_magazine]["summ"]=calc_money($global_summ[$name_magazine]["summ"],$money_calculation,$pl[data_time], $pl[2]);
                     $out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."\"M\"<br>";
                   }
