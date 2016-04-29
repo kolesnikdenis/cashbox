@@ -69,10 +69,7 @@ function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
 function calc_money($ost_old,$prodal_magaz,$date_in,$shop_name){
         global $array_pay,$global_summ;
         $old_data=$global_summ[$shop_name]["date"];
-        #echo "old_data ".$old_data ." date_in ".$date_in."\r\n";
         if ( $old_data != $date_in   ) {
-                #print "date ".$old_data." shop_name ". $shop_name."  ost_old ".$ost_old." \$array_pay[\$shop_name][\$date][ost]".$array_pay[$shop_name][$old_data]['ost']."\r\n";
-                #print $array_pay[$shop_name][$old_data]['ost'] . " + ".$array_pay[$shop_name][$old_data]['add']. " - " . $ost_old."\r\n";
                 if ( strlen( $array_pay[$shop_name][$old_data]['ost'] ) >2  )  {
                         $array_pay[$shop_name][$old_data]['prodal'] = $array_pay[$shop_name][$old_data]['ost']+$array_pay[$shop_name][$old_data]['add']-$ost_old;
                         $ost_old=$array_pay[$shop_name][$old_data]['ost']+$array_pay[$shop_name][$old_data]['add'];
@@ -132,7 +129,7 @@ if ( $taskk == "show_cashbox" ) {
                   }
                   else {
                     $out .= "<td>---</td><td>-----</td><td>только забрал деньги</td><td bgcolor=#f4c397>".$pl[count_add]."</td><td bgcolor=#a6e3f4>".$global_summ[$name_magazine]["summ"]."</td><td>".$pl[type_calculation]."</td></tr>";
-                    $global_summ[$name_magazine]["summ"]=calc_money($global_summ[$name_magazine]["summ"],$money_calculation,$pl[data_time], $pl[2]);
+                    $global_summ[$name_magazine]["summ"]=calc_money($global_summ[$name_magazine]["summ"],$pl[count_add],$pl[data_time], $pl[2]);
                     $out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."\"M\"<br>";
                   }
 
