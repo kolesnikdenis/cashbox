@@ -31,62 +31,66 @@ $eierr="no";
 
 $array_pay=array();
 $global_summ=array();
-$global_summ["rodnichek"]["summ"]=3650;
-$global_summ["rodnichek"]["date"]=231;
-$global_summ["centr"]["summ"]=4520;
-$global_summ["centr"]["date"]=231;
-$global_summ["poselok"]["summ"]=4700;
-$global_summ["poselok"]["date"]=231;
-$global_summ["minimarcet"]["summ"]=4490;
-$global_summ["minimarcet"]["date"]=231;
+$array_pay["rodnichek"]["123"]["ost"]=3650;
+$array_pay["centr"]["123"]["ost"]=4520;
+$array_pay["poselok"]["123"]["ost"]=4700;
+$array_pay["minimarcet"]["123"]["ost"]=4490;
+
 
 /* при смене даты он пересчитует остаток сколько в него попало новым остатком и если не правильно указать новый остаток будет ошибка подсчетов
 скрипт посчитает новый остаток относительно поступивших данных поэтому */
 /* 99 озночает смена даты для выведения глобального остатка на последнюю дату .. и глобальной продажи */
 
-function calc_ost($ost_old,$left_card,$add_card,$date_in,$shop_name) {
-    global $array_pay,$global_summ;
-    $date = $global_summ[$shop_name]["date"];
-    if ( $date  == "231" ) { $global_summ[$shop_name]["date"] = $date_in; $date = $date_in; }
-    if ( ( $date  != $date_in ) && ($left_card !=99 )  ){
-        $ost = $array_pay[$shop_name][$date]['ost'];
-        $add = $array_pay[$shop_name][$date]['add'];
-        $array_pay[$shop_name][$date]['prodal'] = $ost_old-$array_pay[$shop_name][$date]['ost'];
-        $ost_old = $ost + $add;
-        $global_summ[$shop_name]["date"] =$date_in;
-    }else
-    {
-        $array_pay[$shop_name][$date]['prodal'] = $ost_old-$array_pay[$shop_name][$date]['ost'];
-        if ( $left_card==99 ) { $ost_old =  $array_pay[$shop_name][$date]['ost'] +  $array_pay[$shop_name][$date]['add']; }
-    }
-    if ($left_card !=99 ){
-        $array_pay[$shop_name][$date_in]['ost']+=$left_card;
-        $array_pay[$shop_name][$date_in]['add']+=$add_card;
-    }
-    return $ost_old;
-}
+function calc_ost1($left_card_summ,$add_card_summ,$data_in,$shop_name){
+        global $array_pay;
+        $last_data= key( array_slice($array_pay[$shop_name] , -1, 1, TRUE ) );
+        if ($left_card_summ != 99 ) {
+                $array_pay[$shop_name][$data_in]["add"] += $add_card_summ;
+                $array_pay[$shop_name][$data_in]["ost"] += $left_card_summ;
 
-function calc_money($ost_old,$prodal_magaz,$date_in,$shop_name){
-        global $array_pay,$global_summ;
-        $old_data=$global_summ[$shop_name]["date"];
-        if ( $old_data != $date_in   ) {
-                if ( strlen( $array_pay[$shop_name][$old_data]['ost'] ) >2  )  {
-                        $array_pay[$shop_name][$old_data]['prodal'] = $array_pay[$shop_name][$old_data]['ost']+$array_pay[$shop_name][$old_data]['add']-$ost_old;
-                        $ost_old=$array_pay[$shop_name][$old_data]['ost']+$array_pay[$shop_name][$old_data]['add'];
+                if ($data_in != $last_data){
+                        if ( count($array_pay[$shop_name]) > 2 ) {
+                                $last_last_data= key( array_slice($array_pay[$shop_name] , -3, 1, TRUE ) );
+                                if ( $array_pay[$shop_name][$last_last_data]["add"] ) { $oldd_add= $array_pay[$shop_name][$last_last_data]["add"]; }
+                                if ( $array_pay[$shop_name][$last_last_data]["ost"] ) { $oldd_ost=$array_pay[$shop_name][$last_last_data]["ost"]; }
+                                if ( $array_pay[$shop_name][$last_data]["ost"] ) {  $old_ost= $array_pay[$shop_name][$last_data]["ost"]; }
+                                $array_pay[$shop_name][$last_data]["prodal"] = $oldd_ost+$oldd_add-$old_ost;
+                        }
                 }
         }
-        $ost_old=$ost_old-$prodal_magaz;
-        $array_pay[$shop_name][$date_in]['ost'] = $ost_old;
-        $array_pay[$shop_name][$date_in]['add'] = 0;
-        $array_pay[$shop_name][$date_in]['prodal'] = $prodal_magaz;
+        else  {
+                $last_last_data= key( array_slice($array_pay[$shop_name] , -2, 1, TRUE ) );
+                if ( $array_pay[$shop_name][$last_last_data]["add"] ) { $oldd_add= $array_pay[$shop_name][$last_last_data]["add"]; }
+                if ( $array_pay[$shop_name][$last_last_data]["ost"] ) { $oldd_ost=$array_pay[$shop_name][$last_last_data]["ost"]; }
+                if ( $array_pay[$shop_name][$last_data]["ost"] ) {  $old_ost= $array_pay[$shop_name][$last_data]["ost"]; }
 
-        $global_summ[$shop_name]["date"]=$date_in;
-        return $ost_old;
-
+                $array_pay[$shop_name][$last_data]["prodal"] = $oldd_ost+$oldd_add-$old_ost;
+        }
 }
 
+ function calc_money($prodal_magaz,$date_in,$shop_name){
+        global $array_pay;
+        $last_data= key( array_slice($array_pay[$shop_name] , -1, 1, TRUE ) );
 
-
+         #echo "old_data ".$old_data ." date_in ".$date_in."\r\n";
+         if ( $last_data != $date_in   ) {
+                 #print "date ".$old_data." shop_name ". $shop_name."  ost_old ".$ost_old." \$array_pay[\$shop_name][\$date][ost]".$array_pay[$shop_name][$old_data]['ost']."\r\n";
+                 #print $array_pay[$shop_name][$old_data]['ost'] . " + ".$array_pay[$shop_name][$old_data]['add']. " - " . $ost_old."\r\n";
+                 if ( $array_pay[$shop_name][$last_data]["ost"]  )  {
+                         $last_last_data= key( array_slice($array_pay[$shop_name] , -2, 1, TRUE ) );
+                         if ( $array_pay[$shop_name][$last_data]["ost"] ) {  $old_ost= $array_pay[$shop_name][$last_data]["ost"]; }
+                         if ( $array_pay[$shop_name][$last_last_data]["add"] ) { $oldd_add= $array_pay[$shop_name][$last_last_data]["add"]; }
+                         if ( $array_pay[$shop_name][$last_last_data]["ost"] ) { $oldd_ost=$array_pay[$shop_name][$last_last_data]["ost"]; }
+                         $array_pay[$shop_name][$last_data]["prodal"] = $oldd_ost+$oldd_add-$old_ost;
+                 }
+         }
+         $last_data= key( array_slice($array_pay[$shop_name] , -1, 1, TRUE ) );
+         $ost_old=$array_pay[$shop_name][$last_data]["ost"]+ $array_pay[$shop_name][$last_data]["add"];
+         $ost_old-=$prodal_magaz;
+         $array_pay[$shop_name][$date_in]['ost'] = $ost_old;
+         $array_pay[$shop_name][$date_in]['add'] = 0;
+         $array_pay[$shop_name][$date_in]['prodal'] = $prodal_magaz;
+ }
 
 if ( $taskk == "show_cashbox" ) {
         if($eierr=="no"){
@@ -124,13 +128,13 @@ if ( $taskk == "show_cashbox" ) {
                   $name_magazine = $pl[2];
                   if ($pl[type_calculation] == "C" ){
                     $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td></tr>";
-                    $global_summ[$name_magazine]["summ"]=calc_ost($global_summ[$name_magazine]["summ"],($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
-                    $out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."\"C\"<br>";
+                    calc_ost1(($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
+                    //$out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."\"C\"<br>";
                   }
                   else {
                     $out .= "<td>---</td><td>-----</td><td>только забрал деньги</td><td bgcolor=#f4c397>".$pl[count_add]."</td><td bgcolor=#a6e3f4>".$global_summ[$name_magazine]["summ"]."</td><td>".$pl[type_calculation]."</td></tr>";
-                    $global_summ[$name_magazine]["summ"]=calc_money($global_summ[$name_magazine]["summ"],$pl[count_add],$pl[data_time], $pl[2]);
-                    $out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."\"M\"<br>";
+                    calc_money($pl[count_add],$pl[data_time], $pl[2]);
+                    //$out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."\"M\"<br>";
                   }
 
 
@@ -139,8 +143,7 @@ if ( $taskk == "show_cashbox" ) {
 
                 //подсчет конца ... сколько магаз продал
                 foreach ($global_summ as $key1 => &$value1 ){
-                    global $global_summ;
-                    $global_summ[$key1]["summ"]=calc_ost($global_summ[$key1]["summ"],(99 * 1), ( 99 * 1), "3333", $key1);
+                    calc_ost1((99 * 1), ( 99 * 1), "3333", $key1);
                 }
 
                 //$out .= $global_summ_minik."end out<br>";
@@ -155,7 +158,8 @@ if ( $taskk == "show_cashbox" ) {
                         $out.= "key1: ". $key1. "= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
                         $global_summ[$key1]["prodal"] += $value['prodal'];
                     }
-                    $out .="Магазин: ".$key1." за выбранный период продал на сумму: ". $global_summ[$key1]["prodal"] . " сейчас остаток в ". $key1. ":".$global_summ[$key1]["summ"]."<br>";
+                    $last_data= key( array_slice($array_pay[$shop_name] , -1, 1, TRUE ) );
+                    $out .="Магазин: ".$key1." за выбранный период продал на сумму: ". $global_summ[$key1]["prodal"] . " сейчас остаток в ". $key1. ":".$array_pay[$key1][$last_data]["ost"]."<br>";
                 }
                 $out.="<br><Br>";
 
