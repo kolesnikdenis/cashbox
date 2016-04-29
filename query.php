@@ -144,7 +144,7 @@ if ( $taskk == "show_cashbox" ) {
                 foreach ($array_pay as $key1 =>&$value1 ) {
                     foreach ($array_pay[$key1] as $key => &$value) {
                         $out .="<tr><td>".$key1."</td><td>".$key."</td><td>".$value['ost']."</td><td>".$value['add']."</td><td>".$value['prodal'].
-                        "</td><td><a href=# onclick=\"alert(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
+                        "</td><td><a href=# onclick=\"edit_sql(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
                         /*$out.= "key1: ==" . $key1." key: " . $key ."<br>";
                         $out.= "key1: ". $key1. "= ost =" . $value['ost']." key: " . $key ."<br>";
                         $out.= "key1: ". $key1. "= add =" . $value['add']." key: " . $key ."<br>";
