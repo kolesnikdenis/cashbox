@@ -177,6 +177,8 @@ if ( $taskk == "show_cashbox" ) {
 if ( $taskk == "edit_sql" ) {
     $dbh=DB_connect();
     $SQL = "SELECT *  FROM `cashbox` WHERE `id` ='".$idstring."'";
+    $res=mysql_query($SQL,$dbh);
+    print mysql_error();
     while ($pl=mysql_fetch_array($res)){
         if ($pl[type_calculation] =="C"){
             $out .= "count_add: <input name=add_count id=add_count value=\"".$pl[count_add]."\"><br>".
@@ -193,8 +195,7 @@ if ( $taskk == "edit_sql" ) {
                     " WHERE `cashbox`.`id` = ".$idstring;
         }
     }
-    $res=mysql_query($SQL,$dbh);
-    print mysql_error();
+
     $_RESULT['js'] = "";
     $_RESULT['text'] = $out;
     $_RESULT['err'] = 'no';
