@@ -196,7 +196,7 @@ if ( $taskk == "edit_sql" ) {
             $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = 'document.getElementById(\"add_count\").value' ".
                     " WHERE `cashbox`.`id` = ".$idstring;
             $js= "function ChangeSQL(){ \r\n ".
-                  "var sql=\"UPDATE `accounting`.`cashbox` SET `count_add` = '".document.getElementById(\"add_count\").value."' ".
+                  "var sql=\"UPDATE `accounting`.`cashbox` SET `count_add` = '\"+document.getElementById(\"add_count\").value+\"' ".
                   " WHERE `cashbox`.`id` = '".$idstring. "'\" ".
                   "\r\n document.getElementById(\"show_sql_query\").innerHTML = sql;\r\n ".
                   "\r\n".
