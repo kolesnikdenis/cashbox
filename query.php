@@ -111,7 +111,7 @@ if ( $taskk == "show_cashbox" ) {
                 $add_minik=0;
 
                 while ($pl=mysql_fetch_array($res)){
-                    $out.="<tr><td>".$pl[2]."</td><td>".$pl[name]."</td><td>".$pl[data_time]."</td>";
+                    //$out.="<tr><td>".$pl[2]."</td><td>".$pl[name]."</td><td>".$pl[data_time]."</td>";
                     $count_left=$pl[count_left];
                     $count_add=$pl[count_add];
                     if ( ($count_left  > 1 )  && ( $count_add > 1 ) ) { $type = "подсчет остатка и дал карточек " ;}
