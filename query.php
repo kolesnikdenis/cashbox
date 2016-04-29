@@ -63,41 +63,36 @@ function calc_ost1($left_card_summ,$add_card_summ,$data_in,$shop_name){
                 if ( $array_pay[$shop_name][$last_last_data]["add"] ) { $oldd_add= $array_pay[$shop_name][$last_last_data]["add"]; }
                 if ( $array_pay[$shop_name][$last_last_data]["ost"] ) { $oldd_ost=$array_pay[$shop_name][$last_last_data]["ost"]; }
                 if ( $array_pay[$shop_name][$last_data]["ost"] ) {  $old_ost= $array_pay[$shop_name][$last_data]["ost"]; }
-
                 $array_pay[$shop_name][$last_data]["prodal"] = $oldd_ost+$oldd_add-$old_ost;
         }
 }
 
- function calc_money($prodal_magaz,$date_in,$shop_name){
-        global $array_pay;
+function calc_money($prodal_magaz,$date_in,$shop_name){
+       global $array_pay;
+       $last_data= key( array_slice($array_pay[$shop_name] , -1, 1, TRUE ) );
+       if ( $last_data != $date_in   ) {
+                if ( $array_pay[$shop_name][$last_data]["ost"]  )  {
+                        $last_last_data= key( array_slice($array_pay[$shop_name] , -2, 1, TRUE ) );
+                        if ( $array_pay[$shop_name][$last_data]["ost"] ) {  $old_ost= $array_pay[$shop_name][$last_data]["ost"]; }
+                        if ( $array_pay[$shop_name][$last_last_data]["add"] ) { $oldd_add= $array_pay[$shop_name][$last_last_data]["add"]; }
+                        if ( $array_pay[$shop_name][$last_last_data]["ost"] ) { $oldd_ost=$array_pay[$shop_name][$last_last_data]["ost"]; }
+                        $array_pay[$shop_name][$last_data]["prodal"] = $oldd_ost+$oldd_add-$old_ost;
+                }
+        }
         $last_data= key( array_slice($array_pay[$shop_name] , -1, 1, TRUE ) );
-
-         #echo "old_data ".$old_data ." date_in ".$date_in."\r\n";
-         if ( $last_data != $date_in   ) {
-                 #print "date ".$old_data." shop_name ". $shop_name."  ost_old ".$ost_old." \$array_pay[\$shop_name][\$date][ost]".$array_pay[$shop_name][$old_data]['ost']."\r\n";
-                 #print $array_pay[$shop_name][$old_data]['ost'] . " + ".$array_pay[$shop_name][$old_data]['add']. " - " . $ost_old."\r\n";
-                 if ( $array_pay[$shop_name][$last_data]["ost"]  )  {
-                         $last_last_data= key( array_slice($array_pay[$shop_name] , -2, 1, TRUE ) );
-                         if ( $array_pay[$shop_name][$last_data]["ost"] ) {  $old_ost= $array_pay[$shop_name][$last_data]["ost"]; }
-                         if ( $array_pay[$shop_name][$last_last_data]["add"] ) { $oldd_add= $array_pay[$shop_name][$last_last_data]["add"]; }
-                         if ( $array_pay[$shop_name][$last_last_data]["ost"] ) { $oldd_ost=$array_pay[$shop_name][$last_last_data]["ost"]; }
-                         $array_pay[$shop_name][$last_data]["prodal"] = $oldd_ost+$oldd_add-$old_ost;
-                 }
-         }
-         $last_data= key( array_slice($array_pay[$shop_name] , -1, 1, TRUE ) );
-         $ost_old=$array_pay[$shop_name][$last_data]["ost"]+ $array_pay[$shop_name][$last_data]["add"];
-         $ost_old-=$prodal_magaz;
-         $array_pay[$shop_name][$date_in]['ost'] = $ost_old;
-         $array_pay[$shop_name][$date_in]['add'] = 0;
-         $array_pay[$shop_name][$date_in]['prodal'] = $prodal_magaz;
- }
+        $ost_old=$array_pay[$shop_name][$last_data]["ost"]+ $array_pay[$shop_name][$last_data]["add"];
+        $ost_old-=$prodal_magaz;
+        $array_pay[$shop_name][$date_in]['ost'] = $ost_old;
+        $array_pay[$shop_name][$date_in]['add'] = 0;
+        $array_pay[$shop_name][$date_in]['prodal'] = $prodal_magaz;
+}
 
 if ( $taskk == "show_cashbox" ) {
         if($eierr=="no"){
                 $dbh=DB_connect();
                 $SQL = "select  cashbox.id, cashbox.data_time, magazine.name, card_serial.name, cashbox.serial_left, cashbox.count_left, card_serial.name, cashbox.count_add,cashbox.serial_add,`cashbox`.`type_calculation` from  cashbox,card_serial,magazine where cashbox.magazine= magazine.magazine_id and card_serial.card_id = cashbox.serial_left  ORDER BY `cashbox`.`data_time` asc ";
                 print mysql_error();
-                $out .= "
+                /*$out .= "
 				<table border=1>
 					<tr bgcolor=#86be9f>
 						<td>магазин</td>
@@ -109,33 +104,31 @@ if ( $taskk == "show_cashbox" ) {
 						<td>приход</td>
 						<td>остаток в магазине </td>
 						<td>type</td>
-					</tr>";
+					</tr>";*/
                 $res=mysql_query($SQL,$dbh);
                 print mysql_error();
                 $ost_minik=0;
                 $add_minik=0;
 
                 while ($pl=mysql_fetch_array($res)){
-                  $out.="<tr><td>".$pl[2]."</td><td>".$pl[name]."</td><td>".$pl[data_time]."</td>";
-                  $count_left=$pl[count_left];
-                  $count_add=$pl[count_add];
-                  if ( ($count_left  > 1 )  && ( $count_add > 1 ) ) { $type = "подсчет остатка и дал карточек " ;}
-                  elseif ( ( $count_left > 1 ) && ( $count_add < 1 )) { $type= "подсчет остатка"; }
-                  else   { $type = "добавил карточек"; }
-                  $add_card=$pl[3] . " * " .  $count_add   ." = " . ( $pl[3] * $count_add);
-                  $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
+                    $out.="<tr><td>".$pl[2]."</td><td>".$pl[name]."</td><td>".$pl[data_time]."</td>";
+                    $count_left=$pl[count_left];
+                    $count_add=$pl[count_add];
+                    if ( ($count_left  > 1 )  && ( $count_add > 1 ) ) { $type = "подсчет остатка и дал карточек " ;}
+                    elseif ( ( $count_left > 1 ) && ( $count_add < 1 )) { $type= "подсчет остатка"; }
+                    else   { $type = "добавил карточек"; }
+                    $add_card=$pl[3] . " * " .  $count_add   ." = " . ( $pl[3] * $count_add);
+                    $sale_magazin=$pl[3] . " * " .  $count_left   ." = " . ($pl[3] * $count_left );
 
-                  $name_magazine = $pl[2];
-                  if ($pl[type_calculation] == "C" ){
-                    $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td></tr>";
-                    calc_ost1(($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
-                  }
-                  else {
-                    $out .= "<td>---</td><td>-----</td><td>только забрал деньги</td><td bgcolor=#f4c397>".$pl[count_add]."</td><td bgcolor=#a6e3f4>".$global_summ[$name_magazine]["summ"]."</td><td>".$pl[type_calculation]."</td></tr>";
-                    calc_money($pl[count_add],$pl[data_time], $pl[2]);
-                  }
-
-
+                    $name_magazine = $pl[2];
+                    if ($pl[type_calculation] == "C" ){
+                        $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td></tr>";
+                        calc_ost1(($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
+                    }
+                    else {
+                        $out .= "<td>---</td><td>-----</td><td>только забрал деньги</td><td bgcolor=#f4c397>".$pl[count_add]."</td><td bgcolor=#a6e3f4>".$global_summ[$name_magazine]["summ"]."</td><td>".$pl[type_calculation]."</td></tr>";
+                        calc_money($pl[count_add],$pl[data_time], $pl[2]);
+                    }
                 }
                 $out.="</table>";
 
@@ -144,12 +137,11 @@ if ( $taskk == "show_cashbox" ) {
                     calc_ost1((99 * 1), ( 99 * 1), "3333", $key1);
                 }
 
-                //$out .= $global_summ_minik."end out<br>";
+                $out .="<table><tr><td>магазин</td><td>data</td><td>ost</td><td>add</td><td>prodal</td></tr>";
                 global $array_pay;
-
                 foreach ($array_pay as $key1 =>&$value1 ) {
-                    //$out.= "key1 =" . $key1."<br>";
                     foreach ($array_pay[$key1] as $key => &$value) {
+                        $out .="<tr><td>".$key1."</td><td>".$key."</td><td>".$value['ost']."</td><td>".$value['add']."</td><td>".$value['prodal']."</td></tr>";
                         /*$out.= "key1: ==" . $key1." key: " . $key ."<br>";
                         $out.= "key1: ". $key1. "= ost =" . $value['ost']." key: " . $key ."<br>";
                         $out.= "key1: ". $key1. "= add =" . $value['add']." key: " . $key ."<br>";
@@ -160,7 +152,8 @@ if ( $taskk == "show_cashbox" ) {
                     $ost_magazin=$array_pay[$key1][$last_data]["ost"]+$array_pay[$key1][$last_data]["add"];
                     $out .="Магазин: ".$key1." за выбранный период продал на сумму: ". $global_summ[$key1]["prodal"] . " сейчас остаток в ". $key1. ":".$ost_magazin."<br>";
                 }
-                $out.="<br><Br>";
+
+                $out.="</table><br><Br>";
 
 
                 $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
