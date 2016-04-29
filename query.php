@@ -181,22 +181,41 @@ if ( $taskk == "edit_sql" ) {
     print mysql_error();
     while ($pl=mysql_fetch_array($res)){
         if ($pl[type_calculation] =="C"){
-            $out .= "count_add: <input name=add_count id=add_count value=\"".$pl[count_add]."\"><br>".
-                "count_left: <input name=left_count id=left_count value=\"".$pl[count_left]."\"><br>".
-                "<button value=\"update\" onclick=\"alert(\"\");\">save</button>";
+            $out .= "count_add: <input name=add_count id=add_count value=\"".$pl[count_add]."\" onchange=\"ChangeSQL();\"><br>".
+                "count_left: <input name=left_count id=left_count value=\"".$pl[count_left]."\"onchange=\"ChangeSQL();\"><br>".
+                "<button value=\"update\" onclick=\"alert(\"save card\");\">save</button>";
             $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".$pl[count_left]."',".
                  " `count_add` = '".$pl[count_add]."', WHERE `cashbox`.`id` = ".$idstring;
+            $js ="function ChangeSQL(){ \r\n ".
+                "alert(\"".$idstring."\"); }";
 
         }
         if ($pl[type_calculation] =="M"){
-            $out .= "money: <input name=add_count id=add_count value=\"".$pl[count_add]."\"><br>".
-                    "<button value=\"update\" onclick=\"alert(\"\");\">save</button>";
-            $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".$pl[count_left]."' ".
+            $out .= "money: <input name=add_count id=add_count value=\"".$pl[count_add]."\" onchange=\"ChangeSQL();\"><br>".
+                    "<button value=\"update\" onclick=\"alert(\"save money\");\">save</button>";
+            $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".document.getElementById(\"add_count\").value."' ".
                     " WHERE `cashbox`.`id` = ".$idstring;
+            $js= "function ChangeSQL(){ \r\n ".
+                  "var sql=\"UPDATE `accounting`.`cashbox` SET `count_add` = '".document.getElementById(\"add_count\").value."' ".
+                  " WHERE `cashbox`.`id` = '".$idstring. "'\" ".
+                  "\r\n document.getElementById(\"show_sql_query\").innerHTML = sql;\r\n ".
+                  "<button name=save_sql onclick=\"save_to_sql();\">save</button>\r\n".
+                   "}";
+
+
+            document.getElementById("sql").innerHTML = sql;
+
+            var out="<button name=save_sql onclick=\"save_to_sql();\">save</button>";
+            document.getElementById("button").innerHTML = out;
+
+
+
+
         }
     }
 
-    $_RESULT['js'] = "";
+
+    $_RESULT['js'] = $js;
     $_RESULT['text'] = $out;
     $_RESULT['err'] = 'no';
     $_RESULT['sql'] = $savesql;
