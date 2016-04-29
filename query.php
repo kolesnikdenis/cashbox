@@ -183,7 +183,7 @@ if ( $taskk == "edit_sql" ) {
         if ($pl[type_calculation] =="C"){
             $out .= "count_add: <input name=add_count id=add_count value=\"".$pl[count_add]."\" onchange=\"ChangeSQL();\"><br>".
                 "count_left: <input name=left_count id=left_count value=\"".$pl[count_left]."\"onchange=\"ChangeSQL();\"><br>".
-                "<button value=\"update\" onclick=\"alert(\"save card\");\">save</button>";
+                "<<button name=save_sql onclick=\"save_to_sql();\">save</button>";
             $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".$pl[count_left]."',".
                  " `count_add` = '".$pl[count_add]."', WHERE `cashbox`.`id` = ".$idstring;
             $js ="function ChangeSQL(){ \r\n ".
@@ -192,7 +192,7 @@ if ( $taskk == "edit_sql" ) {
         }
         if ($pl[type_calculation] =="M"){
             $out .= "money: <input name=add_count id=add_count value=\"".$pl[count_add]."\" onchange=\"ChangeSQL();\"><br>".
-                    "<button value=\"update\" onclick=\"alert(\"save money\");\">save</button>";
+                    "<button name=save_sql onclick=\"save_to_sql();\">save</button>";
             $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = 'document.getElementById(\"add_count\").value' ".
                     " WHERE `cashbox`.`id` = ".$idstring;
             $js= "function ChangeSQL(){ \r\n ".
@@ -201,16 +201,6 @@ if ( $taskk == "edit_sql" ) {
                   "\r\n document.getElementById(\"show_sql_query\").innerHTML = sql;\r\n ".
                   "\r\n".
                    "}";
-
-
-            document.getElementById("sql").innerHTML = sql;
-
-            var out="<button name=save_sql onclick=\"save_to_sql();\">save</button>";
-            document.getElementById("button").innerHTML = out;
-
-
-
-
         }
     }
 
