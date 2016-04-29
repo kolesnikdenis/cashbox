@@ -129,12 +129,10 @@ if ( $taskk == "show_cashbox" ) {
                   if ($pl[type_calculation] == "C" ){
                     $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td></tr>";
                     calc_ost1(($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
-                    //$out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."\"C\"<br>";
                   }
                   else {
                     $out .= "<td>---</td><td>-----</td><td>только забрал деньги</td><td bgcolor=#f4c397>".$pl[count_add]."</td><td bgcolor=#a6e3f4>".$global_summ[$name_magazine]["summ"]."</td><td>".$pl[type_calculation]."</td></tr>";
                     calc_money($pl[count_add],$pl[data_time], $pl[2]);
-                    //$out.="$name_magazine: \$global_summ[\$name_magazine][\"summ\"]: ".$global_summ[$name_magazine]["summ"]."\"M\"<br>";
                   }
 
 
@@ -152,14 +150,15 @@ if ( $taskk == "show_cashbox" ) {
                 foreach ($array_pay as $key1 =>&$value1 ) {
                     //$out.= "key1 =" . $key1."<br>";
                     foreach ($array_pay[$key1] as $key => &$value) {
-                        $out.= "key1: ==" . $key1." key: " . $key ."<br>";
+                        /*$out.= "key1: ==" . $key1." key: " . $key ."<br>";
                         $out.= "key1: ". $key1. "= ost =" . $value['ost']." key: " . $key ."<br>";
                         $out.= "key1: ". $key1. "= add =" . $value['add']." key: " . $key ."<br>";
-                        $out.= "key1: ". $key1. "= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";
+                        $out.= "key1: ". $key1. "= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";*/
                         $global_summ[$key1]["prodal"] += $value['prodal'];
                     }
                     $last_data= key( array_slice($array_pay[$key1] , -1, 1, TRUE ) );
-                    $out .="Магазин: ".$key1." за выбранный период продал на сумму: ". $global_summ[$key1]["prodal"] . " сейчас остаток в ". $key1. ":".$array_pay[$key1][$last_data]["ost"]."<br>";
+                    $ost_magazin=$array_pay[$key1][$last_data]["ost"]+$array_pay[$key1][$last_data]["add"];
+                    $out .="Магазин: ".$key1." за выбранный период продал на сумму: ". $global_summ[$key1]["prodal"] . " сейчас остаток в ". $ost_magazin. ":".."<br>";
                 }
                 $out.="<br><Br>";
 
