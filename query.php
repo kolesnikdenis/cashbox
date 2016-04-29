@@ -130,7 +130,7 @@ if ( $taskk == "show_cashbox" ) {
                         $out .= "<td>---</td><td>-----</td><td>только забрал деньги</td><td bgcolor=#f4c397>".$pl[count_add]."</td><td bgcolor=#a6e3f4>".$global_summ[$name_magazine]["summ"]."</td><td>".$pl[type_calculation]."</td>";
                         calc_money($pl[count_add],$pl[data_time], $pl[2]);
                     }
-                    $out.="<td><a href=#>edit</a> \ <a href=#>del</a></td></tr>";
+                    $out.="<td><a href=# onclick=\"alert(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
                 }
                 $out.="</table>";
 
