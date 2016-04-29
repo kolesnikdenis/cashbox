@@ -122,22 +122,22 @@ if ( $taskk == "show_cashbox" ) {
 
                     $name_magazine = $pl[2];
                     if ($pl[type_calculation] == "C" ){
-                        $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td></tr>";
+                        //$out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td></tr>";
                         calc_ost1(($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
                     }
                     else {
-                        $out .= "<td>---</td><td>-----</td><td>только забрал деньги</td><td bgcolor=#f4c397>".$pl[count_add]."</td><td bgcolor=#a6e3f4>".$global_summ[$name_magazine]["summ"]."</td><td>".$pl[type_calculation]."</td></tr>";
+                        //$out .= "<td>---</td><td>-----</td><td>только забрал деньги</td><td bgcolor=#f4c397>".$pl[count_add]."</td><td bgcolor=#a6e3f4>".$global_summ[$name_magazine]["summ"]."</td><td>".$pl[type_calculation]."</td></tr>";
                         calc_money($pl[count_add],$pl[data_time], $pl[2]);
                     }
                 }
-                $out.="</table>";
+                //$out.="</table>";
 
                 //подсчет конца ... сколько магаз продал
                 foreach ($global_summ as $key1 => &$value1 ){
                     calc_ost1((99 * 1), ( 99 * 1), "3333", $key1);
                 }
 
-                $out .="<table><tr><td>магазин</td><td>data</td><td>ost</td><td>add</td><td>prodal</td></tr>";
+                $out .="<table border=1 width=100%><tr><td>магазин</td><td>data</td><td>ost</td><td>add</td><td>prodal</td></tr>";
                 global $array_pay;
                 foreach ($array_pay as $key1 =>&$value1 ) {
                     foreach ($array_pay[$key1] as $key => &$value) {
