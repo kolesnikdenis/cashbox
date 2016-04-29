@@ -83,7 +83,7 @@ function calc_money($ost_old,$prodal_magaz,$date_in,$shop_name){
         $array_pay[$shop_name][$date_in]['add'] = 0;
         $array_pay[$shop_name][$date_in]['prodal'] = $prodal_magaz;
 
-        #$global_summ[$shop_name]["date"]=$date_in;
+        $global_summ[$shop_name]["date"]=$date_in;
         return $ost_old;
 
 }
