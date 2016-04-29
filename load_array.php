@@ -60,7 +60,7 @@ function money_calc(id_magazin){
     var sql="INSERT INTO `accounting`.`cashbox` (`id`, `magazine`, `serial_left`, `count_left`, `serial_add`, `count_add`, `data_time`, `type_calculation`) VALUES"+
                     " (NULL, " +
                     "'"+id_magazin+"', "+
-                    "'0', "+
+                    "'4', "+
                     "'0', "+
                     "'99', "+
                     "'"+document.getElementById("money_in").value+"', "+

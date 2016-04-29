@@ -91,7 +91,7 @@ function calc_money($ost_old,$prodal_magaz,$date_in,$shop_name){
 if ( $taskk == "show_cashbox" ) {
         if($eierr=="no"){
                 $dbh=DB_connect();
-                $SQL = "select  cashbox.id, cashbox.data_time, magazine.name, card_serial.name, cashbox.serial_left, cashbox.count_left, card_serial.name, cashbox.count_add,cashbox.serial_add,`cashbox`.`type_calculation` from  cashbox,card_serial,magazine where cashbox.magazine= magazine .magazine_id and card_serial.card_id = cashbox.serial_left  ORDER BY `cashbox`.`data_time` asc ";
+                $SQL = "select  cashbox.id, cashbox.data_time, magazine.name, card_serial.name, cashbox.serial_left, cashbox.count_left, card_serial.name, cashbox.count_add,cashbox.serial_add,`cashbox`.`type_calculation` from  cashbox,card_serial,magazine where magazine.magazine_id=4 and cashbox.magazine= magazine.magazine_id and card_serial.card_id = cashbox.serial_left  ORDER BY `cashbox`.`data_time` asc ";
                 print mysql_error();
                 $out .= "
 				<table border=1>
