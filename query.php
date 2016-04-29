@@ -158,7 +158,7 @@ if ( $taskk == "show_cashbox" ) {
                     }
                     $last_data= key( array_slice($array_pay[$key1] , -1, 1, TRUE ) );
                     $ost_magazin=$array_pay[$key1][$last_data]["ost"]+$array_pay[$key1][$last_data]["add"];
-                    $out .="Магазин: ".$key1." за выбранный период продал на сумму: ". $global_summ[$key1]["prodal"] . " сейчас остаток в ". $ost_magazin. ":".."<br>";
+                    $out .="Магазин: ".$key1." за выбранный период продал на сумму: ". $global_summ[$key1]["prodal"] . " сейчас остаток в ". $key1. ":".$ost_magazin."<br>";
                 }
                 $out.="<br><Br>";
 
