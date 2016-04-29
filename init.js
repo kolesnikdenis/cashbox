@@ -50,11 +50,16 @@ function edit_sql(id_sql){
             erdiv.innerHTML="error \""+errors+"\"";
             if (result) {
                 eval(result["js"]);
+                erdiv=document.getElementById("showtable");
+                erdiv1=document.getElementById("show_sql_query");
+                erdiv.innerHTML=result["text"];
+                erdiv1.innerHTML=result["sql"];
                 
+                /*
                 document.getElementById("addtable").innerHTML="";
-                var table=init();
+                //var table=init();
                 document.getElementById("addtable").appendChild(table);
-                /* magazin name, nominal */
+
                 $(function() {
                     $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
                 });
@@ -66,7 +71,7 @@ function edit_sql(id_sql){
                 add_select(id_magazin,40,arr_shop,arr_card_serial);
                 add_select(id_magazin,75,arr_shop,arr_card_serial);
                 add_select(id_magazin,100,arr_shop,arr_card_serial);
-
+                */
             }
 
 
