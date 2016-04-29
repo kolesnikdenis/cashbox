@@ -193,7 +193,7 @@ if ( $taskk == "edit_sql" ) {
         if ($pl[type_calculation] =="M"){
             $out .= "money: <input name=add_count id=add_count value=\"".$pl[count_add]."\" onchange=\"ChangeSQL();\"><br>".
                     "<button value=\"update\" onclick=\"alert(\"save money\");\">save</button>";
-            $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".document.getElementById(\"add_count\").value."' ".
+            $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = 'document.getElementById(\"add_count\").value' ".
                     " WHERE `cashbox`.`id` = ".$idstring;
             $js= "function ChangeSQL(){ \r\n ".
                   "var sql=\"UPDATE `accounting`.`cashbox` SET `count_add` = '".document.getElementById(\"add_count\").value."' ".
