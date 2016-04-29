@@ -92,7 +92,7 @@ if ( $taskk == "show_cashbox" ) {
                 $dbh=DB_connect();
                 $SQL = "select  cashbox.id, cashbox.data_time, magazine.name, card_serial.name, cashbox.serial_left, cashbox.count_left, card_serial.name, cashbox.count_add,cashbox.serial_add,`cashbox`.`type_calculation` from  cashbox,card_serial,magazine where cashbox.magazine= magazine.magazine_id and card_serial.card_id = cashbox.serial_left  ORDER BY `cashbox`.`data_time` asc ";
                 print mysql_error();
-                /*$out .= "
+                $out .= "
 				<table border=1>
 					<tr bgcolor=#86be9f>
 						<td>магазин</td>
@@ -104,14 +104,15 @@ if ( $taskk == "show_cashbox" ) {
 						<td>приход</td>
 						<td>остаток в магазине </td>
 						<td>type</td>
-					</tr>";*/
+						<td>control</td>
+					</tr>";
                 $res=mysql_query($SQL,$dbh);
                 print mysql_error();
                 $ost_minik=0;
                 $add_minik=0;
 
                 while ($pl=mysql_fetch_array($res)){
-                    //$out.="<tr><td>".$pl[2]."</td><td>".$pl[name]."</td><td>".$pl[data_time]."</td>";
+                    $out.="<tr><td>".$pl[2]."</td><td>".$pl[name]."</td><td>".$pl[data_time]."</td>";
                     $count_left=$pl[count_left];
                     $count_add=$pl[count_add];
                     if ( ($count_left  > 1 )  && ( $count_add > 1 ) ) { $type = "подсчет остатка и дал карточек " ;}
@@ -122,26 +123,27 @@ if ( $taskk == "show_cashbox" ) {
 
                     $name_magazine = $pl[2];
                     if ($pl[type_calculation] == "C" ){
-                        //$out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td></tr>";
+                        $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td>";
                         calc_ost1(($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
                     }
                     else {
-                        //$out .= "<td>---</td><td>-----</td><td>только забрал деньги</td><td bgcolor=#f4c397>".$pl[count_add]."</td><td bgcolor=#a6e3f4>".$global_summ[$name_magazine]["summ"]."</td><td>".$pl[type_calculation]."</td></tr>";
+                        $out .= "<td>---</td><td>-----</td><td>только забрал деньги</td><td bgcolor=#f4c397>".$pl[count_add]."</td><td bgcolor=#a6e3f4>".$global_summ[$name_magazine]["summ"]."</td><td>".$pl[type_calculation]."</td>";
                         calc_money($pl[count_add],$pl[data_time], $pl[2]);
                     }
+                    $out.="<td><a href=#>edit</a> \ <a href=#>del</a></td></tr>"
                 }
-                //$out.="</table>";
+                $out.="</table>";
 
                 //подсчет конца ... сколько магаз продал
                 foreach ($global_summ as $key1 => &$value1 ){
                     calc_ost1((99 * 1), ( 99 * 1), "3333", $key1);
                 }
 
-                $out .="<table border=1 width=100%><tr><td>магазин</td><td>data</td><td>ost</td><td>add</td><td>prodal</td></tr>";
+                $out .="<table border=1 width=100%><tr><td>магазин</td><td>data</td><td>ost</td><td>add</td><td>prodal</td><td></td></tr>";
                 global $array_pay;
                 foreach ($array_pay as $key1 =>&$value1 ) {
                     foreach ($array_pay[$key1] as $key => &$value) {
-                        $out .="<tr><td>".$key1."</td><td>".$key."</td><td>".$value['ost']."</td><td>".$value['add']."</td><td>".$value['prodal']."</td></tr>";
+                        $out .="<tr><td>".$key1."</td><td>".$key."</td><td>".$value['ost']."</td><td>".$value['add']."</td><td>".$value['prodal']."</td><td><a href=#>edit</a> \ <a href=#>del</a></td></tr>";
                         /*$out.= "key1: ==" . $key1." key: " . $key ."<br>";
                         $out.= "key1: ". $key1. "= ost =" . $value['ost']." key: " . $key ."<br>";
                         $out.= "key1: ". $key1. "= add =" . $value['add']." key: " . $key ."<br>";
