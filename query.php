@@ -130,7 +130,7 @@ if ( $taskk == "show_cashbox" ) {
                         $out .= "<td>---</td><td>-----</td><td>только забрал деньги</td><td bgcolor=#f4c397>".$pl[count_add]."</td><td bgcolor=#a6e3f4>".$global_summ[$name_magazine]["summ"]."</td><td>".$pl[type_calculation]."</td>";
                         calc_money($pl[count_add],$pl[data_time], $pl[2]);
                     }
-                    $out.="<td><a href=# onclick=\"alert(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
+                    $out.="<td><a href=# onclick=\"edit_sql(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
                 }
                 $out.="</table>";
 
@@ -173,6 +173,34 @@ if ( $taskk == "show_cashbox" ) {
         }
 
 }
+
+if ( $taskk == "edit_sql" ) {
+    $dbh=DB_connect();
+    $SQL = "SELECT *  FROM `cashbox` WHERE `id` ='".$idstring."'";
+    while ($pl=mysql_fetch_array($res)){
+        if ($pl[type_calculation] =="C"){
+            $out .= "count_add: <input name=add_count id=add_count value=\"".$pl[count_add]."\"><br>".
+                "count_left: <input name=left_count id=left_count value=\"".$pl[count_left]."\"><br>".
+                "<button value=\"update\" onclick=\"alert(\"\");\">save</button>";
+            $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".$pl[count_left]."',".
+                 " `count_add` = '".$pl[count_add]."', WHERE `cashbox`.`id` = ".$idstring;
+
+        }
+        if ($pl[type_calculation] =="M"){
+            $out .= "money: <input name=add_count id=add_count value=\"".$pl[count_add]."\"><br>".
+                    "<button value=\"update\" onclick=\"alert(\"\");\">save</button>";
+            $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".$pl[count_left]."' ".
+                    " WHERE `cashbox`.`id` = ".$idstring;
+        }
+    }
+    $res=mysql_query($SQL,$dbh);
+    print mysql_error();
+    $_RESULT['js'] = "";
+    $_RESULT['text'] = $out;
+    $_RESULT['err'] = 'no';
+    $_RESULT['sql'] = $savesql;
+}
+
 
 if ( $taskk == "sql_save" ) {
     $dbh=DB_connect();

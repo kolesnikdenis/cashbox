@@ -38,7 +38,41 @@ function add_item_coming_money(id_magazin){
         }
     );
 }
+function edit_sql(id_sql){
+    JsHttpRequest.query(
+        "query.php",
+        {
+            "db": name, "idstring": id_sql, "tas": 'edit_sql'
+        },
+        function (result, errors) {
+            //finddiv=name+"-"+idstring;
+            erdiv=document.getElementById("showtable");
+            erdiv.innerHTML="error \""+errors+"\"";
+            if (result) {
+                eval(result["js"]);
+                
+                document.getElementById("addtable").innerHTML="";
+                var table=init();
+                document.getElementById("addtable").appendChild(table);
+                /* magazin name, nominal */
+                $(function() {
+                    $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+                });
 
+                erdiv=document.getElementById("showtable").innerHTML="";
+                erdiv1=document.getElementById("show_sql_query");
+
+                add_select(id_magazin,20,arr_shop,arr_card_serial);
+                add_select(id_magazin,40,arr_shop,arr_card_serial);
+                add_select(id_magazin,75,arr_shop,arr_card_serial);
+                add_select(id_magazin,100,arr_shop,arr_card_serial);
+
+            }
+
+
+        }
+    );
+}
 function add_item_coming_consumption(id_magazin){
     JsHttpRequest.query(
         "add_item_coming_consumption.php",
