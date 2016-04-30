@@ -69,8 +69,10 @@ function money_calc(id_magazin){
 
     var out="<button name=save_sql onclick=\"save_to_sql();\">save</button>";
     document.getElementById("button").innerHTML = out;
-
 }
+
+
+function ChangeSQL(){ alert("idstring"); }
 
 function create_form_money_only(id_magazin){
     //alert(id_magazin);
