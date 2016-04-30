@@ -247,7 +247,7 @@ if ( $taskk == "add_intem" ) {
                         $out .=  "<tr><td><a href=\"#\" onclick=\"add_item_coming_money(".$pl[magazine_id].")\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
                     }
                     else {
-                        $out .=  "<tr><td><a href=\"#\" onclick=\"add_item_coming_consumption('".$pl[magazine_id]."','".$pl1[1]."')\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
+                        $out .=  "<tr><td><a href=\"#\" onclick=\"add_item_coming_consumption('".$pl[magazine_id]."','".123."')\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
                     }
                 }
 
