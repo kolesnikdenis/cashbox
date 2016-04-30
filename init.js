@@ -53,7 +53,7 @@ function edit_sql(id_sql){
                 erdiv=document.getElementById("showtable");
                 erdiv1=document.getElementById("show_sql_query");
 
-                erdiv.innerHTML=result["text"];
+                //erdiv.innerHTML=result["text"];
                 erdiv1.innerHTML=result["sql"];
 
 
@@ -94,6 +94,7 @@ function edit_sql(id_sql){
                     erdiv.innerHTML="da ladno";
                 }
                 eval(result["js"]);
+                ChangeSQL();
                 /*
                 document.getElementById("addtable").innerHTML="";
                 //var table=init();
