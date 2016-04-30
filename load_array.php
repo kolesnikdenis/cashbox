@@ -72,8 +72,6 @@ function money_calc(id_magazin){
 }
 
 
-function ChangeSQL(){ alert("idstring"); }
-
 function create_form_money_only(id_magazin){
     //alert(id_magazin);
     var d = new Date();

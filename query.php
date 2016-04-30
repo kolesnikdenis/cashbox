@@ -181,7 +181,7 @@ if ( $taskk == "edit_sql" ) {
     print mysql_error();
     while ($pl=mysql_fetch_array($res)){
         if ($pl[type_calculation] =="C"){
-            $out .= "count_add: <input name=add_count id=add_count value=\"".$pl[count_add]."\" onchange=\"ChangeSQL1();\"><br>".
+            $out .= "count_add: <input name=add_count id=add_count value=\"".$pl[count_add]."\" onchange=\"alert(\"1\");\"><br>".
                 "count_left: <input name=left_count id=left_count value=\"".$pl[count_left]."\"onchange=\"ChangeSQL1();\"><br>".
                 "<<button name=save_sql onclick=\"save_to_sql();\">save</button>";
             $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".$pl[count_left]."',".
