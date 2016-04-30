@@ -203,8 +203,9 @@ if ( $taskk == "edit_sql" ) {
                   "\r\n document.getElementById(\"show_sql_query\").innerHTML = sql;\r\n ".
                   "\r\n".
                    "}";
+            $type_calculation="M";
         }
-        $type_calculation="M";
+
     }
 
     $_RESULT['count_add'] = $pl[count_add];
