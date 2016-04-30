@@ -188,8 +188,8 @@ if ( $taskk == "edit_sql" ) {
                               "alert('load ok');\r\n".
                                "};";
             $out .= "count_add: <input name=add_count id=add_count value=\"".$pl[count_add]."\" onchange=\"alert('1');  return;\"><br>".
-                "count_left: <input name=left_count id=left_count value=\"".$pl[count_left]."\" onchange=\"ChangeSQL();\"><br>".
-                "<<button name=save_sql onclick=\"save_to_sql();\">save</button>";
+                "count_left: <input name=left_count id=left_count value=\"".$pl[count_left]."\" onchange=\"\"><br>".
+                "<<button name=save_sql onclick=\"ChangeSQL();\">save</button>";
             $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".$pl[count_left]."',".
                  " `count_add` = '".$pl[count_add]."', WHERE `cashbox`.`id` = ".$idstring;
         }
