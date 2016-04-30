@@ -122,7 +122,7 @@ function edit_sql(id_sql){
         }
     );
 }
-function add_item_coming_consumption(id_magazin){
+function add_item_coming_consumption(id_magazin,last_ost){
     JsHttpRequest.query(
         "add_item_coming_consumption.php",
         {
@@ -137,7 +137,7 @@ function add_item_coming_consumption(id_magazin){
 
                 eval(result["js"]);
 
-                alert(ost);
+                alert(last_ost);
                 document.getElementById("addtable").innerHTML="";
                 var table=init();
                 document.getElementById("addtable").appendChild(table);
