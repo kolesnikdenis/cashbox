@@ -47,7 +47,7 @@ function edit_sql(id_sql){
         function (result, errors) {
             //finddiv=name+"-"+idstring;
             erdiv=document.getElementById("showtable");
-            //erdiv.innerHTML="error \""+errors+"\"";
+            erdiv.innerHTML="error \""+errors+"\"";
             if (result) {
 
                 erdiv=document.getElementById("showtable");
@@ -97,7 +97,8 @@ function edit_sql(id_sql){
 
                 }
                 eval(result["js"]);
-                ChangeSQL();
+
+
                 /*
                 document.getElementById("addtable").innerHTML="";
                 //var table=init();
