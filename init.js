@@ -55,7 +55,7 @@ function edit_sql(id_sql){
 
                 erdiv.innerHTML=result["text"];
                 erdiv1.innerHTML=result["sql"];
-                 
+
 
                 if(result["type_calculation"] == "M" ) {
                     cellText = document.createElement("input");
@@ -91,6 +91,7 @@ function edit_sql(id_sql){
                         return;
                     };
                     erdiv.appendChild(cellText);
+                    erdiv.innerHTML="da ladno";
                 }
                 eval(result["js"]);
                 /*
