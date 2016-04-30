@@ -54,6 +54,7 @@ function edit_sql(id_sql){
                 erdiv1=document.getElementById("show_sql_query");
                 erdiv.innerHTML=result["text"];
                 erdiv1.innerHTML=result["sql"];
+                ChangeSQL();
                 /*
                 document.getElementById("addtable").innerHTML="";
                 //var table=init();
