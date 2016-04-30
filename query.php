@@ -176,7 +176,7 @@ if ( $taskk == "show_cashbox" ) {
 
 if ( $taskk == "edit_sql" ) {
     $dbh=DB_connect();
-    $type_calculation=0;
+    $type_calculation=0,count_left=0,count_add=0;
     $SQL = "SELECT *  FROM `cashbox` WHERE `id` ='".$idstring."'";
     $res=mysql_query($SQL,$dbh);
     print mysql_error();
@@ -188,7 +188,8 @@ if ( $taskk == "edit_sql" ) {
                               "document.getElementById(\"show_sql_query\").innerHTML = sql;\r\n ".
                               "\r\n".
                                "};";
-
+            $count_left=$pl[count_left];
+            $count_add=$pl[count_add];
             $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".$pl[count_left]."',".
                  " `count_add` = '".$pl[count_add]."', WHERE `cashbox`.`id` = ".$idstring;
             $type_calculation="C";
@@ -197,6 +198,7 @@ if ( $taskk == "edit_sql" ) {
         if ($pl[type_calculation] =="M"){
             $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = 'document.getElementById(\"add_count\").value' ".
                     " WHERE `cashbox`.`id` = ".$idstring;
+            $count_add=$pl[count_add];
             $js= "function ChangeSQL(){ \r\n ".
                   "var sql=\"UPDATE `accounting`.`cashbox` SET `count_add` = '\"+document.getElementById(\"add_count\").value+\"' ".
                   " WHERE `cashbox`.`id` = '".$idstring. "'\" ".
@@ -208,8 +210,8 @@ if ( $taskk == "edit_sql" ) {
 
     }
 
-    $_RESULT['count_add'] = $pl[count_add];
-    $_RESULT['count_left'] = $pl[count_left];
+    $_RESULT['count_add'] = $count_add;
+    $_RESULT['count_left'] = $count_left;
     $_RESULT['type_calculation']= $type_calculation;
     $_RESULT['js'] = $js;
     $_RESULT['text'] = $out;
