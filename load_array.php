@@ -1,5 +1,5 @@
 
-function init() {
+function init(calc_last_summ) {
     var d = new Date();
     var curr_date = d.getDate();
     var curr_month = d.getMonth() + 1;
@@ -28,7 +28,7 @@ function init() {
                               cellText.value="0";
                               cellText.name="count_cas_"+id;
                               cellText.id  = "count_cas_id_"+id;
-                              cellText.onchange =  function(){ calc(); return; };}
+                              cellText.onchange =  function(){ calc(calc_last_summ); return; };}
                 if ( j == 3 ) { cellText = document.createElement("div");
                               cellText.setAttribute("id", "cls_"+id); }
                 if ( j == 4 ) { cellText = document.createElement("input");
@@ -37,7 +37,7 @@ function init() {
                               cellText.value="0";
                               cellText.name="count_cls_"+id;
                               cellText.id  = "count_cls_id_"+id;
-                              cellText.onchange =  function(){ calc(); return; }; }
+                              cellText.onchange =  function(){ calc(calc_last_summ); return; }; }
                 if ( j == 5 ) { cellText = document.createElement("input");
                               cellText.type = "text";
                               cellText.size = "10";
@@ -45,7 +45,7 @@ function init() {
                               cellText.value=curr_year + "-" + curr_month + "-" + curr_date;
                               cellText.name="date_"+id;
                               if (i > 0 ) {  cellText.id  = "datepicker_"+i; } else {  cellText.id  = "datepicker"; }
-                              cellText.onchange =  function(){ calc(); return; }; }
+                              cellText.onchange =  function(){ calc(calc_last_summ); return; }; }
                 td.appendChild(cellText);
                 tr.appendChild(td);
 
@@ -102,7 +102,7 @@ function create_form_money_only(id_magazin){
 
     }
 
-function calc(){
+function calc(calc_last_summ){
     var summ_cas20 =document.getElementById("count_cas_id_20").value * 20;
     var summ_cls20 =document.getElementById("count_cls_id_20").value * 20;
     var summ_cas40 =document.getElementById("count_cas_id_40").value  * 40;
@@ -131,7 +131,7 @@ function calc(){
         out += "<b>Приход:";
         out += summ_cls+"</b>";
         out += "</td></tr></table>";
-        var ostatok="4000";
+        var ostatok=calc_last_summ;
         out += "приход:"+summ_cls20 + " + " +summ_cls40  + " + " + summ_cls75 + " + " + summ_cls100+" = " + summ_cls + "<br>";
         out += "остаток: "+summ_cas20 + " + " +summ_cas40  + " + " + summ_cas75 + " + " + summ_cas100+" = " + summ_cas + "<br>";
 

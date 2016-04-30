@@ -122,7 +122,7 @@ function edit_sql(id_sql){
         }
     );
 }
-function add_item_coming_consumption(id_magazin,last_ost){
+function add_item_coming_consumption(id_magazin,calc_last_summ){
     JsHttpRequest.query(
         "add_item_coming_consumption.php",
         {
@@ -137,9 +137,9 @@ function add_item_coming_consumption(id_magazin,last_ost){
 
                 eval(result["js"]);
 
-                alert(last_ost);
+                alert(calc_last_summ);
                 document.getElementById("addtable").innerHTML="";
-                var table=init();
+                var table=init(calc_last_summ);
                 document.getElementById("addtable").appendChild(table);
 
                 /* magazin name, nominal */
