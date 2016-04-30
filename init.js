@@ -49,7 +49,7 @@ function edit_sql(id_sql){
             erdiv=document.getElementById("showtable");
             erdiv.innerHTML="error \""+errors+"\"";
             if (result) {
-                eval(result["js"]);
+                //eval(result["js"]);
                 erdiv=document.getElementById("showtable");
                 erdiv1=document.getElementById("show_sql_query");
                 erdiv.innerHTML=result["text"];
