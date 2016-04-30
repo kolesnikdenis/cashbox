@@ -71,6 +71,7 @@ function edit_sql(id_sql){
                     erdiv.appendChild(cellText);
                 }
 
+                alert(result["type_calculation"]);
                 if(result["type_calculation"] == "C" ) {
                     cellText = document.createElement("input");
                     cellText.type = "text";
