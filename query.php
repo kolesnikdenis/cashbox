@@ -67,6 +67,34 @@ function calc_ost1($left_card_summ,$add_card_summ,$data_in,$shop_name){
         }
 }
 
+
+function find_last_summ($id_shop){
+        global $array_pay;
+        global $dbh;
+        $SQL1 = "select  cashbox.id, cashbox.data_time, magazine.name, card_serial.name, cashbox.serial_left, cashbox.count_left, card_serial.name, cashbox.count_add,cashbox.serial_add,`cashbox`.`type_calculation` from  cashbox,card_serial,magazine where cashbox.magazine='".$id_shop."' and cashbox.magazine= magazine.magazine_id and card_serial.card_id = cashbox.serial_left  ORDER BY `cashbox`.`data_time` asc ";
+        $res1=mysql_query($SQL1,$dbh);
+        $shop_name="";
+        print mysql_error();
+                        print mysql_error();
+                        while ($pl1=mysql_fetch_array($res1)){
+                            $count_left=$pl1[count_left];
+                            $count_add=$pl1[count_add];
+                            if ($pl1[type_calculation] == "C" ){
+                                calc_ost1(($pl1[3] * $count_left ), ( $pl1[3] * $count_add), $pl1[data_time], $pl1[2]);
+                            }
+                            if ($pl1[type_calculation] == "M" ){
+                                calc_money($pl1[count_add],$pl1[data_time], $pl1[2]);
+                            }
+                            $shop_name=$pl1[2];
+                        }
+        $last_data= key( array_slice($array_pay[$shop_name] , -1, 1, TRUE ) );
+        $ost = $array_pay[$shop_name][$last_data]["ost"];
+        $add = $array_pay[$shop_name][$last_data]["add"];
+        //echo "ost + add = $ost + $add - \$last_data: $last_data \$shop_name $shop_name\n";
+        return ($ost+$add);
+}
+
+
 function calc_money($prodal_magaz,$date_in,$shop_name){
        global $array_pay;
        $last_data= key( array_slice($array_pay[$shop_name] , -1, 1, TRUE ) );
@@ -168,7 +196,7 @@ if ( $taskk == "show_cashbox" ) {
         {
                 //vidod oshibok
                 $_RESULT['err'] = 'yes';
-                $log="<center><font color=#cc0000>бля сука ) </font></center>".$log;
+                $log="<center><font color=#cc0000>ошибко</font></center>".$log;
                 $_RESULT['log'] = $log;
         }
 
@@ -247,7 +275,11 @@ if ( $taskk == "add_intem" ) {
                         $out .=  "<tr><td><a href=\"#\" onclick=\"add_item_coming_money(".$pl[magazine_id].")\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
                     }
                     else {
-                        $out .=  "<tr><td><a href=\"#\" onclick=\"add_item_coming_consumption('".$pl[magazine_id]."','123"."');\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
+
+                        // подсчет остатка
+
+                        $last_summ  = find_last_summ($pl[magazine_id]);
+                        $out .=  "<tr><td><a href=\"#\" onclick=\"add_item_coming_consumption('".$pl[magazine_id]."','".$last_summ."');\";>".$pl[name]."</a></td><td>".$pl[description]."</td></tr>";
                     }
                 }
 
