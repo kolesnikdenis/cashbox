@@ -67,6 +67,7 @@ function edit_sql(id_sql){
                         ChangeSQL();
                         return;
                     };
+                    erdiv=document.getElementById("showtable");
                     erdiv.appendChild(cellText);
                 }
 
@@ -80,6 +81,7 @@ function edit_sql(id_sql){
                         ChangeSQL();
                         return;
                     };
+                    erdiv=document.getElementById("showtable");
                     erdiv.appendChild(cellText);
                     cellText = document.createElement("input");
                     cellText.type = "text";
