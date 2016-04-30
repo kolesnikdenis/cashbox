@@ -137,7 +137,7 @@ function add_item_coming_consumption(id_magazin){
 
                 eval(result["js"]);
 
-
+                alert(ost);
                 document.getElementById("addtable").innerHTML="";
                 var table=init();
                 document.getElementById("addtable").appendChild(table);
