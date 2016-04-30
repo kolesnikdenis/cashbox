@@ -182,16 +182,16 @@ if ( $taskk == "edit_sql" ) {
     while ($pl=mysql_fetch_array($res)){
         if ($pl[type_calculation] =="C"){
             $out .= "count_add: <input name=add_count id=add_count value=\"".$pl[count_add]."\" onchange=\"alert('1');  return;\"><br>".
-                "count_left: <input name=left_count id=left_count value=\"".$pl[count_left]."\" onchange=\"ChangeSQL();\"><br>".
+                "count_left: <input name=left_count id=left_count value=\"".$pl[count_left]."\" onchange=\"ChangeSQL(); return;\"><br>".
                 "<<button name=save_sql onclick=\"save_to_sql();\">save</button>";
             $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".$pl[count_left]."',".
                  " `count_add` = '".$pl[count_add]."', WHERE `cashbox`.`id` = ".$idstring;
-            $js ="function ChangeSQL(){ alert(\"".$idstring."\"); }";
+            $js ="function ChangeSQL(){ alert('".$idstring."'); }";
 
         }
         if ($pl[type_calculation] =="M"){
-            $out .= "money: <input name=add_count id=add_count value=\"".$pl[count_add]."\" onchange=\"ChangeSQL();\"><br>".
-                    "<button name=save_sql onclick=\"save_to_sql();\">save</button>";
+            $out .= "money: <input name=add_count id=add_count value=\"".$pl[count_add]."\" onchange=\"ChangeSQL(); return;\"><br>".
+                    "<button name=save_sql onclick=\"ChangeSQL();\">save</button>";
             $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = 'document.getElementById(\"add_count\").value' ".
                     " WHERE `cashbox`.`id` = ".$idstring;
             $js= "function ChangeSQL(){ \r\n ".
