@@ -176,7 +176,7 @@ if ( $taskk == "show_cashbox" ) {
 
 if ( $taskk == "edit_sql" ) {
     $dbh=DB_connect();
-    $type_calculation=0,count_left=0,count_add=0;
+    $type_calculation=0;$count_left=0,$count_add=0;
     $SQL = "SELECT *  FROM `cashbox` WHERE `id` ='".$idstring."'";
     $res=mysql_query($SQL,$dbh);
     print mysql_error();

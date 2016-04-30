@@ -61,7 +61,7 @@ function edit_sql(id_sql){
                     cellText = document.createElement("input");
                     cellText.type = "text";
                     cellText.size = "4";
-                    cellText.value = "0";
+                    cellText.value = result["count_add"];
                     cellText.id = "add_count";
                     cellText.onchange = function () {
                         ChangeSQL();
@@ -76,7 +76,7 @@ function edit_sql(id_sql){
                     cellText = document.createElement("input");
                     cellText.type = "text";
                     cellText.size = "4";
-                    cellText.value = "0";
+                    cellText.value = result["count_add"];
                     cellText.id = "add_count";
                     cellText.onchange = function () {
                         ChangeSQL();
@@ -87,7 +87,7 @@ function edit_sql(id_sql){
                     cellText = document.createElement("input");
                     cellText.type = "text";
                     cellText.size = "4";
-                    cellText.value = "0";
+                    cellText.value = result["count_left"];
                     cellText.id = "left_count";
                     cellText.onchange = function () {
                         ChangeSQL();
