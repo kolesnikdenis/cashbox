@@ -140,7 +140,7 @@ function calc(calc_last_summ){
         var profit_shop3 = sold_shop*0.03;
         var profit_company_ots = sold_shop-profit_shop;
         out += "зароботок магазина: "+ ostatok + " - " + summ_cas + " = " + sold_shop +  " = 5%(" + profit_shop5 + ") = 3%(" + profit_shop3 + ")<br>";
-        out += "зароботок компании ОТС: "+ ostatok + " - " + summ_cas + " = " +  sold_shop +  " - 5%(" + profit_shop + ") = " + profit_company_ots +"<br>";
+        out += "зароботок компании ОТС: "+ ostatok + " - " + summ_cas + " = " +  sold_shop +  " - 5%(" + profit_shop5 + ") = " + profit_company_ots +"<br>";
         out += "<hr>";
         out += "остаток на моммент расчета: ";
         summ_global=summ_cas+summ_cls;
