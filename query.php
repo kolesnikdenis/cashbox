@@ -182,7 +182,7 @@ if ( $taskk == "edit_sql" ) {
     print mysql_error();
     while ($pl=mysql_fetch_array($res)){
         if ($pl[type_calculation] =="C"){
-            $js= "function ChangeSQL() { alert('start load');\r\n ".
+            $js= "function ChangeSQL() { alert('start load".$pl[type_calculation]."');\r\n ".
                               "var sql=\"UPDATE `accounting`.`cashbox` SET `count_add` = '\"+document.getElementById(\"add_count\").value+\"' ".
                               "`count_left` = '\"+document.getElementById(\"left_count\").value+\"'  WHERE `cashbox`.`id` = '".$idstring. "'\";\r\n ".
                               "document.getElementById(\"show_sql_query\").innerHTML = sql;\r\n ".
