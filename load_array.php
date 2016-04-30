@@ -136,9 +136,10 @@ function calc(calc_last_summ){
         out += "остаток: "+summ_cas20 + " + " +summ_cas40  + " + " + summ_cas75 + " + " + summ_cas100+" = " + summ_cas + "<br>";
 
         var sold_shop = ostatok - summ_cas;
-        var profit_shop = sold_shop*0.05;
+        var profit_shop5 = sold_shop*0.05;
+        var profit_shop3 = sold_shop*0.03;
         var profit_company_ots = sold_shop-profit_shop;
-        out += "зароботок магазина: "+ ostatok + " - " + summ_cas + " = " + sold_shop +  " * 5% = " + profit_shop + "<br>";
+        out += "зароботок магазина: "+ ostatok + " - " + summ_cas + " = " + sold_shop +  " = 5%(" + profit_shop5 + ") = 3%(" + profit_shop3 + ")<br>";
         out += "зароботок компании ОТС: "+ ostatok + " - " + summ_cas + " = " +  sold_shop +  " - 5%(" + profit_shop + ") = " + profit_company_ots +"<br>";
         out += "<hr>";
         out += "остаток на моммент расчета: ";
