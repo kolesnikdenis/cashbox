@@ -52,9 +52,20 @@ function edit_sql(id_sql){
                 eval(result["js"]);
                 erdiv=document.getElementById("showtable");
                 erdiv1=document.getElementById("show_sql_query");
+
                 erdiv.innerHTML=result["text"];
                 erdiv1.innerHTML=result["sql"];
                 ChangeSQL();
+
+
+                cellText = document.createElement("input");
+                cellText.type = "text";
+                cellText.size = "4";
+                cellText.value="0";
+                cellText.name="count_cls_";
+                cellText.id  = "count_cls_id_";
+                cellText.onchange =  function(){ ChangeSQL(); return; };
+                erdiv.appendChild(cellText);
                 /*
                 document.getElementById("addtable").innerHTML="";
                 //var table=init();
