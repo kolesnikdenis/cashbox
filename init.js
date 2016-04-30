@@ -94,7 +94,7 @@ function edit_sql(id_sql){
                         return;
                     };
                     erdiv.appendChild(cellText);
-                    erdiv.innerHTML="da ladno";
+
                 }
                 eval(result["js"]);
                 ChangeSQL();
