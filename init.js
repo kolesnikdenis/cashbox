@@ -55,7 +55,7 @@ function edit_sql(id_sql){
 
                 erdiv.innerHTML=result["text"];
                 erdiv1.innerHTML=result["sql"];
-                ChangeSQL();
+                 
 
                 if(result["type_calculation"] == "M" ) {
                     cellText = document.createElement("input");
