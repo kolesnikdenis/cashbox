@@ -176,6 +176,7 @@ if ( $taskk == "show_cashbox" ) {
 
 if ( $taskk == "edit_sql" ) {
     $dbh=DB_connect();
+    $type_calculation=0;
     $SQL = "SELECT *  FROM `cashbox` WHERE `id` ='".$idstring."'";
     $res=mysql_query($SQL,$dbh);
     print mysql_error();
@@ -190,6 +191,7 @@ if ( $taskk == "edit_sql" ) {
 
             $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".$pl[count_left]."',".
                  " `count_add` = '".$pl[count_add]."', WHERE `cashbox`.`id` = ".$idstring;
+            $type_calculation="C";
         }
 
         if ($pl[type_calculation] =="M"){
@@ -202,11 +204,12 @@ if ( $taskk == "edit_sql" ) {
                   "\r\n".
                    "}";
         }
+        $type_calculation="M";
     }
 
     $_RESULT['count_add'] = $pl[count_add];
     $_RESULT['count_left'] = $pl[count_left];
-    $_RESULT['type_calculation']= $pl[type_calculation];
+    $_RESULT['type_calculation']= $type_calculation;
     $_RESULT['js'] = $js;
     $_RESULT['text'] = $out;
     $_RESULT['err'] = 'no';
