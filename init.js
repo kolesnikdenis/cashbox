@@ -49,7 +49,7 @@ function edit_sql(id_sql){
             erdiv=document.getElementById("showtable");
             erdiv.innerHTML="error \""+errors+"\"";
             if (result) {
-                eval(result["js"]);
+
                 erdiv=document.getElementById("showtable");
                 erdiv1=document.getElementById("show_sql_query");
 
@@ -92,7 +92,7 @@ function edit_sql(id_sql){
                     };
                     erdiv.appendChild(cellText);
                 }
-                
+                eval(result["js"]);
                 /*
                 document.getElementById("addtable").innerHTML="";
                 //var table=init();
