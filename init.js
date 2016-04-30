@@ -57,15 +57,42 @@ function edit_sql(id_sql){
                 erdiv1.innerHTML=result["sql"];
                 ChangeSQL();
 
+                if(result["type_calculation"] == "M" ) {
+                    cellText = document.createElement("input");
+                    cellText.type = "text";
+                    cellText.size = "4";
+                    cellText.value = "0";
+                    cellText.id = "add_count";
+                    cellText.onchange = function () {
+                        ChangeSQL();
+                        return;
+                    };
+                    erdiv.appendChild(cellText);
+                }
 
-                cellText = document.createElement("input");
-                cellText.type = "text";
-                cellText.size = "4";
-                cellText.value="0";
-                cellText.name="count_cls_";
-                cellText.id  = "count_cls_id_";
-                cellText.onchange =  function(){ ChangeSQL(); return; };
-                erdiv.appendChild(cellText);
+                if(result["type_calculation"] == "C" ) {
+                    cellText = document.createElement("input");
+                    cellText.type = "text";
+                    cellText.size = "4";
+                    cellText.value = "0";
+                    cellText.id = "add_count";
+                    cellText.onchange = function () {
+                        ChangeSQL();
+                        return;
+                    };
+                    erdiv.appendChild(cellText);
+                    cellText = document.createElement("input");
+                    cellText.type = "text";
+                    cellText.size = "4";
+                    cellText.value = "0";
+                    cellText.id = "left_count";
+                    cellText.onchange = function () {
+                        ChangeSQL();
+                        return;
+                    };
+                    erdiv.appendChild(cellText);
+                }
+                
                 /*
                 document.getElementById("addtable").innerHTML="";
                 //var table=init();
