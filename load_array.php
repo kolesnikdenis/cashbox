@@ -146,10 +146,12 @@ function calc(calc_last_summ){
 
         if ( parseInt(summ_cas) > 1 ) {
             summ_global=summ_cas+summ_cls;
+            out += summ_cas   +  " + " + summ_cls + " = " + summ_global;
         }else {
             summ_global=calc_last_summ+summ_cas+summ_cls;
+            out += calc_last_summ + " + " + summ_cas   +  " + " + summ_cls + " = " + summ_global;
         }
-        out += calc_last_summ + " + " + summ_cas   +  " + " + summ_cls + " = " + summ_global;
+
 
 
 
