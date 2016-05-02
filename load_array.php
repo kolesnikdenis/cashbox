@@ -144,12 +144,12 @@ function calc(calc_last_summ){
         out += "<hr>";
         out += "остаток на моммент расчета: ";
         calc_last_summ=0;
-        //if ( parseInt(summ_cas) > 1 ) {
+        if ( parseInt(summ_cas) > 1 ) {
             summ_global=summ_cas+summ_cls;
-        //}else {
-        //    summ_global=calc_last_summ+summ_cas+summ_cls;
-        //}
-        out += calc_last_summ + " + " summ_cas   +  " + " + summ_cls + " ="+ summ_global;
+        }else {
+            summ_global=calc_last_summ+summ_cas+summ_cls;
+        }
+        out += calc_last_summ + " + " + summ_cas   +  " + " + summ_cls + " =" + summ_global;
 
 
 
