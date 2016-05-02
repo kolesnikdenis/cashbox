@@ -144,7 +144,6 @@ function calc(calc_last_summ){
         out += "<hr>";
         out += "остаток на моммент расчета: ";
         if ( summ_cas > 1 ) {
-            alert(summ_cas);
             summ_global=summ_cas+summ_cls;
         }else {
             summ_global=calc_last_summ+summ_cas+summ_cls;
