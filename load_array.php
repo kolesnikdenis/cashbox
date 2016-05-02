@@ -143,8 +143,12 @@ function calc(calc_last_summ){
         out += "зароботок компании ОТС: "+ ostatok + " - " + summ_cas + " = " +  sold_shop +  " - 5%(" + profit_shop5 + ") = " + profit_company_ots +"<br>";
         out += "<hr>";
         out += "остаток на моммент расчета: ";
-        summ_global=summ_cas+summ_cls;
-        out += summ_cas   +  " + " + summ_cls + " ="+ summ_global;
+        if ( summ_cas > 1 ) {
+            summ_global=summ_cas+summ_cls;
+        }else {
+            summ_global=calc_last_summ+summ_cas+summ_cls;
+        }
+        out += calc_last_summ + " + " summ_cas   +  " + " + summ_cls + " ="+ summ_global;
 
 
 
