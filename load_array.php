@@ -149,7 +149,7 @@ function calc(calc_last_summ){
         }else {
             summ_global=calc_last_summ+summ_cas+summ_cls;
         }
-        out += calc_last_summ + " + " + summ_cas   +  " + " + summ_cls + " =" + summ_global;
+        out += calc_last_summ + " + " + summ_cas   +  " + " + summ_cls + " = " + summ_global;
 
 
 
