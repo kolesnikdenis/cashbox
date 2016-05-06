@@ -221,8 +221,7 @@ if ( $taskk == "edit_sql" ) {
                                "};";
             $count_left=$pl[count_left];
             $count_add=$pl[count_add];
-            $savesql="UPDATE `accounting`.`cashbox` SET ".
-                 " `count_add` = '".$pl[count_add]."' WHERE `cashbox`.`id` = ".$idstring;
+            $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".$pl[count_add]."' WHERE `cashbox`.`id` = ".$idstring;
             $type_calculation="C";
         }
 
@@ -231,7 +230,7 @@ if ( $taskk == "edit_sql" ) {
                     " WHERE `cashbox`.`id` = ".$idstring;
             $count_add=$pl[count_add];
             $js= "function ChangeSQL(){ \r\n ".
-                  "var sql=\"UPDATE `accounting`.`cashbox` SET `count_add` = '".$pl[count_left]."'".
+                  "var sql=\"UPDATE `accounting`.`cashbox` SET `count_add` = '\"+document.getElementById(\"add_count\").value+\"' ".
                   " WHERE `cashbox`.`id` = '".$idstring. "'\" ".
                   "\r\n document.getElementById(\"show_sql_query\").innerHTML = sql;\r\n ".
                   "document.getElementById(\"sql\").innerHTML = sql;\r\n ".
