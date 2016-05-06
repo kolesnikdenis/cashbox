@@ -98,8 +98,8 @@ function edit_sql(id_sql){
                 }
 
                 eval(result["js"]);
-                erdiv.innerHTML+=result["text"];
-
+                //erdiv.innerHTML+=result["text"];
+                alert(result["text"]);
                 /*
                 document.getElementById("addtable").innerHTML="";
                 //var table=init();
