@@ -227,7 +227,7 @@ if ( $taskk == "edit_sql" ) {
         }
 
         if ($pl[type_calculation] =="M"){
-            $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = 'document.getElementById(\"add_count\").value' ".
+            $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '\"+document.getElementById(\"add_count\").value+\"' ".
                     " WHERE `cashbox`.`id` = ".$idstring;
             $count_add=$pl[count_add];
             $js= "function ChangeSQL(){ \r\n ".
