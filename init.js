@@ -137,7 +137,6 @@ function add_item_coming_consumption(id_magazin,calc_last_summ){
 
                 eval(result["js"]);
 
-                
                 document.getElementById("addtable").innerHTML="";
                 var table=init(calc_last_summ);
                 document.getElementById("addtable").appendChild(table);

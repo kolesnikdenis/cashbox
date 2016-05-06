@@ -240,6 +240,8 @@ if ( $taskk == "edit_sql" ) {
 
     }
 
+    out += "<br><br><button name=save_sql onclick=\"save_to_sql();\">save</button>";
+
     $_RESULT['count_add'] = $count_add;
     $_RESULT['count_left'] = $count_left;
     $_RESULT['type_calculation']= $type_calculation;
