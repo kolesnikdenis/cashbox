@@ -220,7 +220,7 @@ if ( $taskk == "edit_sql" ) {
                                "};";
             $count_left=$pl[count_left];
             $count_add=$pl[count_add];
-            $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".$pl[count_left]."',".
+            $savesql="UPDATE `accounting`.`cashbox` SET ".
                  " `count_add` = '".$pl[count_add]."', WHERE `cashbox`.`id` = ".$idstring;
             $type_calculation="C";
         }
