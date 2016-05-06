@@ -213,12 +213,12 @@ if ( $taskk == "edit_sql" ) {
     while ($pl=mysql_fetch_array($res)){
         if ($pl[type_calculation] =="C"){
             $js= "function ChangeSQL() { \r\n ".
-                              "var sql=\"UPDATE `accounting`.`cashbox` SET `count_add` = '\"+document.getElementById(\"add_count\").value+\"', ".
-                              "`count_left` = '\"+document.getElementById(\"left_count\").value+\"'  WHERE `cashbox`.`id` = '".$idstring. "'\";\r\n ".
-                              "document.getElementById(\"show_sql_query\").innerHTML = sql;\r\n".
-                              "document.getElementById(\"sql\").innerHTML = sql;\r\n ".
-                              "\r\n".
-                               "};";
+                 "var sql=\"UPDATE `accounting`.`cashbox` SET `count_add` = '\"+document.getElementById(\"add_count\").value+\"', ".
+                 "`count_left` = '\"+document.getElementById(\"left_count\").value+\"'  WHERE `cashbox`.`id` = '".$idstring. "'\";\r\n ".
+                 "document.getElementById(\"show_sql_query\").innerHTML = sql;\r\n".
+                 "document.getElementById(\"sql\").innerHTML = sql;\r\n ".
+                 "\r\n".
+                 "};";
             $count_left=$pl[count_left];
             $count_add=$pl[count_add];
             $savesql="UPDATE `accounting`.`cashbox` SET `count_add` = '".$pl[count_add]."' WHERE `cashbox`.`id` = ".$idstring;
@@ -229,7 +229,7 @@ if ( $taskk == "edit_sql" ) {
             $savesql="UPDATE `accounting`.`cashbox` SET `left_count` = '".$pl[left_count]."' WHERE `cashbox`.`id` = ".$idstring;
             $count_add=$pl[count_add];
             $js= "function ChangeSQL(){ \r\n ".
-                  "var sql=\"UPDATE `accounting`.`cashbox` SET `count_add` = '\"+document.getElementById(\"left_count\").value+\"' ".
+                  "var sql=\"UPDATE `accounting`.`cashbox` SET `count_add` = '\"+document.getElementById(\"add_count\").value+\"' ".
                   " WHERE `cashbox`.`id` = '".$idstring. "'\" ".
                   "\r\n document.getElementById(\"show_sql_query\").innerHTML = sql;\r\n ".
                   "document.getElementById(\"sql\").innerHTML = sql;\r\n ".
