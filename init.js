@@ -96,9 +96,9 @@ function edit_sql(id_sql){
                     erdiv.appendChild(cellText);
 
                 }
-                erdiv.innerHTML=result["text"];
-                eval(result["js"]);
 
+                eval(result["js"]);
+                erdiv.innerHTML+=result["text"];
 
                 /*
                 document.getElementById("addtable").innerHTML="";
