@@ -145,15 +145,12 @@ function calc(calc_last_summ){
         out += "остаток на моммент расчета: ";
 
         if ( parseInt(summ_cas) > 1 ) {
-            summ_global=summ_cas+summ_cls;
+            summ_global=parseInt(summ_cas)+parseInt(summ_cls);
             out += summ_cas   +  " + " + summ_cls + " = " + summ_global;
         }else {
-            summ_global=calc_last_summ+summ_cas+summ_cls;
+            summ_global=parseInt(calc_last_summ)+parseInt(summ_cas)+parseInt(summ_cls);
             out += calc_last_summ + " + " + summ_cas   +  " + " + summ_cls + " = " + summ_global;
         }
-
-
-
 
         out += "<br><br><button name=save_sql onclick=\"save_to_sql();\">save</button>";
         var sql= "INSERT INTO `accounting`.`cashbox` (`id`, `magazine`, `serial_left`, `count_left`, `serial_add`, `count_add`, `data_time`) VALUES"+
