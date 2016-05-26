@@ -2,7 +2,13 @@
     background-color: #f9f900;
     color: #003d00;
 }
-
+@media only screen and (min-width: 992px) {
+/*Планшеты в режиме landscape, нетбуки, ноутбуки, десктоп.*/
+    .show_table  tr  td:nth-child(6) {
+        background-color: #f9f900;
+        color: darkorange;
+    }
+}
 .show_message { /* dasha */
     white-space: normal;
 }
