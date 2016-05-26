@@ -50,7 +50,7 @@ Message.prototype.render = function() {
     aClose.style.textDecoration = 'none';
     aClose.style.lineHeight = '10px';
     alert("test1");
-    this.destroy();
+    //this.destroy();
     alert("test");
 };
 
