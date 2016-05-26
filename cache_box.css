@@ -3,6 +3,10 @@
     color: #003d00;
 }
 
+.show_table  tr  td:nth-child(3) {
+    color: bisque;
+    size: 1px;
+}
 .show_message { /* dasha */
     white-space: normal;
 }
