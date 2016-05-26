@@ -44,6 +44,7 @@ Message.prototype.render = function() {
     div.style.color = 'white';
     div.style.borderRadius = '0.6rem';
     div.style.textAlign = 'center';
+    div.style.height = '100px';
     aClose.setAttribute('href', '#');
     aClose.setAttribute('id', 'submit_dasha');
     aClose.style.color = 'white';
