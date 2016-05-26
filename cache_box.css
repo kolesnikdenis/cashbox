@@ -1,4 +1,4 @@
-table  tr  td {
-    background-color: #003322;
-    color:green;
+.show_table  tr  td:nth-child(7) {
+    background-color: #f9f900;
+    color: #003d00;
 }
