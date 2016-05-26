@@ -38,14 +38,18 @@ function init(calc_last_summ) {
                               cellText.name="count_cls_"+id;
                               cellText.id  = "count_cls_id_"+id;
                               cellText.onchange =  function(){ calc(calc_last_summ); return; }; }
-                if ( j == 5 ) { cellText = document.createElement("input");
+                if ( j == 5 ) {
+                if (i == ) {
+                              cellText = document.createElement("input");
                               cellText.type = "text";
                               cellText.size = "10";
                               if (i > 0 ) { cellText.setAttribute("readOnly","true"); };
                               cellText.value=curr_year + "-" + curr_month + "-" + curr_date;
                               cellText.name="date_"+id;
                               if (i > 0 ) {  cellText.id  = "datepicker_"+i; } else {  cellText.id  = "datepicker"; }
-                              cellText.onchange =  function(){ calc(calc_last_summ); return; }; }
+                              cellText.onchange =  function(){ calc(calc_last_summ); return; };
+                 }
+                              }
                 td.appendChild(cellText);
                 tr.appendChild(td);
 
@@ -93,7 +97,6 @@ function create_form_money_only(id_magazin){
     var input1 = document.createElement("input");
     input1.type = "text";
     input1.size = "10";
-    //input1.setAttribute("readOnly","true");
     input1.value="0";
     input1.name="money_in";
     input1.id  = "money_in";
