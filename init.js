@@ -26,7 +26,7 @@ Message.prototype.render = function() {
     aClose.appendChild(pClose);
     div.appendChild(aClose);
     var pText = document.createElement('p');
-    pText.class ="show_message";
+    pText.className ="show_message";
     pText.innerHTML = this.text;
     div.appendChild(pText);
     document.body.insertBefore(div, document.body.firstChild);
