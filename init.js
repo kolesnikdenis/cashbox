@@ -33,7 +33,7 @@ Message.prototype.render = function() {
     pText.innerHTML = this.text;
     div.appendChild(pText);
     alert("3: "+this.id_div1);
-    var id_div2=_getElementById(id_div);
+    var id_div2=_getElementById(this.id_div1);
     alert(id_div2);
     /*id_div1.insertBefore(div, document.body.firstChild);
     document.body.insertBefore(div,document.body.firstChild);*/
