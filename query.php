@@ -59,8 +59,11 @@ function calc_ost($left_card_count, $left_nominal ,$add_card_count,$add_nominal,
                                 if ( $array_pay[$shop_name][$last_last_data]["add"] ) { $oldd_add= $array_pay[$shop_name][$last_last_data]["add"]; }
                                 if ( $array_pay[$shop_name][$last_last_data]["ost"] ) { $oldd_ost=$array_pay[$shop_name][$last_last_data]["ost"]; }
                                 if ( $array_pay[$shop_name][$last_data]["ost"] ) {  $old_ost= $array_pay[$shop_name][$last_data]["ost"]; }
-                                if ($left_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] += "left card summ: "+$left_card_summ +" = "+ $left_nominal + " * " + $left_card_count + "<br>";  }
-                                if ($add_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] += "add card summ: "+$add_card_summ +" = "+ $add_nominal + " * " + $add_card_count + "<br>"; }
+                                /*if ($array_pay[$shop_name][$last_last_data]["descr"] ) {
+                                    $array_pay[$shop_name][$data_in]["descr"] += "left card summ: "+$left_card_summ +" = "+ $left_nominal + " * " + $left_card_count + "<br>";
+                                    $array_pay[$shop_name][$data_in]["descr"] += "add card summ: "+$add_card_summ +" = "+ $add_nominal + " * " + $add_card_count + "<br>";
+                                }*/
+
                                 $array_pay[$shop_name][$last_data]["prodal"] = $oldd_ost+$oldd_add-$old_ost;
                         }
                 }
@@ -209,8 +212,8 @@ if ( $taskk == "show_cashbox" ) {
                 foreach ($array_pay as $key1 =>&$value1 ) {
                     foreach ($array_pay[$key1] as $key => &$value) {
                         $out .="<tr><td>".$key1."</td><td>".$key."</td><td>".$value['ost']."</td><td>".$value['add']."</td><td>".$value['prodal'].
-                        "</td><td><a href=\"#\" title=\"".$value[descr]."\"><span title=\"more_info_card\">описание фин опираций</span></a>
-                        <a href=# onclick=\"edit_sql(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
+                        "</td><td><a href=\"#\" title=\"".$value[descr]."\"><span title=\"more_info_card\">описание фин опираций</span></a></td>".
+                        "<td><a href=# onclick=\"edit_sql(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
                         $global_summ[$key1]["prodal"] += $value['prodal'];
                     }
                     $last_data= key( array_slice($array_pay[$key1] , -1, 1, TRUE ) );
