@@ -1,0 +1,4 @@
+.show_table  tr  td:nth-child(5) {
+    background-color: #f9f900;
+    color: green;
+}

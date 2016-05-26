@@ -25,6 +25,7 @@ include "top.php";
 
 <head>
 <link rel="stylesheet" href="cache_box.css" />
+<link media="@media screen and (device-width: 800px)" rel="stylesheet" href="mobile.css" />
 </head>
 
 <body>
