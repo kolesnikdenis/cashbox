@@ -61,8 +61,8 @@ Message.prototype.destroy = function() {
         var id_div2=_getElementById(del_id);
         id_div2.clear;
     }
-    //submit_dasha.addEventListener("click", deleteMessage(this.id_div1));
-    submit_dasha.addEventListener("onclick", destroy(this.id_div1));
+    submit_dasha.addEventListener("click", deleteMessage(this.id_div1));
+    //submit_dasha.addEventListener("onclick", destroy(this.id_div1));
 };
 
 function show_message(id_div,in_message){
