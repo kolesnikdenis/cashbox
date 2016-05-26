@@ -14,7 +14,6 @@ function _getElementById(id){
 
 
 function Message(id_div,text) {
-    alert("2: "+id_div);
     this.text = text;
     this.id_div1 = id_div;
 
@@ -29,15 +28,13 @@ Message.prototype.render = function() {
     aClose.appendChild(pClose);
     div.appendChild(aClose);
     var pText = document.createElement('p');
-    pText.className ="show_message";
+    pText.style.whiteSpace ="normal";
     pText.innerHTML = this.text;
     div.appendChild(pText);
-    alert("3: "+this.id_div1);
     var id_div2=_getElementById(this.id_div1);
-    alert(id_div2);
-    /*id_div1.insertBefore(div, document.body.firstChild);
-    document.body.insertBefore(div,document.body.firstChild);*/
     id_div2.appendChild(div);
+    /*document.body.insertBefore(div,document.body.firstChild);*/
+    alert( this.text);
 
     div.style.backgroundColor = '#f77d71';
     div.style.fontSize = '1.5rem';
@@ -57,13 +54,13 @@ Message.prototype.render = function() {
 
 Message.prototype.destroy = function() {
     function deleteMessage() {
-        document.body.removeChild(document.body.firstChild);
+        //document.body.removeChild(document.body.firstChild);
+        document.body.removeChild(_getElementById(this.id_div1));
     }
     submit_dasha.addEventListener("click", deleteMessage);
 };
 
 function show_message(id_div,in_message){
-    alert("1: "+id_div);
     var message = new Message(id_div,in_message);
     message.render('hello everyone!!!!')
 }
