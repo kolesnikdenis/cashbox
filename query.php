@@ -214,7 +214,7 @@ if ( $taskk == "show_cashbox" ) {
                     foreach ($array_pay[$key1] as $key => &$value) {
                         $i++;
                         $out .="<tr><td>".$key1."</td><td>".$key."</td><td>".$value['ost']."</td><td>".$value['add']."</td><td>".$value['prodal'].
-                        "</td><td><a href=\"javascript:void(show_message('".$key1.$i."','$value[descr]'))\"><span title=\"".$value[descr]."\">описание фин опираций</span><div id=".$key1.$key.">show</div></a></td>".
+                        "</td><td><a href=\"javascript:void(show_message('".$key1.$i."','$value[descr]'))\"><span title=\"".$value[descr]."\">описание фин опираций</span><div id=".$key1.$i.">show</div></a></td>".
                         "<td><a href=# onclick=\"edit_sql(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
                         $global_summ[$key1]["prodal"] += $value['prodal'];
                     }
