@@ -41,7 +41,6 @@ Message.prototype.render = function() {
     div.style.color = 'white';
     div.style.borderRadius = '0.6rem';
     div.style.textAlign = 'center';
-    div.style.height = '100px';
     aClose.setAttribute('href', '#');
     aClose.setAttribute('id', 'submit_dasha');
     aClose.style.color = 'white';
@@ -54,6 +53,7 @@ Message.prototype.render = function() {
 
 Message.prototype.destroy = function() {
     function deleteMessage() {
+        alert("test");
         //document.body.removeChild(document.body.firstChild);
         alert(this.id_div1);
         document.body.removeChild(_getElementById(this.id_div1));
