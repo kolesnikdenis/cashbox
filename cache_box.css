@@ -6,6 +6,7 @@
 .tooltip{
     display: inline;
     position: relative;
+    white-space: normal;
 }
 
 .tooltip:hover:after{
@@ -20,6 +21,7 @@
     position: absolute;
     z-index: 98;
     width: 220px;
+    white-space: normal;
 }
 
 .tooltip:hover:before{
@@ -31,4 +33,5 @@
     left: 50%;
     position: absolute;
     z-index: 99;
+    white-space: normal;
 }
