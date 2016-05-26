@@ -39,7 +39,7 @@ function init(calc_last_summ) {
                               cellText.id  = "count_cls_id_"+id;
                               cellText.onchange =  function(){ calc(calc_last_summ); return; }; }
                 if ( j == 5 ) {
-                if (i == ) {
+                if (i ==0 ) {
                               cellText = document.createElement("input");
                               cellText.type = "text";
                               cellText.size = "10";
@@ -48,7 +48,7 @@ function init(calc_last_summ) {
                               cellText.name="date_"+id;
                               if (i > 0 ) {  cellText.id  = "datepicker_"+i; } else {  cellText.id  = "datepicker"; }
                               cellText.onchange =  function(){ calc(calc_last_summ); return; };
-                 }
+                             }
                               }
                 td.appendChild(cellText);
                 tr.appendChild(td);
