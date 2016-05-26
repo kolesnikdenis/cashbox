@@ -13,8 +13,10 @@ function _getElementById(id){
 }
 
 
-function Message(text) {
+function Message(id_div,text) {
     this.text = text;
+    this.id_div = id_div;
+
 
 };
 
@@ -29,7 +31,10 @@ Message.prototype.render = function() {
     pText.className ="show_message";
     pText.innerHTML = this.text;
     div.appendChild(pText);
-    document.body.insertBefore(div, document.body.firstChild);
+    alert(id_div);
+    var id_div1=_getElementById(id_div);
+
+    id_div1.insertBefore(div, document.body.firstChild);
 
     div.style.backgroundColor = '#f77d71';
     div.style.fontSize = '1.5rem';
@@ -53,8 +58,8 @@ Message.prototype.destroy = function() {
     submit_dasha.addEventListener("click", deleteMessage);
 };
 
-function show_message(in_message){
-    var message = new Message(in_message);
+function show_message(id_div,in_message){
+    var message = new Message(id_div,in_message);
     message.render('hello everyone!!!!')
 }
 
