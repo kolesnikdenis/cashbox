@@ -14,7 +14,6 @@ function _getElementById(id){
 
 
 function Message(id_div,text) {
-    alert(test);
     this.text = text;
     this.id_div1 = id_div;
 
