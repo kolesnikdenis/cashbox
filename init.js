@@ -52,13 +52,13 @@ Message.prototype.render = function() {
 };
 
 Message.prototype.destroy = function() {
-    function deleteMessage() {
+    function deleteMessage(del_id) {
         alert("test");
         //document.body.removeChild(document.body.firstChild);
-        alert(this.id_div1);
-        document.body.removeChild(_getElementById(this.id_div1));
+        alert(del_id);
+        document.body.removeChild(del_id);
     }
-    submit_dasha.addEventListener("click", deleteMessage);
+    submit_dasha.addEventListener("click", deleteMessage(this.id_div1));
 };
 
 function show_message(id_div,in_message){
