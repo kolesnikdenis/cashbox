@@ -49,9 +49,7 @@ Message.prototype.render = function() {
     aClose.style.textAlign = 'right';
     aClose.style.textDecoration = 'none';
     aClose.style.lineHeight = '10px';
-    alert("test1");
     //this.destroy();
-    alert("test");
 };
 
 Message.prototype.destroy = function() {
@@ -73,6 +71,7 @@ function show_message(id_div,in_message){
 
 function destroy(del_id){
     alert(del_id);
+    console.log(del_id);
     //document.body.removeChild(del_id);
     var id_div2=_getElementById(del_id);
     id_div2.innerHTML="";;
