@@ -40,6 +40,40 @@ $array_pay["minimarcet"]["123"]["ost"]=4490;
 /* при смене даты он пересчитует остаток сколько в него попало новым остатком и если не правильно указать новый остаток будет ошибка подсчетов
 скрипт посчитает новый остаток относительно поступивших данных поэтому */
 /* 99 озночает смена даты для выведения глобального остатка на последнюю дату .. и глобальной продажи */
+function calc_ost($left_card_count, $left_nominal ,$add_card_count,$add_nominal,$data_in,$shop_name){
+        global $array_pay;
+
+        $left_card_summ = $left_card_count * $left_nominal;
+        $add_card_summ = $add_card_count * $add_nominal;
+
+        $last_data= key( array_slice($array_pay[$shop_name] , -1, 1, TRUE ) );
+        if ($left_card_summ != 99 ) {
+                $array_pay[$shop_name][$data_in]["add"] += $add_card_summ;
+                $array_pay[$shop_name][$data_in]["ost"] += $left_card_summ;
+                if ($left_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] += "left card summ: "+$left_card_summ +" = "+ $left_nominal + " * " + $left_card_count + "<br>";  }
+                if ($add_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] += "add card summ: "+$add_card_summ +" = "+ $add_nominal + " * " + $add_card_count + "<br>"; }
+
+                if ($data_in != $last_data){
+                        if ( count($array_pay[$shop_name]) > 2 ) {
+                                $last_last_data= key( array_slice($array_pay[$shop_name] , -3, 1, TRUE ) );
+                                if ( $array_pay[$shop_name][$last_last_data]["add"] ) { $oldd_add= $array_pay[$shop_name][$last_last_data]["add"]; }
+                                if ( $array_pay[$shop_name][$last_last_data]["ost"] ) { $oldd_ost=$array_pay[$shop_name][$last_last_data]["ost"]; }
+                                if ( $array_pay[$shop_name][$last_data]["ost"] ) {  $old_ost= $array_pay[$shop_name][$last_data]["ost"]; }
+                                if ($left_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] += "left card summ: "+$left_card_summ +" = "+ $left_nominal + " * " + $left_card_count + "<br>";  }
+                                if ($add_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] += "add card summ: "+$add_card_summ +" = "+ $add_nominal + " * " + $add_card_count + "<br>"; }
+                                $array_pay[$shop_name][$last_data]["prodal"] = $oldd_ost+$oldd_add-$old_ost;
+                        }
+                }
+        }
+        else  {
+                $last_last_data= key( array_slice($array_pay[$shop_name] , -2, 1, TRUE ) );
+                if ( $array_pay[$shop_name][$last_last_data]["add"] ) { $oldd_add= $array_pay[$shop_name][$last_last_data]["add"]; }
+                if ( $array_pay[$shop_name][$last_last_data]["ost"] ) { $oldd_ost=$array_pay[$shop_name][$last_last_data]["ost"]; }
+                if ( $array_pay[$shop_name][$last_data]["ost"] ) {  $old_ost= $array_pay[$shop_name][$last_data]["ost"]; }
+                $array_pay[$shop_name][$last_data]["prodal"] = $oldd_ost+$oldd_add-$old_ost;
+        }
+}
+
 
 function calc_ost1($left_card_summ,$add_card_summ,$data_in,$shop_name){
         global $array_pay;
@@ -80,7 +114,8 @@ function find_last_summ($id_shop){
                             $count_left=$pl1[count_left];
                             $count_add=$pl1[count_add];
                             if ($pl1[type_calculation] == "C" ){
-                                calc_ost1(($pl1[3] * $count_left ), ( $pl1[3] * $count_add), $pl1[data_time], $pl1[2]);
+                                //calc_ost1(($pl1[3] * $count_left ), ( $pl1[3] * $count_add), $pl1[data_time], $pl1[2]);
+                                calc_ost($pl1[3], $count_left, $pl1[3], $count_add, $pl1[data_time], $pl1[2]);
                             }
                             if ($pl1[type_calculation] == "M" ){
                                 calc_money($pl1[count_add],$pl1[data_time], $pl1[2]);
@@ -152,7 +187,8 @@ if ( $taskk == "show_cashbox" ) {
                     $name_magazine = $pl[2];
                     if ($pl[type_calculation] == "C" ){
                         $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td class=\"add_card\" >".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td>";
-                        calc_ost1(($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
+                        //calc_ost1(($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
+                        calc_ost($pl[3], $count_left, $pl[3], $count_add, $pl[data_time], $pl[2]);
                     }
                     else {
                         $out .= "<td>---</td><td>-----</td><td>только забрал деньги</td><td bgcolor=#f4c397>".$pl[count_add]."</td><td bgcolor=#a6e3f4>".$global_summ[$name_magazine]["summ"]."</td><td>".$pl[type_calculation]."</td>";
