@@ -200,7 +200,8 @@ if ( $taskk == "show_cashbox" ) {
 
                 //подсчет конца ... сколько магаз продал
                 foreach ($global_summ as $key1 => &$value1 ){
-                                    calc_ost1((99 * 1), ( 99 * 1), "3333", $key1);
+                                    //calc_ost1((99 * 1), ( 99 * 1), "3333", $key1);
+                                    calc_ost(99,1,99,1, "3333", $key1);
                 }
 
                 $out .="<table border=1 width=100%><tr><td>магазин</td><td>data</td><td>ost</td><td>add</td><td>prodal</td><td></td></tr>";
