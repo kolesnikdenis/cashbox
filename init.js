@@ -14,6 +14,7 @@ function _getElementById(id){
 
 
 function Message(id_div,text) {
+    alert(test);
     this.text = text;
     this.id_div1 = id_div;
 
@@ -55,6 +56,7 @@ Message.prototype.render = function() {
 Message.prototype.destroy = function() {
     function deleteMessage() {
         //document.body.removeChild(document.body.firstChild);
+        alert(this.id_div1);
         document.body.removeChild(_getElementById(this.id_div1));
     }
     submit_dasha.addEventListener("click", deleteMessage);

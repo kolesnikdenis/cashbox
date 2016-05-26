@@ -209,10 +209,12 @@ if ( $taskk == "show_cashbox" ) {
 
                 $out .="<table border=1 width=100%><tr><td>магазин</td><td>data</td><td>ost</td><td>add</td><td>prodal</td><td>descr</td><td></td></tr>";
                 global $array_pay;
+                i=0;
                 foreach ($array_pay as $key1 =>&$value1 ) {
                     foreach ($array_pay[$key1] as $key => &$value) {
+                        i++;
                         $out .="<tr><td>".$key1."</td><td>".$key."</td><td>".$value['ost']."</td><td>".$value['add']."</td><td>".$value['prodal'].
-                        "</td><td><a href=\"javascript:void(show_message('".$key1.$key."','$value[descr]'))\"><span title=\"".$value[descr]."\">описание фин опираций</span><div id=".$key1.$key.">show</div></a></td>".
+                        "</td><td><a href=\"javascript:void(show_message('".$key1.$i."','$value[descr]'))\"><span title=\"".$value[descr]."\">описание фин опираций</span><div id=".$key1.$key.">show</div></a></td>".
                         "<td><a href=# onclick=\"edit_sql(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
                         $global_summ[$key1]["prodal"] += $value['prodal'];
                     }
