@@ -50,8 +50,8 @@ function calc_ost($left_card_count, $left_nominal ,$add_card_count,$add_nominal,
         if ($left_card_summ != 99 ) {
                 $array_pay[$shop_name][$data_in]["add"] += $add_card_summ;
                 $array_pay[$shop_name][$data_in]["ost"] += $left_card_summ;
-                if ($left_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "left card summ: ".$left_card_summ ." = ". $left_nominal . " * " . $left_card_count . "<br>\r\n";  }
-                if ($add_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "add card summ: ".$add_card_summ ." = ". $add_nominal . " * " . $add_card_count . "<br>\r\n"; }
+                if ($left_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "left card summ: ".$left_card_summ ." = ". $left_nominal . " * " . $left_card_count . "\r\n";  }
+                if ($add_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "add card summ: ".$add_card_summ ." = ". $add_nominal . " * " . $add_card_count . "\r\n"; }
 
                 if ($data_in != $last_data){
                         if ( count($array_pay[$shop_name]) > 2 ) {
@@ -212,7 +212,7 @@ if ( $taskk == "show_cashbox" ) {
                 foreach ($array_pay as $key1 =>&$value1 ) {
                     foreach ($array_pay[$key1] as $key => &$value) {
                         $out .="<tr><td>".$key1."</td><td>".$key."</td><td>".$value['ost']."</td><td>".$value['add']."</td><td>".$value['prodal'].
-                        "</td><td> <span   title=\"".$value[descr]."\">описание фин опираций</span></td>".
+                        "</td><td><a href=\"javascript:void(show_message('$value[descr]'))\"><span   title=\"".$value[descr]."\">описание фин опираций</span></a></td>".
                         "<td><a href=# onclick=\"edit_sql(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
                         $global_summ[$key1]["prodal"] += $value['prodal'];
                     }

@@ -12,6 +12,51 @@ function _getElementById(id){
   return item;
 }
 
+
+function Message(text) {
+    this.text = text;
+
+};
+
+Message.prototype.render = function() {
+    var div = document.createElement('div');
+    var aClose = document.createElement('a');
+    var pClose = document.createElement('p');
+    pClose.innerHTML = '&times;';
+    aClose.appendChild(pClose);
+    div.appendChild(aClose);
+    var pText = document.createElement('p');
+    pText.innerHTML = this.text;
+    div.appendChild(pText);
+    document.body.insertBefore(div, document.body.firstChild);
+
+    div.style.backgroundColor = '#f77d71';
+    div.style.fontSize = '1.5rem';
+    div.style.color = 'white';
+    div.style.borderRadius = '0.6rem';
+    div.style.textAlign = 'center';
+    aClose.setAttribute('href', '#');
+    aClose.setAttribute('id', 'submit_dasha');
+    aClose.style.color = 'white';
+    aClose.style.textAlign = 'right';
+    aClose.style.textAlign = 'right';
+    aClose.style.textDecoration = 'none';
+    aClose.style.lineHeight = '10px';
+    this.destroy();
+};
+
+Message.prototype.destroy = function() {
+    function deleteMessage() {
+        document.body.removeChild(document.body.firstChild);
+    }
+    submit_dasha.addEventListener("click", deleteMessage);
+};
+
+function show_message(in_message){
+    var message = new Message(in_message);
+    message.render('hello everyone!!!!')
+}
+
 function add_item_coming_money(id_magazin){
     //alert(id_magazin);
     JsHttpRequest.query(
