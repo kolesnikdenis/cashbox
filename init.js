@@ -37,7 +37,7 @@ Message.prototype.render = function() {
     //alert( this.text);
 
     div.style.backgroundColor = '#f77d71';
-    div.style.fontSize = '10px';
+    div.style.fontSize = '11px';
     div.style.color = 'white';
     div.style.borderRadius = '0.6rem';
     div.style.textAlign = 'center';

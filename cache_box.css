@@ -4,8 +4,8 @@
 }
 
 .show_table  tr  td:nth-child(3) {
-    color: bisque;
-    size: 1px;
+    color: #f98808;
+    size: 11px;
 }
 .show_message { /* dasha */
     white-space: normal;
