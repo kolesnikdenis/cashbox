@@ -8,8 +8,23 @@
 }
 
 @media screen and (max-width: 950px) {
-    td { color: red; }
+    td  {
+        background: #F90;
+    }
+    .show_table  tr  td:nth-child(5)  {
+        display: inline;
+    }
 }
+
+@media screen and (max-width: 600px) {
+    td {
+        background: #F9C;
+    }
+    .show_table  tr  td:nth-child(5)  {
+        display: inline-block;
+    }
+}
+
 .tooltip{
     display: inline;
     position: relative;
