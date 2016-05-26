@@ -41,7 +41,8 @@ Message.prototype.render = function() {
     div.style.color = 'white';
     div.style.borderRadius = '0.6rem';
     div.style.textAlign = 'center';
-    aClose.setAttribute('href', '#');
+    //aClose.setAttribute('href', 'javascript:void(destroy(this.id_div1)) ');
+    aClose.setAttribute('href', '# ');
     aClose.setAttribute('id', 'submit_dasha');
     aClose.style.color = 'white';
     aClose.style.textAlign = 'right';
@@ -53,10 +54,12 @@ Message.prototype.render = function() {
 
 Message.prototype.destroy = function() {
     function deleteMessage(del_id) {
-        alert("test");
+        //alert("test");
         //document.body.removeChild(document.body.firstChild);
         alert(del_id);
-        document.body.removeChild(del_id);
+        //document.body.removeChild(del_id);
+        var id_div2=_getElementById(del_id);
+        id_div2.clear;
     }
     submit_dasha.addEventListener("click", deleteMessage(this.id_div1));
 };
@@ -65,6 +68,11 @@ function show_message(id_div,in_message){
     var message = new Message(id_div,in_message);
     message.render('hello everyone!!!!')
 }
+
+function destroy(del_id){
+    document.body.removeChild(del_id);
+}
+
 
 function add_item_coming_money(id_magazin){
     //alert(id_magazin);
