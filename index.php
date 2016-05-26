@@ -24,7 +24,7 @@ include "top.php";
 </script>
 
 <head>
-<link rel="stylesheet" href="cache_box.css" />
+<link href="cache_box.css" rel="stylesheet" type="text/css">
 <link media="@media screen and (device-width: 800px)" rel="stylesheet" href="mobile.css" />
 </head>
 
