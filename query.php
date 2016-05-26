@@ -121,7 +121,7 @@ if ( $taskk == "show_cashbox" ) {
                 $SQL = "select  cashbox.id, cashbox.data_time, magazine.name, card_serial.name, cashbox.serial_left, cashbox.count_left, card_serial.name, cashbox.count_add,cashbox.serial_add,`cashbox`.`type_calculation` from  cashbox,card_serial,magazine where cashbox.magazine= magazine.magazine_id and card_serial.card_id = cashbox.serial_left  ORDER BY `cashbox`.`data_time` asc ";
                 print mysql_error();
                 $out .= "
-				<table border=1>
+				<table border=1 class=\"show_table\">
 					<tr bgcolor=#86be9f>
 						<td>магазин</td>
 						<td>номинал</td>
@@ -130,7 +130,7 @@ if ( $taskk == "show_cashbox" ) {
 						<td>кол-во остатка</td>
 						<td>тип операции</td>
 						<td>приход</td>
-						<td>остаток в магазине </td>
+						<td>остаток в магазине</td>
 						<td>type</td>
 						<td>control</td>
 					</tr>";
@@ -151,7 +151,7 @@ if ( $taskk == "show_cashbox" ) {
 
                     $name_magazine = $pl[2];
                     if ($pl[type_calculation] == "C" ){
-                        $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td bgcolor=#f4c397>".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td>";
+                        $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td class=\"add_card\" >".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td>";
                         calc_ost1(($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
                     }
                     else {
@@ -173,10 +173,6 @@ if ( $taskk == "show_cashbox" ) {
                     foreach ($array_pay[$key1] as $key => &$value) {
                         $out .="<tr><td>".$key1."</td><td>".$key."</td><td>".$value['ost']."</td><td>".$value['add']."</td><td>".$value['prodal'].
                         "</td><td><a href=# onclick=\"edit_sql(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
-                        /*$out.= "key1: ==" . $key1." key: " . $key ."<br>";
-                        $out.= "key1: ". $key1. "= ost =" . $value['ost']." key: " . $key ."<br>";
-                        $out.= "key1: ". $key1. "= add =" . $value['add']." key: " . $key ."<br>";
-                        $out.= "key1: ". $key1. "= pro =<b>" . $value['prodal']." key: " . $key ."</b><br>";*/
                         $global_summ[$key1]["prodal"] += $value['prodal'];
                     }
                     $last_data= key( array_slice($array_pay[$key1] , -1, 1, TRUE ) );

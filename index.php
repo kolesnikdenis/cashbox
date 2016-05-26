@@ -8,7 +8,7 @@ if ($db=="income") { $show ="";}
 session_start();
 include "top.php";
 ?>
-<div id=addtable>11</div><br>
+<div id=addtable></div><br>
 <script type="text/javascript">
   function a() {
     c();
@@ -22,8 +22,13 @@ include "top.php";
      //add_select(id_magazin,20);
   }
 </script>
+
+<head>
+<link rel="stylesheet" href="cache_box.css" />
+</head>
+
 <body>
-<div id=calc_summ>calc_form</div>
+<div id=calc_summ></div>
 <div id=sql></div>
 <div id=button></div><br>
 <body onload="a()">
