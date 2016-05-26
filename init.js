@@ -33,9 +33,11 @@ Message.prototype.render = function() {
     pText.innerHTML = this.text;
     div.appendChild(pText);
     alert("3: "+this.id_div1);
-    var id_div1=_getElementById(this.id_div1);
+    var id_div1=_getElementById(id_div);
 
-    aClose.appendChild(div);
+    /*id_div1.insertBefore(div, document.body.firstChild);
+    document.body.insertBefore(div,document.body.firstChild);*/
+    id_div1.appendChild(div);
 
     div.style.backgroundColor = '#f77d71';
     div.style.fontSize = '1.5rem';
