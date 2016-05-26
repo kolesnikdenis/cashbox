@@ -204,12 +204,13 @@ if ( $taskk == "show_cashbox" ) {
                                     calc_ost(99,1,99,1, "3333", $key1);
                 }
 
-                $out .="<table border=1 width=100%><tr><td>магазин</td><td>data</td><td>ost</td><td>add</td><td>prodal</td><td></td></tr>";
+                $out .="<table border=1 width=100%><tr><td>магазин</td><td>data</td><td>ost</td><td>add</td><td>prodal</td><td>descr</td><td></td></tr>";
                 global $array_pay;
                 foreach ($array_pay as $key1 =>&$value1 ) {
                     foreach ($array_pay[$key1] as $key => &$value) {
                         $out .="<tr><td>".$key1."</td><td>".$key."</td><td>".$value['ost']."</td><td>".$value['add']."</td><td>".$value['prodal'].
-                        "</td><td><a href=# onclick=\"edit_sql(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
+                        "</td><td><a href=\"#\" title=\"".$value[descr]."\"><span title=\"more_info_card\">описание фин опираций</span></a>
+                        <a href=# onclick=\"edit_sql(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
                         $global_summ[$key1]["prodal"] += $value['prodal'];
                     }
                     $last_data= key( array_slice($array_pay[$key1] , -1, 1, TRUE ) );
