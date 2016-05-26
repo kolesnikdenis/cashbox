@@ -16,7 +16,7 @@ function _getElementById(id){
 function Message(id_div,text) {
     alert("2: "+id_div);
     this.text = text;
-    this.id_div = id_div;
+    this.id_div1 = id_div;
 
 
 };
@@ -32,8 +32,8 @@ Message.prototype.render = function() {
     pText.className ="show_message";
     pText.innerHTML = this.text;
     div.appendChild(pText);
-    alert("3: "+id_div);
-    var id_div1=_getElementById(id_div);
+    alert("3: "+this.id_div1);
+    var id_div1=_getElementById(this.id_div1);
 
     id_div1.insertBefore(div, document.body.firstChild);
 
