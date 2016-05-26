@@ -3,6 +3,10 @@
     color: #003d00;
 }
 
+.show_message { /* dasha */
+    white-space: normal;
+}
+
 .tooltip{
     display: inline;
     position: relative;
