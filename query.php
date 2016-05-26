@@ -212,7 +212,7 @@ if ( $taskk == "show_cashbox" ) {
                 foreach ($array_pay as $key1 =>&$value1 ) {
                     foreach ($array_pay[$key1] as $key => &$value) {
                         $out .="<tr><td>".$key1."</td><td>".$key."</td><td>".$value['ost']."</td><td>".$value['add']."</td><td>".$value['prodal'].
-                        "</td><td><a href=\"#\" title=\"".$value[descr]."\"><span title=\"more_info_card\">описание фин опираций</span></a></td>".
+                        "</td><td> <span   title=\"".$value[descr]."\">описание фин опираций</span></td>".
                         "<td><a href=# onclick=\"edit_sql(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
                         $global_summ[$key1]["prodal"] += $value['prodal'];
                     }
