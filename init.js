@@ -42,7 +42,7 @@ Message.prototype.render = function() {
     div.style.borderRadius = '0.6rem';
     div.style.textAlign = 'center';
     //aClose.setAttribute('href', 'javascript:void(destroy(this.id_div1)) ');
-    aClose.setAttribute('href', '# ');
+    aClose.setAttribute('href', '#');
     aClose.setAttribute('id', 'submit_dasha');
     aClose.style.color = 'white';
     aClose.style.textAlign = 'right';
@@ -61,7 +61,7 @@ Message.prototype.destroy = function() {
         var id_div2=_getElementById(del_id);
         id_div2.innerHTML="";;
     }
-    submit_dasha.addEventListener("click", deleteMessage(this.id_div1));
+    submit_dasha.addEventListener("click", deleteMessage(this.id_div1), false);
     //submit_dasha.addEventListener("onclick", destroy(this.id_div1));
 };
 
