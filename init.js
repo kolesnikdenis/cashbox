@@ -70,7 +70,10 @@ function show_message(id_div,in_message){
 }
 
 function destroy(del_id){
-    document.body.removeChild(del_id);
+    alert(del_id);
+    //document.body.removeChild(del_id);
+    var id_div2=_getElementById(del_id);
+    id_div2.clear;
 }
 
 
