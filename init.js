@@ -35,7 +35,7 @@ Message.prototype.render = function() {
     alert("3: "+this.id_div1);
     var id_div1=_getElementById(this.id_div1);
 
-    id_div1.insertBefore(div, document.body.firstChild);
+    aClose.appendChild(div);
 
     div.style.backgroundColor = '#f77d71';
     div.style.fontSize = '1.5rem';
