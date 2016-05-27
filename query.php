@@ -234,8 +234,6 @@ if ( $taskk == "show_cashbox" ) {
                 $out.="</table><br><Br>";
 
                 $out.='
-
-
                     ';
 
                 $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
