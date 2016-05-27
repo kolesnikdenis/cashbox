@@ -59,11 +59,6 @@ function calc_ost($left_card_count, $left_nominal ,$add_card_count,$add_nominal,
                                 if ( $array_pay[$shop_name][$last_last_data]["add"] ) { $oldd_add= $array_pay[$shop_name][$last_last_data]["add"]; }
                                 if ( $array_pay[$shop_name][$last_last_data]["ost"] ) { $oldd_ost=$array_pay[$shop_name][$last_last_data]["ost"]; }
                                 if ( $array_pay[$shop_name][$last_data]["ost"] ) {  $old_ost= $array_pay[$shop_name][$last_data]["ost"]; }
-                                /*if ($array_pay[$shop_name][$last_last_data]["descr"] ) {
-                                    $array_pay[$shop_name][$data_in]["descr"] += "left card summ: "+$left_card_summ +" = "+ $left_nominal + " * " + $left_card_count + "<br>";
-                                    $array_pay[$shop_name][$data_in]["descr"] += "add card summ: "+$add_card_summ +" = "+ $add_nominal + " * " + $add_card_count + "<br>";
-                                }*/
-
                                 $array_pay[$shop_name][$last_data]["prodal"] = $oldd_ost+$oldd_add-$old_ost;
                         }
                 }
