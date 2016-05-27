@@ -240,7 +240,7 @@ if ( $taskk == "show_cashbox" ) {
                                                       <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                                       <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                                                     </div>
-                                                    <div class="modal-body">
+                                                    <div id=text_t class="modal-body">
                                                       ...
                                                     </div>
                                                     <div class="modal-footer">

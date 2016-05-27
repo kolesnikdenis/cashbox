@@ -7,7 +7,7 @@
     color: #f98808;
     size: 11px;
 }
-.show_message { /* dasha */
+#text_t { /* dasha */
     white-space: normal;
 }
 .modal-body { color: red; }
