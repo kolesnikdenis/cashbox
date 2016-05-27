@@ -241,7 +241,6 @@ if ( $taskk == "show_cashbox" ) {
                 $_RESULT['log'] = $log;
         }
 
-
 }
 
 if ( $taskk == "edit_sql" ) {

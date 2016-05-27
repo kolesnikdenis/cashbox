@@ -247,12 +247,14 @@ function show_cashbox(idstring,name){
                                 erdiv.innerHTML=result["text"];
                                 erdiv1.innerHTML=result["sql"];
 
+
+                              console.log($('.infotext'));
+                              $('.infotext').click(function() {
+                                  var text = $(this).data("text");
+                                  $(".modal-content").html(text);
+                              });
                           }
 
-                    $('.infotext').click(function() {
-                        var text = $(this).data("text");
-                        $(".modal-content").html(text);
-                    });
                 }
         )
 }
