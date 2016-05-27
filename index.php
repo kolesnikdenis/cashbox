@@ -55,7 +55,6 @@ include "top.php";
 <script src="http://185.43.251.89/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
 
 
-
 <table border=1>
 <tr>
 	<td><a onclick="add_intem('add_intem'); return false;" href=#>добавить карточек</a></td>
