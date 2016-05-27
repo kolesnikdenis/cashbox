@@ -210,10 +210,12 @@ if ( $taskk == "show_cashbox" ) {
                         $i++;
                         $out .="<tr><td>".$key1."</td><td>".$key."</td><td>".$value['ost']."</td><td>".$value['add']."</td><td>".$value['prodal'].
                         "</td><td><!-- <a href=\"javascript:void(show_message('".$key1.$i."','$value[descr]'))\"><span title=\"".$value[descr]."\">описание фин опираций</span><div id=".$key1.$i.">show</div></a>-->".
-                        "<button class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\" data-text=\"".$value[descr]."\>подробности</button> ";
+                        "";
 
                         if (strlen($value[descr]) > 5 ) {
-                           $out.="<button class=\"btn btn-primary infotext\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\" data-text=\"".$value[descr]."\">подробности</button>";
+                           $out.="
+                           <button class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\" data-text=\"".$value[descr]."\">подробности</button><BR>
+                           <button class=\"btn btn-primary infotext\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\" data-text=\"".$value[descr]."\">подробности</button>";
                         }
 
                         $out.=
