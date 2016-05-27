@@ -49,6 +49,8 @@ include "top.php";
 <script language=JavaScript src=../JsHttpRequest/JsHttpRequest.js></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link rel="stylesheet" href="http://185.43.251.89/bootstrap-3.3.6-dist/css/bootstrap-theme.css">
 <script src="http://185.43.251.89/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
 <script language=JavaScript src=init.js></script>
