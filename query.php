@@ -40,7 +40,7 @@ $array_pay["minimarcet"]["123"]["ost"]=4490;
 /* при смене даты он пересчитует остаток сколько в него попало новым остатком и если не правильно указать новый остаток будет ошибка подсчетов
 скрипт посчитает новый остаток относительно поступивших данных поэтому */
 /* 99 озночает смена даты для выведения глобального остатка на последнюю дату .. и глобальной продажи */
-function calc_ost($left_card_count, $left_nominal ,$add_card_count,$add_nominal,$data_in,$shop_name){
+function calc_ost($left_card_count, $left_nominal ,$add_card_count,$add_nominal,$data_in,$shop_name,id_sql){
         global $array_pay;
 
         $left_card_summ = $left_card_count * $left_nominal;
@@ -50,8 +50,8 @@ function calc_ost($left_card_count, $left_nominal ,$add_card_count,$add_nominal,
         if ($left_card_summ != 99 ) {
                 $array_pay[$shop_name][$data_in]["add"] += $add_card_summ;
                 $array_pay[$shop_name][$data_in]["ost"] += $left_card_summ;
-                if ($left_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "left card summ: ".$left_card_summ ." = ". $left_nominal . " * " . $left_card_count . "\r\n";  }
-                if ($add_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "add card summ: ".$add_card_summ ." = ". $add_nominal . " * " . $add_card_count . "\r\n"; }
+                if ($left_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "left card summ: ".$left_card_summ ." = ". $left_nominal . " * " . $left_card_count . "<a href=# onclick=\"edit_sql(".$id_sql.");\">edit</a>\r\n";  }
+                if ($add_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "add card summ: ".$add_card_summ ." = ". $add_nominal . " * " . $add_card_count ."<a href=# onclick=\"edit_sql(".$id_sql.");\">edit</a>"\r\n"; }
 
                 if ($data_in != $last_data){
                         if ( count($array_pay[$shop_name]) > 2 ) {
@@ -191,7 +191,7 @@ if ( $taskk == "show_cashbox" ) {
                     if ($pl[type_calculation] == "C" ){
                         $out .= "<td>".$pl[count_add]."</td><td>".$pl[count_left]."</td><td>".$type."</td><td class=\"add_card\" >".$add_card."</td><td bgcolor=#a6e3f4>".$sale_magazin."</td><td>".$pl[type_calculation]."</td>";
                         //calc_ost1(($pl[3] * $count_left ), ( $pl[3] * $count_add), $pl[data_time], $pl[2]);
-                        calc_ost($pl[3], $count_left, $pl[3], $count_add, $pl[data_time], $pl[2]);
+                        calc_ost($pl[3], $count_left, $pl[3], $count_add, $pl[data_time], $pl[2],$pl[id]);
                     }
                     else {
                         $out .= "<td>---</td><td>-----</td><td>только забрал деньги</td><td bgcolor=#f4c397>".$pl[count_add]."</td><td bgcolor=#a6e3f4>".$global_summ[$name_magazine]["summ"]."</td><td>".$pl[type_calculation]."</td>";
@@ -204,7 +204,7 @@ if ( $taskk == "show_cashbox" ) {
                 //подсчет конца ... сколько магаз продал
                 foreach ($global_summ as $key1 => &$value1 ){
                                     //calc_ost1((99 * 1), ( 99 * 1), "3333", $key1);
-                                    calc_ost(99,1,99,1, "3333", $key1);
+                                    calc_ost(99,1,99,1, "3333", $key1,"");
                 }
 
                 $out .="<table border=1 width=100%><tr><td>магазин</td><td>data</td><td>ost</td><td>add</td><td>prodal</td><td>descr</td><td></td></tr>";
