@@ -7,10 +7,10 @@
     color: #f98808;
     size: 11px;
 }
-#text_t { /* dasha */
+#myModal { /* dasha */
     white-space: normal;
 }
-.modal-body { color: red; }
+.myModal { color: red; }
 @media screen and (max-width: 950px) {
     .show_table  tr  td:nth-child(4)  {  display:none;  }
     .show_table  tr  td:nth-child(9) {  display:none;  }
