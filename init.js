@@ -124,7 +124,6 @@ function edit_sql(id_sql){
 
                 erdiv.innerHTML+=result["text"];
                 eval(result["js"]);
-                $(".modal-content").html(text);
 
                 if(result["type_calculation"] == "M" ) {
                     cellText = document.createElement("input");
@@ -162,12 +161,11 @@ function edit_sql(id_sql){
                         return;
                     };
                     erdiv.appendChild(cellText);
-                    
                 }
 
 
 
-
+                alert(result["text"]);
                 /*
                 document.getElementById("addtable").innerHTML="";
                 //var table=init();
