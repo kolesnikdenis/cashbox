@@ -40,7 +40,7 @@ $array_pay["minimarcet"]["123"]["ost"]=4490;
 /* при смене даты он пересчитует остаток сколько в него попало новым остатком и если не правильно указать новый остаток будет ошибка подсчетов
 скрипт посчитает новый остаток относительно поступивших данных поэтому */
 /* 99 озночает смена даты для выведения глобального остатка на последнюю дату .. и глобальной продажи */
-function calc_ost($left_card_count, $left_nominal ,$add_card_count,$add_nominal,$data_in,$shop_name,id_sql){
+function calc_ost($left_card_count, $left_nominal ,$add_card_count,$add_nominal,$data_in,$shop_name,$id_sql){
         global $array_pay;
 
         $left_card_summ = $left_card_count * $left_nominal;
