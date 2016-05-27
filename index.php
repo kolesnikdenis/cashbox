@@ -47,12 +47,11 @@ include "top.php";
 </script>
 <META http-equiv=Content-Type content="text/html; charset=windows-1251">
 <script language=JavaScript src=../JsHttpRequest/JsHttpRequest.js></script>
-<script language=JavaScript src=init.js></script>
-
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <link rel="stylesheet" href="http://185.43.251.89/bootstrap-3.3.6-dist/css/bootstrap-theme.css">
 <script src="http://185.43.251.89/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+<script language=JavaScript src=init.js></script>
 
 
 <table border=1>
