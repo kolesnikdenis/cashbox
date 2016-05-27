@@ -248,8 +248,9 @@ function show_cashbox(idstring,name){
                                 erdiv1.innerHTML=result["sql"];
 
 
-                              console.log($('.infotext'));
+
                               $('.infotext').click(function() {
+                                  alert("ny blyaa..");
                                   var text = $(this).data("text");
                                   $(".modal-content").html(text);
                               });
