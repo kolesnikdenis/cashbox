@@ -7,8 +7,8 @@
     color: #f98808;
     size: 11px;
 }
-#myModal { /* dasha */
-    white-space: normal;
+.modal-content { /* dasha */
+    white-space: pre-wrap;
 }
 #myModal { color: red; }
 
