@@ -250,7 +250,7 @@ function show_cashbox(idstring,name){
 
 
                               $('.infotext').click(function() {
-                                  alert("ny blyaa..");
+                                  alert($(this).data("text"));
                                   var text = $(this).data("text");
                                   $(".modal-content").html(text);
                               });
