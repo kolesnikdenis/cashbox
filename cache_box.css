@@ -10,7 +10,9 @@
 #myModal { /* dasha */
     white-space: normal;
 }
-.myModal { color: red; }
+#myModal { color: red; }
+
+
 @media screen and (max-width: 950px) {
     .show_table  tr  td:nth-child(4)  {  display:none;  }
     .show_table  tr  td:nth-child(9) {  display:none;  }
