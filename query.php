@@ -50,7 +50,7 @@ function calc_ost($left_card_count, $left_nominal ,$add_card_count,$add_nominal,
         if ($left_card_summ != 99 ) {
                 $array_pay[$shop_name][$data_in]["add"] += $add_card_summ;
                 $array_pay[$shop_name][$data_in]["ost"] += $left_card_summ;
-                if ($left_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "left card summ: ".$left_card_summ ." = ". $left_nominal . " * " . $left_card_count . "<a href=# onclick='edit_sql(".$id_sql.");'>edit</a><button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>\r\n";  }
+                if ($left_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "left card summ: ".$left_card_summ ." = ". $left_nominal . " * " . $left_card_count . "<a href=# onclick='edit_sql(".$id_sql.");'>edit</a><button type='button' onklick='javascript:void(alert('hi close'));'class='btn btn-default' data-dismiss='modal'>Close</button>\r\n";  }
                 if ($add_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "add card summ: ".$add_card_summ ." = ". $add_nominal . " * " . $add_card_count ."<a href=# onclick='edit_sql(".$id_sql.");'>edit</a>\r\n"; }
 
                 if ($data_in != $last_data){
