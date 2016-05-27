@@ -75,10 +75,7 @@ function destroy(del_id){
     id_div2.innerHTML="";;
 }
 /* start */
-$('.infotext').click(function() {
-    var text = $(this).data("text");
-    $(".modal-content").html(text);
-});
+
 /* end */
 
 function add_item_coming_money(id_magazin){
@@ -252,6 +249,10 @@ function show_cashbox(idstring,name){
 
                           }
 
+                    $('.infotext').click(function() {
+                        var text = $(this).data("text");
+                        $(".modal-content").html(text);
+                    });
                 }
         )
 }
