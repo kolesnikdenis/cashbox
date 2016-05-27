@@ -216,7 +216,13 @@ if ( $taskk == "show_cashbox" ) {
                         $out .="<tr><td>".$key1."</td><td>".$key."</td><td>".$value['ost']."</td><td>".$value['add']."</td><td>".$value['prodal'].
                         "</td><td><!-- <a href=\"javascript:void(show_message('".$key1.$i."','$value[descr]'))\"><span title=\"".$value[descr]."\">описание фин опираций</span><div id=".$key1.$i.">show</div></a>-->".
                         "<!-- <button class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\" data-text=\"111<br>222\">"."\$value[descr]".$key.$i."</button> -->".
-                        "<button class=\"btn btn-primary infotext\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\" data-text=\"".$value[descr]."\">подробности</button></td>".
+                        ";
+                        if (strlen($value[descr]) > 5 ) {
+                           $out.="<button class=\"btn btn-primary infotext\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\" data-text=\"".$value[descr]."\">подробности</button>";
+                        }
+
+                        $out.=
+                        "</td>".
                         "<td><a href=# onclick=\"edit_sql(".$pl[id].");\">edit</a> \ <a href=#>del</a></td></tr>";
                         $global_summ[$key1]["prodal"] += $value['prodal'];
                     }
