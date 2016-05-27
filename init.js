@@ -161,8 +161,8 @@ function edit_sql(id_sql){
                         ChangeSQL();
                         return;
                     };
-                    /*erdiv.appendChild(cellText);*/
-                    $(".modal-content").html(cellText);
+                    erdiv.appendChild(cellText);
+                    
                 }
 
 
