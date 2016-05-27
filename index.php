@@ -51,7 +51,13 @@ include "top.php";
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<!-- script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<link rel="stylesheet" href="http://185.43.251.86/bootstrap-3.3.6-dist/css/bootstrap-theme.css">
+<script src="http://185.43.251.86/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+
+
 
 <table border=1>
 <tr>
