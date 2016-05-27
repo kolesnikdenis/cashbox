@@ -59,7 +59,6 @@ include "top.php";
 
 <link rel="stylesheet" href="http://185.43.251.89/bootstrap-3.3.6-dist/css/bootstrap-theme.css">
 <script src="http://185.43.251.89/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
-
 <script language=JavaScript src=init.js></script>
 
 
