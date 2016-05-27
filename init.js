@@ -163,9 +163,6 @@ function edit_sql(id_sql){
                     erdiv.appendChild(cellText);
                 }
 
-
-
-                alert(result["text"]);
                 /*
                 document.getElementById("addtable").innerHTML="";
                 //var table=init();
