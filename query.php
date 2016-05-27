@@ -50,8 +50,8 @@ function calc_ost($left_card_count, $left_nominal ,$add_card_count,$add_nominal,
         if ($left_card_summ != 99 ) {
                 $array_pay[$shop_name][$data_in]["add"] += $add_card_summ;
                 $array_pay[$shop_name][$data_in]["ost"] += $left_card_summ;
-                if ($left_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "left card summ: ".$left_card_summ ." = ". $left_nominal . " * " . $left_card_count . "\r\n";  }
-                if ($add_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "add card summ: ".$add_card_summ ." = ". $add_nominal . " * " . $add_card_count ."\r\n"; }
+                if ($left_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "left card summ: ".$left_card_summ ." = ". $left_nominal . " * " . $left_card_count . "<a href=# onclick='edit_sql(".$id_sql.");'>edit</a>\r\n";  }
+                if ($add_card_summ > 0 ) { $array_pay[$shop_name][$data_in]["descr"] .= "add card summ: ".$add_card_summ ." = ". $add_nominal . " * " . $add_card_count ."<a href=# onclick='edit_sql(".$id_sql.");'>edit</a>\r\n"; }
 
                 if ($data_in != $last_data){
                         if ( count($array_pay[$shop_name]) > 2 ) {
@@ -228,7 +228,7 @@ if ( $taskk == "show_cashbox" ) {
 
                 $out.="</table><br><Br>";
 
-                $out.='<!-- <div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                $out.='<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                   <div class="modal-content">
                                                     <div class="modal-header">
@@ -244,7 +244,7 @@ if ( $taskk == "show_cashbox" ) {
                                                     </div>
                                                   </div>
                                                 </div>
-                       </div> -->';
+                       </div> ';
 
                 $out.="<div id='$db-$idstring'> 0 \ <a onclick=\"del_record('$idstring','$db'); return false;\">del</a> </div>";
                 $_RESULT['text'] = $out;
