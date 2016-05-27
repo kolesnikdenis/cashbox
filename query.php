@@ -214,7 +214,7 @@ if ( $taskk == "show_cashbox" ) {
 
                         if (strlen($value[descr]) > 5 ) {
                            $out.="
-                           <button class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\" data-text=\"".$value[descr]."\">подробности</button><BR>
+                           <button class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\" text_t=\"".$value[descr]."\">подробности</button><BR>
                            <button class=\"btn btn-primary infotext\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\" data-text=\"".$value[descr]."\">подробности</button>";
                         }
 
