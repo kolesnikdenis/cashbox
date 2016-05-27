@@ -57,13 +57,7 @@ include "top.php";
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://185.43.251.89/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
-</body>
-
-
-
-<!-- Latest compiled and minified JavaScript -->
-
-<script src="http://185.43.251.89/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+<script language=JavaScript src=init.js></script>
 </body>
 
 <table border=1>
